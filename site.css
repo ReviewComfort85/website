@@ -1,6 +1,6 @@
-:root { --bg: #000; --card: #0e0e12; --text: #f2f2f5; --muted: #8e8e99; --line: #23232b; --accent: #8fa8ff; }
+:root { --bg: #fff; --card: #fff; --text: #111118; --muted: #61616d; --line: #d6d6e0; --accent: #4a3fd0; }
 * { box-sizing: border-box; }
-html { background: var(--bg); color-scheme: dark; }
+html { background: var(--bg); color-scheme: light; }
 body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -22,7 +22,7 @@ nav .lang:hover { color: var(--text); border-color: var(--muted); }
 h2 { font-size: .85rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; font-weight: 600; }
 .apps { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; padding-bottom: 96px; }
 .app { display: flex; gap: 16px; align-items: center; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 20px; color: var(--text); transition: border-color .15s; }
-.app:hover { border-color: #3a3a46; text-decoration: none; }
+.app:hover { border-color: #b4b4c0; text-decoration: none; }
 .app img { width: 64px; height: 64px; border-radius: 15px; flex: none; }
 .app h3 { margin: 0 0 2px; font-size: 1.1rem; }
 .app p { margin: 0; color: var(--muted); font-size: .95rem; }

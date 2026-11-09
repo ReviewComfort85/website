@@ -86,6 +86,13 @@
   .soon { margin-top: 12px; display: flex; gap: 18px; align-items: center; border: 1px dashed #d6d6de; border-radius: 22px; padding: 22px 26px; color: var(--muted); }
   .soon svg { width: 34px; height: 34px; color: #12a585; flex: none; }
   .soon b { color: var(--text); display: block; font-family: Manrope, Inter, sans-serif; font-size: 1.05rem; }
+  /* Paperlane Studio: same card as KeepAll, in the brand's cream and olive. */
+  .featured.paperlane { margin-top: 12px; background: radial-gradient(circle at 85% 30%, rgba(63,90,74,.16), transparent 55%), #f6f1e9; }
+  .featured.paperlane .icon { box-shadow: 0 10px 30px rgba(63,90,74,.25); }
+  .featured.paperlane .more { color: #3f5a4a; }
+  .covers img { display: block; width: 100%; max-width: 480px; height: auto; margin: 0 auto; }
+  .pin { margin: 10px 0 0 6px; font-size: .9rem; color: var(--muted); }
+  .pin a { color: #3f5a4a; font-weight: 600; }
 
   .work { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
   .project { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-radius: 24px; overflow: hidden; color: var(--text); transition: border-color .15s, transform .15s; }
@@ -201,6 +208,22 @@
       <img src="keepall/shots/01.png" alt="">
     </div>
   </a>
+  <a class="featured paperlane" href="https://paperlanetemplates.gumroad.com/" target="_blank" rel="noopener">
+    <div>
+      <img class="icon" src="paperlane/icon.png" alt="Paperlane Studio">
+      <h3>Paperlane Studio</h3>
+      <p><span class="en">Editable templates for vacation-rental hosts and wedding planning: a guest guidebook, an income &amp; expense tracker and a wedding planner with budget. Sold on Gumroad.</span><span class="bg">Шаблони за редактиране за домакини на краткосрочни наеми и за планиране на сватба: наръчник за гости, тракер за приходи и разходи и сватбен планер с бюджет. Продават се в Gumroad.</span></p>
+      <div class="chips">
+        <span class="en">Templates</span><span class="bg">Шаблони</span>
+        <span class="en">Word &amp; Google Docs</span><span class="bg">Word и Google Docs</span>
+        <span class="en">Excel &amp; Google Sheets</span><span class="bg">Excel и Google Sheets</span>
+        <span class="en">Instant download</span><span class="bg">Изтегляне веднага</span>
+      </div>
+      <span class="more"><span class="en">Visit the shop</span><span class="bg">Към магазина</span> ↗</span>
+    </div>
+    <div class="covers"><img src="paperlane/cover.png" alt="Paperlane Studio templates: Guest Guidebook, Wedding Planner &amp; Budget and Rental Income &amp; Expense Tracker" loading="lazy"></div>
+  </a>
+  <p class="pin"><span class="en">Follow Paperlane Studio on</span><span class="bg">Следвай Paperlane Studio в</span> <a href="https://www.pinterest.com/paperlanetemplates/" target="_blank" rel="noopener">Pinterest ↗</a></p>
   <div class="soon">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6L18.5 9l-4.6 1.9L12 15.5l-1.9-4.6L5.5 9l4.6-1.4z"/><path d="M19 15l.8 2 2 .8-2 .8L19 21l-.8-2.4-2-.8 2-.8z"/></svg>
     <div><b><span class="en">A new game is on its way</span><span class="bg">Предстои нова игра</span></b><span class="en">Coming soon.</span><span class="bg">Очаквайте скоро.</span></div>
@@ -249,19 +272,6 @@
   </div>
 </section>
 
-<section id="products">
-  <p class="label"><span class="en">Digital products</span><span class="bg">Дигитални продукти</span></p>
-  <div class="work">
-    <a class="project" href="https://paperlanetemplates.gumroad.com/" target="_blank" rel="noopener">
-      <div class="body">
-        <h3>Paperlane Studio</h3>
-        <div class="kind"><span class="en">Templates · Gumroad</span><span class="bg">Шаблони · Gumroad</span></div>
-        <p><span class="en">Printable &amp; spreadsheet templates for vacation-rental hosts and wedding planning, sold via Gumroad.</span><span class="bg">Шаблони за домакини на краткосрочни наеми и планиране на сватби, продавани през Gumroad.</span></p>
-        <span class="visit">paperlanetemplates.gumroad.com ↗</span>
-      </div>
-    </a>
-  </div>
-</section>
 <section class="contact" id="contact">
   <h2 class="big"><span class="en">Questions, ideas or feedback?</span><span class="bg">Въпроси, идеи или мнение?</span></h2>
   <p><span class="en">We read every message.</span><span class="bg">Четем всяко писмо.</span></p>

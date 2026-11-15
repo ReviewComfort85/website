@@ -1,16 +1,15 @@
-// Bulgarian for a phone set to Bulgarian, English otherwise; the button
-// switches, and the choice is kept.
+// English by default, always. The button switches to Bulgarian, and the
+// choice is kept only while the tab stays open.
 (function () {
   var root = document.documentElement;
-  var saved = null;
-  try { saved = localStorage.getItem('lang'); } catch (e) {}
-  var lang = saved || ((navigator.language || '').toLowerCase().indexOf('bg') === 0 ? 'bg' : 'en');
+  var lang = 'en';
+  try { if (sessionStorage.getItem('lang') === 'bg') lang = 'bg'; } catch (e) {}
   if (location.hash === '#bg') lang = 'bg';
   function set(l) {
     lang = l;
     root.classList.toggle('bg', l === 'bg');
     root.lang = l;
-    try { localStorage.setItem('lang', l); } catch (e) {}
+    try { sessionStorage.setItem('lang', l); } catch (e) {}
   }
   set(lang);
   document.addEventListener('click', function (e) {

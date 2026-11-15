@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BugCompass — Local bug reports, no account — REVIEW COMFORT 85</title>
+<meta name="description" content="Browser extension for bug reports: annotated screenshot, console errors, network requests, steps and environment in one click. No account, no cloud. Free, Pro $19 lifetime.">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://reviewcomfort85.com/bugcompass/">
+<meta property="og:title" content="BugCompass — point developers straight to the bug">
+<meta property="og:description" content="Screenshot, console, network, steps and environment in one click. Everything stays in your browser. Pro is $19 once.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://reviewcomfort85.com/bugcompass/">
+<meta property="og:image" content="https://reviewcomfort85.com/bugcompass/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"BugCompass","applicationCategory":"DeveloperApplication","operatingSystem":"Chrome, Firefox, Opera, Brave, Vivaldi","url":"https://reviewcomfort85.com/bugcompass/",
+ "offers":[{"@type":"Offer","price":"0","priceCurrency":"USD","name":"Free"},{"@type":"Offer","price":"19","priceCurrency":"USD","name":"Pro lifetime"}],
+ "publisher":{"@type":"Organization","name":"REVIEW COMFORT 85 LTD","url":"https://reviewcomfort85.com/"}}
+</script>
+<link rel="icon" href="icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../site.css">
+<script src="../lang.js"></script>
+<style>
+  /* Same type and nav as the home page. BugCompass keeps its own teal + amber
+     (from the icon) on top of the site's black, like Paperlane keeps its olive. */
+  :root { --teal: #2bb3a3; --amber: #f2c14e; --red: #ff6b6b; }
+  body { font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; overflow-x: hidden; }
+  h1, h3, .brand, .price, .h2big { font-family: Manrope, Inter, system-ui, sans-serif; }
+
+  .sky { position: absolute; inset: 0 0 auto 0; height: 760px; overflow: hidden; pointer-events: none; z-index: 0; }
+  .sky .glow { position: absolute; width: 560px; height: 560px; right: -160px; top: -180px; border-radius: 50%; filter: blur(100px); background: #0f7d72; opacity: .28; }
+  /* A faint compass rose instead of the home page grid. */
+  .sky svg { position: absolute; right: -120px; top: -60px; width: 640px; height: 640px; color: rgba(255,255,255,.06); }
+  .page { position: relative; z-index: 1; }
+
+  nav { padding: 26px 0; }
+  .brand { display: flex; align-items: center; gap: 10px; color: var(--text); font-weight: 800; letter-spacing: .06em; font-size: .92rem; }
+  .brand:hover { text-decoration: none; }
+  .mark { width: 30px; height: 30px; border-radius: 9px; background: linear-gradient(135deg, #7c6cff, #2ea8ff); display: grid; place-items: center; font-size: .72rem; color: #fff; letter-spacing: 0; }
+  .crumb { color: var(--muted); font-weight: 500; letter-spacing: 0; }
+  .crumb::before { content: "/"; margin: 0 8px 0 2px; color: #4a4a58; }
+
+  /* Hero: the pitch on the left, an actual report on the right. */
+  .top { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; padding: 6vh 0 7vh; }
+  .id { display: flex; align-items: center; gap: 14px; margin-bottom: 26px; }
+  .id img { width: 56px; height: 56px; border-radius: 14px; }
+  .id b { display: block; font-family: Manrope, Inter, sans-serif; font-size: 1.15rem; }
+  .id small { color: var(--muted); font-size: .85rem; }
+  .top h1 { font-size: clamp(2.1rem, 4.6vw, 3.3rem); line-height: 1.06; letter-spacing: -.03em; margin: 0 0 20px; font-weight: 800; }
+  .top h1 em { font-style: normal; color: var(--teal); }
+  .lede { color: var(--muted); font-size: 1.08rem; max-width: 500px; margin: 0 0 28px; }
+  .ctas { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; border-radius: 12px; padding: 12px 20px; font-weight: 600; font-size: .95rem; color: var(--text); border: 1px solid var(--line); background: var(--card); transition: transform .15s, border-color .15s, background .15s; }
+  .btn:hover { text-decoration: none; transform: translateY(-1px); border-color: #55556a; }
+  .btn.primary { background: #f2f2f5; border-color: #f2f2f5; color: #0b0b10; }
+  .btn.buy { background: var(--amber); border-color: var(--amber); color: #1a1405; }
+  .btn svg { width: 16px; height: 16px; }
+  .stores { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 16px; font-size: .9rem; color: var(--muted); }
+  .stores a { color: var(--text); border-bottom: 1px solid var(--line); }
+  .stores a:hover { text-decoration: none; border-color: var(--muted); }
+  .btn.soon { cursor: default; opacity: .78; }
+  .btn.soon:hover { transform: none; }
+  .btn.primary.soon:hover { border-color: #f2f2f5; }
+  .btn.buy.soon:hover { border-color: var(--amber); }
+  .stores .soon-tag { color: var(--text); }
+  .stores .soon-tag small { color: var(--muted); font-size: .85em; }
+  .hint { margin: 6px 0 0; color: #6c6c7c; font-size: .85rem; }
+
+  .report { background: #0a0a0e; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,.55); }
+  .report .bar { display: flex; align-items: center; gap: 10px; padding: 11px 16px; border-bottom: 1px solid var(--line); font-size: .8rem; color: var(--muted); }
+  .report .bar i { width: 9px; height: 9px; border-radius: 50%; background: #2a2a33; }
+  .report .bar span { margin-left: auto; color: var(--teal); }
+  .report pre { margin: 0; padding: 18px 20px 20px; font: 12.5px/1.7 ui-monospace, "Cascadia Code", Consolas, monospace; color: #b8b8c6; white-space: pre-wrap; word-break: break-word; }
+  .report .h { color: #fff; font-weight: 700; }
+  .report .k { color: var(--teal); }
+  .report .e { color: var(--red); }
+  .report .m { color: var(--amber); }
+  .report .d { color: #6c6c7c; }
+
+  section { padding: 40px 0; }
+  .label { font-size: .8rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin: 0 0 14px; font-weight: 600; }
+  .h2big { text-transform: none; color: var(--text); font-size: clamp(1.6rem, 3.4vw, 2.3rem); letter-spacing: -.02em; margin: 0 0 26px; font-weight: 800; max-width: 680px; line-height: 1.15; }
+
+  /* Screenshots are light, so they sit in a dark frame. */
+  .shots { margin-bottom: 0; }
+  .shots img { height: 380px; border-radius: 14px; border: 1px solid var(--line); }
+
+  /* What one click collects: a numbered list, not icon cards. */
+  .parts { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; counter-reset: p; }
+  .parts li { counter-increment: p; display: grid; grid-template-columns: 44px 1fr; padding: 18px 0; border-top: 1px solid var(--line); }
+  .parts li::before { content: counter(p, decimal-leading-zero); font: 600 .85rem/1.6 ui-monospace, Consolas, monospace; color: var(--teal); padding-top: 2px; }
+  .parts b { display: block; font-size: 1.02rem; margin-bottom: 2px; }
+  .parts span { color: var(--muted); font-size: .95rem; }
+
+  .why { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .why div { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; }
+  .why b { display: block; margin-bottom: 4px; }
+  .why span { color: var(--muted); font-size: .95rem; line-height: 1.5; }
+
+  /* Free vs Pro */
+  .plans { display: grid; grid-template-columns: 1.6fr 1fr; gap: 16px; align-items: start; }
+  .tbl { background: var(--card); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+  table { width: 100%; border-collapse: collapse; font-size: .93rem; }
+  th, td { padding: 11px 16px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+  tr:last-child td { border-bottom: 0; }
+  th { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600; background: #16161c; }
+  td { color: #d6d6de; }
+  td.c, th.c { text-align: center; width: 92px; white-space: nowrap; }
+  td.c { color: var(--muted); }
+  td.y { color: var(--teal); font-weight: 700; }
+  tr.pro td:first-child { color: var(--text); }
+  .buybox { position: sticky; top: 20px; background: radial-gradient(circle at 90% 0%, rgba(242,193,78,.16), transparent 55%), #121109; border: 1px solid #3a3420; border-radius: 22px; padding: 28px; }
+  .buybox .price { font-size: 3rem; font-weight: 800; letter-spacing: -.03em; line-height: 1; }
+  .buybox .price small { font: 500 1rem Inter, sans-serif; color: var(--muted); letter-spacing: 0; margin-left: 6px; }
+  .buybox ul { list-style: none; padding: 0; margin: 20px 0 24px; color: #d6d6de; font-size: .95rem; }
+  .buybox li { padding: 6px 0 6px 22px; position: relative; }
+  .buybox li::before { content: ""; position: absolute; left: 2px; top: 14px; width: 8px; height: 8px; border-radius: 2px; background: var(--amber); transform: rotate(45deg); }
+  .buybox .btn { width: 100%; justify-content: center; }
+  .buybox p { color: var(--muted); font-size: .85rem; margin: 14px 0 0; }
+
+  /* FAQ */
+  .faq { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: start; }
+  details { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 18px; margin-bottom: 10px; }
+  details[open] { border-color: #3a3a47; }
+  summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--muted); font-weight: 400; }
+  details[open] summary::after { content: "–"; }
+  details p { color: var(--muted); margin: 10px 0 0; font-size: .95rem; }
+
+  .end { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; border-top: 1px solid var(--line); padding: 32px 0 64px; margin-top: 24px; }
+  .end .links { margin: 0; }
+  .end .links a { color: var(--muted); }
+  .end .links a:hover { color: var(--text); text-decoration: none; }
+  footer .cols { justify-content: space-between; }
+
+  @media (max-width: 900px) {
+    .top { grid-template-columns: 1fr; gap: 36px; }
+    .plans { grid-template-columns: 1fr; }
+    .buybox { position: static; }
+    .why { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .parts, .faq, .why { grid-template-columns: 1fr; }
+    .shots img { height: 210px; }
+    th, td { padding: 9px 10px; }
+    td.c, th.c { width: 60px; }
+    .crumb { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { .btn { transition: none; } .btn:hover { transform: none; } }
+</style>
+</head>
+<body>
+<div class="sky" aria-hidden="true">
+  <div class="glow"></div>
+  <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width=".6">
+    <circle cx="100" cy="100" r="96"/><circle cx="100" cy="100" r="70"/><circle cx="100" cy="100" r="30"/>
+    <path d="M100 4v192M4 100h192M32 32l136 136M168 32L32 168"/>
+    <path d="M100 18l9 82-9 82-9-82z" fill="currentColor"/>
+  </svg>
+</div>
+
+<div class="page">
+<div class="wrap">
+
+<nav>
+  <a class="brand" href="../"><span class="mark">RC</span>REVIEW COMFORT 85<span class="crumb">BugCompass</span></a>
+  <button class="lang" type="button"><span class="en">БГ</span><span class="bg">EN</span></button>
+</nav>
+
+<header class="top">
+  <div>
+    <div class="id">
+      <img src="icon.png" alt="BugCompass">
+      <div><b>BugCompass</b><small><span class="en">Browser extension for QA</span><span class="bg">Разширение за браузър за QA</span></small></div>
+    </div>
+    <h1><span class="en">Point developers <em>straight to the bug.</em></span><span class="bg">Насочва разработчиците <em>право към бъга.</em></span></h1>
+    <p class="lede"><span class="en">One click gives you an annotated screenshot, console errors, network requests (failed ones first), reproduction steps and environment — as Markdown, ready for GitHub, Jira or Linear. No account, no cloud: everything stays in your browser.</span><span class="bg">С един клик получаваш анотирана снимка на екрана, грешките от конзолата, мрежовите заявки (първо неуспешните), стъпките за възпроизвеждане и средата — като Markdown, готов за GitHub, Jira или Linear. Без акаунт и без облак: всичко остава в браузъра ти.</span></p>
+    <div class="ctas">
+      <span class="btn primary soon" aria-disabled="true"><span class="en">Chrome Web Store — coming soon</span><span class="bg">Chrome Web Store — очаквайте скоро</span></span>
+      <span class="btn buy soon" aria-disabled="true"><span class="en">Pro — coming soon</span><span class="bg">Pro — очаквайте скоро</span></span>
+    </div>
+    <div class="stores">
+      <span class="en">Also for</span><span class="bg">Също за</span>
+      <span class="soon-tag">Firefox <small><span class="en">· coming soon</span><span class="bg">· скоро</span></small></span>
+      <span class="soon-tag">Opera <small><span class="en">· coming soon</span><span class="bg">· скоро</span></small></span>
+    </div>
+    <p class="hint"><span class="en">Brave and Vivaldi will install it from the Chrome Web Store.</span><span class="bg">Brave и Vivaldi ще го инсталират от Chrome Web Store.</span></p>
+  </div>
+
+  <div class="report" aria-label="Example report">
+    <div class="bar"><i></i><i></i><i></i>bug-report.md<span><span class="en">copied ✓</span><span class="bg">копирано ✓</span></span></div>
+<pre><span class="h">## Pay button: POST /api/orders returns 500</span>
+<span class="k">**Severity:**</span> Critical
+
+<span class="h">### Steps to reproduce</span>
+1. Open http://acme.localhost/checkout
+2. Type "jane@example.com" into "Email"
+3. Type "<span class="m">••••••</span>" into "Card number"
+4. Click "Pay $133.00" <span class="d">[data-testid="pay-button"]</span>
+
+<span class="h">### Console</span>
+<span class="e">✕ TypeError: Cannot read properties of
+  undefined (reading 'total')</span>
+
+<span class="h">### Network</span>
+<span class="e">500</span>  POST /api/orders  <span class="d">412 ms</span>
+<span class="d">     Authorization:</span> <span class="m">[masked]</span>
+
+<span class="h">### Environment</span>
+Chrome 142 · Windows 11 · 1920×1080</pre>
+  </div>
+</header>
+
+<div class="shots">
+  <img src="shots/01.png" alt="BugCompass report editor with an annotated screenshot, console errors and steps">
+  <img src="shots/02.png" alt="No account, everything stored locally" loading="lazy">
+  <img src="shots/03.png" alt="Markdown export for GitHub, Jira and Linear" loading="lazy">
+  <img src="shots/04.png" alt="Rewind and ZIP bundle" loading="lazy">
+  <img src="shots/05.png" alt="Pro is $19 once" loading="lazy">
+</div>
+
+<section id="features">
+  <p class="label"><span class="en">One click collects</span><span class="bg">Един клик събира</span></p>
+  <h2 class="h2big"><span class="en">Everything a developer asks for, before they ask.</span><span class="bg">Всичко, което разработчикът пита, преди да е попитал.</span></h2>
+  <ol class="parts">
+    <li><div><b class="en">Annotated screenshot</b><b class="bg">Анотирана снимка</b>
+      <span class="en">Box, arrow, freehand pen, text and blur, with Undo/Redo. Pro adds full-page capture.</span>
+      <span class="bg">Рамка, стрелка, свободно рисуване, текст и замъгляване, с Undo/Redo. Pro добавя снимка на цялата страница.</span></div></li>
+    <li><div><b class="en">Console errors</b><b class="bg">Грешки от конзолата</b>
+      <span class="en">Logs, uncaught errors and unhandled promise rejections, with timing.</span>
+      <span class="bg">Логове, необработени грешки и rejection-и, с точното време.</span></div></li>
+    <li><div><b class="en">Network requests</b><b class="bg">Мрежови заявки</b>
+      <span class="en">Method, URL, status and time, failed ones first. Pro exports a HAR.</span>
+      <span class="bg">Метод, URL, статус и време, първо неуспешните. Pro експортира HAR.</span></div></li>
+    <li><div><b class="en">Reproduction steps</b><b class="bg">Стъпки за възпроизвеждане</b>
+      <span class="en">Clicks, typing, selects and navigation, recorded as you test. Never passwords.</span>
+      <span class="bg">Кликове, писане, избори и навигация, записани докато тестваш. Никога пароли.</span></div></li>
+    <li><div><b class="en">Environment</b><b class="bg">Среда</b>
+      <span class="en">Browser, OS, viewport, screen, language, timezone and URL.</span>
+      <span class="bg">Браузър, ОС, прозорец, екран, език, часова зона и URL.</span></div></li>
+    <li><div><b class="en">Video with sound <small>· Pro</small></b><b class="bg">Видео със звук <small>· Pro</small></b>
+      <span class="en">Record, or Rewind to save the last 1–2 minutes. Download as MP4 or WebM.</span>
+      <span class="bg">Запис или Rewind, който пази последните 1–2 минути. Сваляш като MP4 или WebM.</span></div></li>
+  </ol>
+</section>
+
+<section>
+  <p class="label"><span class="en">Why QA teams switch</span><span class="bg">Защо QA екипите минават към него</span></p>
+  <div class="why">
+    <div><b class="en">No sign-up</b><b class="bg">Без регистрация</b>
+      <span class="en">Install and report. No account, no workspace, no invite emails.</span>
+      <span class="bg">Инсталираш и репортваш. Без акаунт, без workspace, без покани по имейл.</span></div>
+    <div><b class="en">Nothing leaves your browser</b><b class="bg">Нищо не излиза от браузъра</b>
+      <span class="en">Reports, screenshots and videos are stored locally. No servers, no telemetry, no analytics.</span>
+      <span class="bg">Репортите, снимките и видеата се пазят локално. Без сървъри, телеметрия и анализи.</span></div>
+    <div><b class="en">Secrets masked</b><b class="bg">Скрити тайни</b>
+      <span class="en">Authorization and Cookie headers, API keys, JWTs and password fields are masked before anything is saved.</span>
+      <span class="bg">Authorization и Cookie хедъри, API ключове, JWT и пароли се маскират, преди да се запише каквото и да е.</span></div>
+    <div><b class="en">Lifetime, not per seat</b><b class="bg">Завинаги, не на потребител</b>
+      <span class="en">Pro is $19 once. Team bug tools cost $14–$59 a month.</span>
+      <span class="bg">Pro е $19 еднократно. Екипните инструменти струват $14–$59 на месец.</span></div>
+    <div><b class="en">Built for Firefox too</b><b class="bg">И за Firefox</b>
+      <span class="en">Same features in Firefox (140+), where the popular bug capture tools don't exist.</span>
+      <span class="bg">Същите функции във Firefox (140+), където популярните инструменти липсват.</span></div>
+    <div><b class="en">Small permissions</b><b class="bg">Малко права</b>
+      <span class="en">Sees a page only after you click. Recording is switched on per site, and your browser asks first.</span>
+      <span class="bg">Вижда страница само след клик. Записът се пуска за всеки сайт поотделно и браузърът пита първо.</span></div>
+  </div>
+</section>
+
+<section id="pricing">
+  <p class="label"><span class="en">Free vs Pro</span><span class="bg">Безплатно и Pro</span></p>
+  <h2 class="h2big"><span class="en">Free has no report limit. Pro is for the heavy days.</span><span class="bg">Безплатната версия няма лимит на репортите. Pro е за тежките дни.</span></h2>
+  <div class="plans">
+    <div class="tbl"><table>
+      <tr><th><span class="en">Feature</span><span class="bg">Функция</span></th><th class="c">Free</th><th class="c">Pro</th></tr>
+      <tr><td><span class="en">Screenshot of the visible area with box, arrow, freehand pen, text and blur, Undo/Redo</span><span class="bg">Снимка на видимата част с рамка, стрелка, свободно рисуване, текст и замъгляване, Undo/Redo</span></td><td class="c y">✓</td><td class="c y">✓</td></tr>
+      <tr><td><span class="en">Console logs, errors and unhandled rejections</span><span class="bg">Логове, грешки и необработени rejection-и от конзолата</span></td><td class="c y">✓</td><td class="c y">✓</td></tr>
+      <tr><td><span class="en">Network requests: method, URL, status, timing</span><span class="bg">Мрежови заявки: метод, URL, статус, време</span></td><td class="c y">✓</td><td class="c y">✓</td></tr>
+      <tr><td><span class="en">Environment: browser, OS, viewport, URL…</span><span class="bg">Среда: браузър, ОС, размер на прозореца, URL…</span></td><td class="c y">✓</td><td class="c y">✓</td></tr>
+      <tr><td><span class="en">Markdown for GitHub/Linear, Jira markup, .md, PNG</span><span class="bg">Markdown за GitHub/Linear, Jira, .md, PNG</span></td><td class="c y">✓</td><td class="c y">✓</td></tr>
+      <tr><td><span class="en">Number of reports</span><span class="bg">Брой репорти</span></td><td class="c y">∞</td><td class="c y">∞</td></tr>
+      <tr><td><span class="en">Reproduction steps</span><span class="bg">Стъпки за възпроизвеждане</span></td><td class="c"><span class="en">last 10</span><span class="bg">последни 10</span></td><td class="c y"><span class="en">all</span><span class="bg">всички</span></td></tr>
+      <tr><td><span class="en">Report history</span><span class="bg">История на репортите</span></td><td class="c"><span class="en">last 20</span><span class="bg">последни 20</span></td><td class="c y">∞</td></tr>
+      <tr class="pro"><td><span class="en">Full-page screenshot (scroll + stitch)</span><span class="bg">Снимка на цялата страница</span></td><td class="c">–</td><td class="c y">✓</td></tr>
+      <tr class="pro"><td><span class="en">Video with sound — export as MP4 or WebM</span><span class="bg">Видео със звук — експорт като MP4 или WebM</span></td><td class="c">–</td><td class="c y">✓</td></tr>
+      <tr class="pro"><td><span class="en">Rewind: save the last 1–2 minutes</span><span class="bg">Rewind: запазва последните 1–2 минути</span></td><td class="c">–</td><td class="c y">✓</td></tr>
+      <tr class="pro"><td><span class="en">HAR export and ZIP bundle (video as WebM + MP4)</span><span class="bg">HAR експорт и ZIP пакет (видео като WebM + MP4)</span></td><td class="c">–</td><td class="c y">✓</td></tr>
+      <tr class="pro"><td><span class="en">Custom masking rules (regex)</span><span class="bg">Собствени правила за маскиране (regex)</span></td><td class="c">–</td><td class="c y">✓</td></tr>
+      <tr class="pro"><td><span class="en">Issue templates (5 built in + your own)</span><span class="bg">Шаблони за issue (5 вградени + твои)</span></td><td class="c">–</td><td class="c y">✓</td></tr>
+      <tr class="pro"><td><span class="en">AI summary — your own Anthropic/OpenAI key, a local Ollama model, or no key at all (Copy AI prompt)</span><span class="bg">AI резюме — с твой Anthropic/OpenAI ключ, с локален модел в Ollama или изобщо без ключ (Copy AI prompt)</span></td><td class="c">–</td><td class="c y">✓</td></tr>
+    </table></div>
+
+    <aside class="buybox">
+      <div class="price">$19<small><span class="en">once</span><span class="bg">еднократно</span></small></div>
+      <ul>
+        <li><span class="en">Lifetime license, lifetime updates</span><span class="bg">Лиценз завинаги, обновления завинаги</span></li>
+        <li><span class="en">3 devices</span><span class="bg">3 устройства</span></li>
+        <li><span class="en">No account — just the key from your receipt</span><span class="bg">Без акаунт — само ключът от касовата бележка</span></li>
+        <li><span class="en">30-day refund, no questions asked</span><span class="bg">30 дни за връщане, без въпроси</span></li>
+      </ul>
+      <span class="btn buy soon" aria-disabled="true"><span class="en">Pro — coming soon</span><span class="bg">Pro — очаквайте скоро</span></span>
+      <p><span class="en">Sold by REVIEW COMFORT 85 LTD through Gumroad.</span><span class="bg">Продава REVIEW COMFORT 85 LTD чрез Gumroad.</span></p>
+    </aside>
+  </div>
+</section>
+
+<section id="faq">
+  <p class="label">FAQ</p>
+  <div class="faq">
+  <div>
+  <details><summary><span class="en">Do I need an account?</span><span class="bg">Трябва ли ми акаунт?</span></summary>
+    <p class="en">No. Neither for Free nor for Pro — Pro only needs the license key from your receipt.</p>
+    <p class="bg">Не. Нито за Free, нито за Pro — за Pro трябва само лицензният ключ от касовата бележка.</p></details>
+  <details><summary><span class="en">Where is my data?</span><span class="bg">Къде са данните ми?</span></summary>
+    <p class="en">In your browser's local extension storage. We run no servers and never see your reports.</p>
+    <p class="bg">В локалното хранилище на разширението в браузъра ти. Нямаме сървъри и никога не виждаме репортите ти.</p></details>
+  <details><summary><span class="en">What does the extension send over the network?</span><span class="bg">Какво праща разширението по мрежата?</span></summary>
+    <p class="en">Only the Gumroad license check (Pro) and, if you click "AI summary" with Anthropic or OpenAI, that report's text to that provider using your own key. A local Ollama model stays on your computer, and "Copy AI prompt" only copies text to your clipboard. Nothing else.</p>
+    <p class="bg">Само проверката на лиценза в Gumroad (Pro) и, ако натиснеш „AI summary“ с Anthropic или OpenAI, текста на този репорт към този доставчик с твой ключ. Локалният модел в Ollama остава на компютъра ти, а „Copy AI prompt“ само копира текст в клипборда. Нищо друго.</p></details>
+  <details><summary><span class="en">Which video format?</span><span class="bg">В какъв формат е видеото?</span></summary>
+    <p class="en">Export as MP4 or WebM. BugCompass records WebM, which plays in every browser and in VLC. Download MP4 converts it to an H.264 MP4 inside your browser — nothing is uploaded — and the ZIP bundle contains both files. MP4 sound is AAC where the browser has an AAC encoder (Chrome on Windows and macOS), otherwise Opus; browsers, VLC and Windows play both, but QuickTime may play an Opus MP4 without sound. If your browser has no H.264 encoder (possible in Firefox), you get the WebM plus a short README instead.</p>
+    <p class="bg">Експорт като MP4 или WebM. BugCompass записва WebM, който се пуска във всеки браузър и във VLC. „Download MP4“ го конвертира в H.264 MP4 в самия браузър — нищо не се качва — а ZIP пакетът съдържа и двата файла. Звукът в MP4 е AAC, ако браузърът има AAC енкодер (Chrome под Windows и macOS), иначе Opus; браузърите, VLC и Windows пускат и двата, но QuickTime може да пусне Opus MP4 без звук. Ако браузърът няма H.264 енкодер (възможно във Firefox), получаваш WebM и кратък README.</p></details>
+  <details><summary><span class="en">Do I need an API key for AI?</span><span class="bg">Трябва ли ми API ключ за AI?</span></summary>
+    <p class="en">No. Use your own Anthropic/OpenAI key, a free local Ollama model (no key), or "Copy AI prompt": it copies a masked, ready-made prompt to paste into your own ChatGPT or Claude chat. AI features are part of Pro.</p>
+    <p class="bg">Не. Можеш с твой Anthropic/OpenAI ключ, с безплатен локален модел в Ollama (без ключ) или с „Copy AI prompt“: копира готов маскиран промпт, който поставяш в своя ChatGPT или Claude чат. AI функциите са част от Pro.</p></details>
+  </div>
+  <div>
+  <details><summary><span class="en">Does it work offline?</span><span class="bg">Работи ли офлайн?</span></summary>
+    <p class="en">Yes. After activation Pro keeps working offline; it re-checks the key with Gumroad about once a day when you are online.</p>
+    <p class="bg">Да. След активиране Pro работи офлайн; ключът се проверява в Gumroad около веднъж на ден, когато си онлайн.</p></details>
+  <details><summary>Firefox?</summary>
+    <p class="en">Yes, same features. Firefox doesn't share tab audio with extensions, so video sound there comes from your microphone.</p>
+    <p class="bg">Да, същите функции. Firefox не дава звука на таба на разширенията, затова звукът на видеото там е от микрофона.</p></details>
+  <details><summary><span class="en">How many devices?</span><span class="bg">На колко устройства?</span></summary>
+    <p class="en">One Pro license works on 3 devices (browsers or computers). Replaced a computer or reinstalled the browser? Email us and we reset the count.</p>
+    <p class="bg">Един Pro лиценз работи на 3 устройства (браузъри или компютри). Смени компютъра или преинсталира браузъра? Пиши ни и ще нулираме броя.</p></details>
+  <details><summary><span class="en">Refunds?</span><span class="bg">Връщане на парите?</span></summary>
+    <p class="en">30 days, no questions asked: email info@reviewcomfort85.com.</p>
+    <p class="bg">30 дни, без въпроси: пиши на info@reviewcomfort85.com.</p></details>
+  </div>
+  </div>
+</section>
+
+<div class="end" id="support">
+  <div class="links">
+    <a href="privacy.html"><span class="en">Privacy policy</span><span class="bg">Политика за поверителност</span></a>
+    <a href="mailto:info@reviewcomfort85.com?subject=BugCompass"><span class="en">Support: info@reviewcomfort85.com</span><span class="bg">Поддръжка: info@reviewcomfort85.com</span></a>
+  </div>
+  <span class="btn primary soon" aria-disabled="true"><span class="en">Chrome Web Store — coming soon</span><span class="bg">Chrome Web Store — очаквайте скоро</span></span>
+</div>
+
+</div>
+
+<footer>
+  <div class="wrap cols">
+    <span><strong>REVIEW COMFORT 85 LTD</strong> · 27 Napredak str., Gabrovo 5300, Bulgaria</span>
+    <a href="../">reviewcomfort85.com</a>
+  </div>
+</footer>
+</div>
+</body>
+</html>

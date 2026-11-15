@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BugCompass — Privacy Policy — REVIEW COMFORT 85</title>
+<meta name="description" content="BugCompass does not collect your data: no servers, no accounts, no analytics, no telemetry.">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://reviewcomfort85.com/bugcompass/privacy.html">
+<link rel="stylesheet" href="../site.css">
+<style>
+  .doc { max-width: 760px; padding-bottom: 64px; }
+  .doc h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); letter-spacing: -.01em; margin: 24px 0 8px; }
+  .doc h2 { font-size: 1.15rem; letter-spacing: 0; text-transform: none; color: var(--text); margin: 2rem 0 .6rem; }
+  .doc code { background: var(--card); border: 1px solid var(--line); padding: 1px 5px; border-radius: 4px; font-size: .9em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav>
+  <a class="brand" href="../">REVIEW COMFORT 85</a>
+</nav>
+<main class="doc">
+<h1>BugCompass Privacy Policy</h1>
+<p><em>Last updated: 15 November 2026</em></p>
+<p>BugCompass is a browser extension for creating bug reports, published by <strong>REVIEW COMFORT 85 LTD</strong> (trading as Paperlane Studio), 27 Napredak str., Gabrovo 5300, Bulgaria, VAT BG208448886 (&quot;we&quot;). Contact: <strong>info@reviewcomfort85.com</strong>.</p>
+<h2>The short version</h2>
+<p>BugCompass does not collect your data. We have no servers, no accounts, no analytics and no telemetry. Everything the extension captures stays in your browser until you export or delete it.</p>
+<h2>What the extension handles, and where it stays</h2>
+<p>When you create a report, BugCompass captures:</p>
+<ul>
+<li>a screenshot of the page (in Pro also a full-page screenshot, a video recording you start yourself, or a Rewind recording of the last 1–2 minutes kept in memory until you save it);</li>
+<li>the page URL and environment details (browser, operating system, window and screen size, language, timezone);</li>
+<li>on sites where <strong>you</strong> turned recording on: console messages and errors, network requests (method, URL, status, timing, headers) and your clicks, typing, selections and navigation as reproduction steps.</li>
+</ul>
+<p>This data is stored only in the extension&#x27;s local storage on your device (IndexedDB, <code>storage.local</code>, <code>storage.session</code>). It is never sent to us. It leaves your device only when you export it (copy, download, ZIP) and share it yourself.</p>
+<p><strong>Masking.</strong> Before anything is stored, BugCompass replaces sensitive values with <code>[masked]</code>: Authorization, Cookie and API-key headers, tokens and passwords in URLs, JWTs, Bearer tokens and common API key formats in console text. Password, payment card, one-time code and token fields are recorded as <code>••••••</code>, never as their content. In Pro you can add your own masking rules (regular expressions); they are applied the same way, on your device. Blur in the screenshot editor destroys the underlying pixels in the exported image.</p>
+<p><strong>Recording is opt-in per site.</strong> BugCompass sees a page only after you click its icon. Console, network and step recording runs only on a site after you turn it on and your browser grants permission for that site. Turning it off removes the permission.</p>
+<h2>Network connections the extension makes</h2>
+<p>BugCompass makes only these connections, and only in these cases:</p>
+<p>1. <strong>Gumroad license check (Pro only).</strong> When you activate a Pro license, and about once a day afterwards while online, the extension sends the product ID and your license key to <code>api.gumroad.com</code> to confirm the license is valid. One license works on up to 3 devices, so Gumroad counts activations of your key; the extension remembers on your device that it is already activated there. No report data is sent. Gumroad&#x27;s privacy policy applies: <a href="https://gumroad.com/privacy">https://gumroad.com/privacy</a></p>
+<p>2. <strong>AI summary with a cloud provider (optional, Pro).</strong> If you add your own API key for Anthropic or OpenAI and click &quot;AI summary&quot;, the text of that one report (title, description, URL, environment, masked console messages, masked network requests and steps) is sent directly from your browser to the provider you chose, using your key. Screenshots and videos are not sent. Nothing is sent unless you click the button. That provider&#x27;s terms and privacy policy apply to that request. Your API key is stored only in the extension&#x27;s local storage.</p>
+<p><strong>AI options that send nothing out:</strong></p>
+<ul>
+<li><strong>Local (Ollama).</strong> If you choose &quot;Local (Ollama)&quot; as the AI provider, the same report text is sent only to the Ollama server on your own computer (<code>http://localhost:11434</code>). No key is needed and the data does not leave your computer. Ollama is separate software you install and run yourself.</li>
+<li><strong>Copy AI prompt.</strong> This button copies a ready-made prompt with the masked report text to your clipboard. The extension makes no network request; you decide where to paste it (for example your own ChatGPT or Claude chat), and that service&#x27;s terms and privacy policy apply to what you paste there.</li>
+</ul>
+<p><strong>In Firefox</strong>, the extension declares that it collects no data by default. Before the license check or the first AI summary with a cloud provider (Anthropic or OpenAI), Firefox shows its own consent prompt (&quot;authentication information&quot; for the license; &quot;website content&quot; and &quot;website activity&quot; for the AI summary). If you decline, nothing is sent. Local Ollama and &quot;Copy AI prompt&quot; send no data out, so Firefox does not ask.</p>
+<p>There are no other connections: no analytics, crash reporting, advertising or tracking.</p>
+<h2>Purchases</h2>
+<p>Pro licenses are sold through Gumroad, which acts as merchant of record. Gumroad processes your name, email and payment details under its own privacy policy. We receive the sale record (email, country, license key) from Gumroad to provide support, handle refunds and meet accounting and tax obligations. We keep it as long as the law requires (in Bulgaria, accounting records are kept for 10 years). We never sell or share it.</p>
+<h2>Your control</h2>
+<ul>
+<li>Delete single reports in the extension, or all data in Settings → &quot;Delete all reports&quot;.</li>
+<li>Uninstalling the extension deletes all its local data.</li>
+<li>For questions about purchase data, or to exercise your rights under the GDPR (access, correction, deletion, objection), email info@reviewcomfort85.com. You may also complain to the Bulgarian Commission for Personal Data Protection (www.cpdp.bg).</li>
+</ul>
+<h2>Children</h2>
+<p>BugCompass is a professional tool and is not directed at children under 16.</p>
+<h2>Changes</h2>
+<p>If this policy changes, we will update the date above and describe the change in the extension&#x27;s release notes. We will not start collecting data without asking you first.</p>
+</main>
+</div>
+<footer>
+  <div class="wrap cols">
+    <span><strong>REVIEW COMFORT 85 LTD</strong></span>
+    <a href="mailto:info@reviewcomfort85.com">info@reviewcomfort85.com</a>
+    <a href="../">reviewcomfort85.com</a>
+  </div>
+</footer>
+</body>
+</html>

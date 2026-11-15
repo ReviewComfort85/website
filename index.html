@@ -4,113 +4,293 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>REVIEW COMFORT 85 — Software, apps and games</title>
-<meta name="description" content="REVIEW COMFORT 85 LTD is an independent software studio from Gabrovo, Bulgaria. We build mobile apps, games, websites and AI solutions.">
-<meta name="theme-color" content="#0b0b0c">
-<link rel="canonical" href="https://reviewcomfort85.com/">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://reviewcomfort85.com/">
-<meta property="og:title" content="REVIEW COMFORT 85 — Software, apps and games">
-<meta property="og:description" content="Independent software studio from Gabrovo, Bulgaria. Mobile apps, games, websites and AI solutions.">
-<meta property="og:image" content="https://reviewcomfort85.com/keepall/shots/01.png">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="REVIEW COMFORT 85 LTD is an independent studio that builds software, mobile apps and games.">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site.css">
 <script src="lang.js"></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"REVIEW COMFORT 85 LTD","url":"https://reviewcomfort85.com/","email":"info@reviewcomfort85.com"}</script>
+<style>
+  body { font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; overflow-x: hidden; }
+  h1, h2.big, h3, .brand { font-family: Manrope, Inter, system-ui, sans-serif; }
+
+  /* Light in the dark: two slow glows and a faint grid behind the hero. */
+  .sky { position: absolute; inset: 0 0 auto 0; height: 980px; overflow: hidden; pointer-events: none; z-index: 0; }
+  .glow { position: absolute; border-radius: 50%; filter: blur(90px); opacity: .3; }
+  .glow.a { width: 620px; height: 620px; left: -160px; top: -200px; background: #4b3bd6; animation: drift 18s ease-in-out infinite alternate; }
+  .glow.b { width: 520px; height: 520px; right: -140px; top: 60px; background: #0f7bd8; opacity: .22; animation: drift 22s ease-in-out infinite alternate-reverse; }
+  .grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px); background-size: 64px 64px; -webkit-mask-image: radial-gradient(ellipse at 50% 30%, #000 20%, transparent 70%); mask-image: radial-gradient(ellipse at 50% 30%, #000 20%, transparent 70%); }
+  @keyframes drift { to { transform: translate(80px, 60px) scale(1.1); } }
+
+  .page { position: relative; z-index: 1; }
+  nav { padding: 26px 0; }
+  .brand { display: flex; align-items: center; gap: 10px; color: var(--text); font-weight: 800; letter-spacing: .06em; font-size: .92rem; }
+  .brand:hover { text-decoration: none; }
+  .mark { width: 30px; height: 30px; border-radius: 9px; background: linear-gradient(135deg, #7c6cff, #2ea8ff); display: grid; place-items: center; font-size: .72rem; color: #fff; letter-spacing: 0; }
+  .navlinks { display: flex; align-items: center; gap: 26px; font-size: .92rem; }
+  .navlinks a { color: var(--muted); }
+  .navlinks a:hover { color: var(--text); text-decoration: none; }
+  @media (max-width: 560px) { .navlinks a { display: none; } }
+
+  .hero { padding: 7vh 0 5vh; text-align: center; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); background: var(--card); border-radius: 99px; padding: 6px 14px; font-size: .82rem; color: var(--muted); margin-bottom: 20px; }
+  .eyebrow i { width: 7px; height: 7px; border-radius: 50%; background: #3ddc97; box-shadow: 0 0 10px #3ddc97; }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.08; letter-spacing: -.03em; margin: 0 auto 22px; max-width: 900px; font-weight: 800; }
+  .hero h1 span { color: var(--text); }
+  .hero h1 em { font-style: normal; background: linear-gradient(90deg, #9d90ff, #58b4ff 55%, #45dba0); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero p { margin: 0 auto; max-width: 600px; font-size: clamp(1.05rem, 2.2vw, 1.25rem); color: var(--muted); }
+  .cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 28px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; border-radius: 12px; padding: 13px 22px; font-weight: 600; font-size: .98rem; transition: transform .15s, background .15s, border-color .15s; }
+  .btn:hover { text-decoration: none; transform: translateY(-1px); }
+  .btn.primary { background: #f2f2f5; color: #0b0b10; }
+  .btn.ghost { color: var(--text); border: 1px solid var(--line); background: var(--card); }
+  .btn.ghost:hover { border-color: #55556a; }
+
+  section { padding: 32px 0; }
+  .label { font-size: .8rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin: 0 0 14px; font-weight: 600; }
+  h2.big { text-transform: none; color: var(--text); font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -.02em; margin: 0 0 22px; font-weight: 800; max-width: 640px; line-height: 1.15; }
+
+  /* Three on top, two wider under them. */
+  .pillars { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+  .pillar { grid-column: span 2; }
+  .pillar:nth-child(n+4) { grid-column: span 3; }
+  @media (max-width: 860px) { .pillars { grid-template-columns: 1fr 1fr; } .pillar, .pillar:nth-child(n+4) { grid-column: span 1; } .pillar:last-child { grid-column: span 2; } }
+  @media (max-width: 560px) { .pillars { grid-template-columns: 1fr; } .pillar, .pillar:nth-child(n+4), .pillar:last-child { grid-column: auto; } }
+  .pillar { position: relative; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 20px 22px 22px; overflow: hidden; }
+  .pillar::after { content: ""; position: absolute; inset: -1px; border-radius: 18px; padding: 1px; background: linear-gradient(140deg, rgba(110,90,240,.35), transparent 40%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+  .pillar svg { width: 24px; height: 24px; color: #9a8fff; margin-bottom: 10px; }
+  .pillar h3 { margin: 0 0 4px; font-size: 1.1rem; }
+  .pillar p { margin: 0; color: var(--muted); font-size: .95rem; line-height: 1.5; }
+
+  .featured { display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px; align-items: center; background: radial-gradient(circle at 85% 30%, rgba(98,80,230,.34), transparent 55%), #0f0e1c; border: 1px solid var(--line); border-radius: 28px; padding: 44px; overflow: hidden; color: var(--text); }
+  .featured:hover { text-decoration: none; border-color: #4a4a60; }
+  .featured .icon { width: 76px; height: 76px; border-radius: 18px; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(90,70,220,.25); }
+  .featured h3 { font-size: clamp(1.7rem, 3.4vw, 2.3rem); margin: 0 0 10px; letter-spacing: -.02em; }
+  .featured p { margin: 0 0 20px; color: var(--muted); font-size: 1.05rem; max-width: 440px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
+  .chips span { font-size: .82rem; border: 1px solid var(--line); border-radius: 99px; padding: 4px 12px; color: #cfcfd9; background: rgba(255,255,255,.05); }
+  .more { color: var(--accent); font-weight: 600; }
+  .phones { position: relative; height: 380px; }
+  .phones img { position: absolute; height: 360px; border-radius: 22px; box-shadow: 0 20px 40px rgba(0,0,0,.5); }
+  .phones img:first-child { right: 34%; top: 20px; transform: rotate(-7deg); }
+  .phones img:last-child { right: 4%; top: 0; transform: rotate(5deg); }
+  @media (max-width: 820px) {
+    .featured { grid-template-columns: 1fr; padding: 30px 24px; }
+    .phones { height: 300px; }
+    .phones img { height: 280px; }
+    .phones img:first-child { right: 46%; }
+    .phones img:last-child { right: 8%; }
+  }
+
+  .soon { margin-top: 12px; display: flex; gap: 18px; align-items: center; border: 1px dashed #3a3a47; border-radius: 22px; padding: 22px 26px; color: var(--muted); }
+  .soon svg { width: 34px; height: 34px; color: #45dba0; flex: none; }
+  .soon b { color: var(--text); display: block; font-family: Manrope, Inter, sans-serif; font-size: 1.05rem; }
+  /* Paperlane Studio: same card as KeepAll, in the brand's cream and olive. */
+  .featured.paperlane { background: radial-gradient(circle at 85% 30%, rgba(96,140,112,.3), transparent 55%), #0e130f; }
+  .featured.paperlane .icon { box-shadow: 0 10px 30px rgba(63,90,74,.25); }
+  .featured.paperlane .more { color: #a5cdb4; }
+  .covers img { display: block; width: 100%; max-width: 480px; height: auto; margin: 0 auto; }
+  .pin { margin: 10px 0 0 6px; font-size: .9rem; color: var(--muted); }
+  .pin a { color: #a5cdb4; font-weight: 600; }
+
+  .work { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+  .project { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: 24px; overflow: hidden; color: var(--text); transition: border-color .15s, transform .15s; }
+  .project:hover { text-decoration: none; border-color: #4a4a60; transform: translateY(-2px); }
+  .project .shot { height: 150px; position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+  .project .body { padding: 18px 22px 20px; }
+  .project h3 { margin: 0 0 4px; font-size: 1.2rem; }
+  .project .kind { color: #86a4ff; font-size: .85rem; font-weight: 600; margin-bottom: 8px; }
+  .project p { margin: 0 0 12px; color: var(--muted); font-size: .95rem; line-height: 1.55; }
+  .project .chips { margin-bottom: 12px; }
+  .project .visit { color: var(--accent); font-weight: 600; margin-top: auto; }
+
+  /* SafeCheck: its scan, as a terminal. */
+  .term { background: radial-gradient(circle at 80% 0%, rgba(255,80,80,.18), transparent 60%), #07070a; padding: 14px 20px; font: 12px/1.6 ui-monospace, "Cascadia Code", Consolas, monospace; color: #b8b8c6; }
+  .term .c { color: #ff6b6b; } .term .h { color: #ffb648; } .term .ok { color: #3ddc97; } .term .p { color: #8fa8ff; }
+  .term .grade { margin-top: 6px; color: #fff; }
+
+  /* Talos: a world seen from space. */
+  .space { background: radial-gradient(1px 1px at 12% 22%, #fff, transparent), radial-gradient(1px 1px at 32% 70%, #ddd, transparent), radial-gradient(1.5px 1.5px at 56% 18%, #fff, transparent), radial-gradient(1px 1px at 78% 62%, #ccc, transparent), radial-gradient(1px 1px at 90% 30%, #fff, transparent), radial-gradient(1px 1px at 22% 88%, #bbb, transparent), radial-gradient(circle at 15% 50%, rgba(255,170,60,.25), transparent 40%), #030308; }
+  .sun { position: absolute; left: -40px; top: 50%; width: 120px; height: 120px; margin-top: -60px; border-radius: 50%; background: radial-gradient(circle, #fff3c4, #ffb23f 45%, rgba(255,140,30,0) 72%); }
+  .orbit { position: absolute; left: -150px; top: 50%; width: 560px; height: 160px; margin-top: -80px; border: 1px solid rgba(255,255,255,.12); border-radius: 50%; }
+  .earth { position: absolute; right: 22%; top: 50%; width: 74px; height: 74px; margin-top: -37px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #7fd1ff, #2a7bd8 45%, #12407e 70%, #061a33); box-shadow: 0 0 30px rgba(80,160,255,.45); }
+  .earth::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(ellipse 30% 18% at 40% 40%, rgba(90,190,110,.9), transparent), radial-gradient(ellipse 20% 26% at 62% 62%, rgba(90,190,110,.85), transparent); }
+  .tag { position: absolute; right: 9%; top: 26%; font-size: .78rem; color: #ffd27a; letter-spacing: .08em; font-weight: 600; }
+
+  .contact { text-align: center; padding: 48px 0 64px; }
+  .contact h2.big { margin: 0 auto 16px; }
+  .contact p { color: var(--muted); margin: 0 0 30px; }
+
+  footer .cols { justify-content: space-between; }
+
+  .rise { opacity: 0; transform: translateY(14px); animation: rise .8s cubic-bezier(.2,.7,.2,1) forwards; }
+  .d1 { animation-delay: .08s; } .d2 { animation-delay: .18s; } .d3 { animation-delay: .3s; } .d4 { animation-delay: .42s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .glow, .rise { animation: none; opacity: 1; transform: none; } }
+</style>
 </head>
 <body>
-<header class="top"><div class="wrap">
-  <a class="brand" href="./" aria-label="REVIEW COMFORT 85"><span class="bw">Review Comfort</span> <b>85</b></a>
-  <nav class="nav" aria-label="Main">
-    <a href="#products"><span class="en">Products</span><span class="bg">Продукти</span></a>
-    <a href="#services"><span class="en">Services</span><span class="bg">Услуги</span></a>
+<div class="sky" aria-hidden="true"><div class="glow a"></div><div class="glow b"></div><div class="grid"></div></div>
+
+<div class="page">
+<div class="wrap">
+
+<nav>
+  <a class="brand" href="./"><span class="mark">RC</span>REVIEW COMFORT 85</a>
+  <div class="navlinks">
+    <a href="#templates"><span class="en">Templates</span><span class="bg">Шаблони</span></a>
+    <a href="#apps"><span class="en">Apps</span><span class="bg">Приложения</span></a>
     <a href="#work"><span class="en">Portfolio</span><span class="bg">Портфолио</span></a>
-    <a href="mailto:info@reviewcomfort85.com"><span class="en">Contact</span><span class="bg">Контакт</span></a>
-    <button class="lang" type="button" aria-label="Switch language"><span class="en">БГ</span><span class="bg">EN</span></button>
-  </nav>
-</div></header>
-<main class="wrap bento">
-<header class="intro">
-  <h1><span class="en">Software, apps and&nbsp;games.</span><span class="bg">Софтуер, приложения и&nbsp;игри.</span></h1>
-  <p><span class="en">An independent studio from Gabrovo, Bulgaria. We also make websites and AI solutions. Simple, private and made with care, with your data staying yours.</span><span class="bg">Независимо студио от Габрово. Правим също уебсайтове и AI решения. Прости, лични и направени с грижа, а данните ти си остават твои.</span></p>
-  <a class="btn" href="mailto:info@reviewcomfort85.com"><span class="en">Get in touch</span><span class="bg">Пиши ни</span></a>
+    <a href="#contact"><span class="en">Contact</span><span class="bg">Контакт</span></a>
+    <button class="lang" type="button"><span class="en">БГ</span><span class="bg">EN</span></button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="eyebrow rise"><i></i><span class="en">Independent software studio</span><span class="bg">Независимо софтуерно студио</span></div>
+  <h1 class="rise d1"><span class="en">We build software,<br><em>apps and games.</em></span><span class="bg">Правим софтуер,<br><em>приложения и игри.</em></span></h1>
+  <p class="rise d2"><span class="en">Plus websites and AI solutions. Simple, private and made with care, with your data staying yours.</span><span class="bg">Също уебсайтове и AI решения. Прости, лични и направени с грижа, а данните ти си остават твои.</span></p>
+  <div class="cta rise d3">
+    <a class="btn primary" href="#apps"><span class="en">See our apps</span><span class="bg">Нашите приложения</span> →</a>
+    <a class="btn ghost" href="#contact"><span class="en">Get in touch</span><span class="bg">Пиши ни</span></a>
+  </div>
 </header>
 
-    <article class="prod keepall" id="products">
-      <div>
-        <p class="kind"><img src="keepall/icon.png" alt="" width="28" height="28"><span class="en">Android app</span><span class="bg">Android приложение</span><span class="st"><span class="en">Soon on Google Play</span><span class="bg">Скоро в Google Play</span></span></p>
-        <h3>KeepAll Wallet</h3>
-        <p class="desc"><span class="en">Tickets, bank and loyalty cards, documents, finances, events and notes. Everything from your wallet, on your phone.</span><span class="bg">Билети, банкови и лоялни карти, документи, финанси, събития и бележки. Всичко от портфейла ти, в телефона.</span></p>
-        <p class="facts"><span class="en">Offline · Encrypted · No account · No ads</span><span class="bg">Офлайн · Криптирано · Без акаунт · Без реклами</span></p>
-        <a class="btn" href="keepall/"><span class="en">Learn more</span><span class="bg">Научи повече</span></a>
-      </div>
-      <a class="vis phones" href="keepall/" aria-label="KeepAll Wallet">
-        <img src="keepall/screens/01.webp" alt="KeepAll Wallet home screen: tickets, cards, documents, finance, notes and events" width="560" height="1209">
-        <img src="keepall/screens/04.webp" alt="KeepAll Wallet loyalty card with a barcode" width="560" height="1209">
-        <img src="keepall/screens/06.webp" alt="KeepAll Wallet finance screen" width="560" height="1209">
-      </a>
-    </article>
-    <article class="prod paperlane" id="paperlane">
-      <div>
-        <p class="kind"><img src="paperlane/icon.png" alt="" width="28" height="28"><span class="en">Digital templates</span><span class="bg">Дигитални шаблони</span><span class="st"><span class="en">On sale</span><span class="bg">В продажба</span></span></p>
-        <h3>Paperlane Studio</h3>
-        <p class="desc"><span class="en">Editable templates for vacation-rental hosts and wedding planning: a guest guidebook, an income &amp; expense tracker and a wedding planner with budget.</span><span class="bg">Шаблони за редактиране за домакини на краткосрочни наеми и за планиране на сватба: наръчник за гости, тракер за приходи и разходи и сватбен планер с бюджет.</span></p>
-        <p class="facts"><span class="en">Word &amp; Google Docs · Excel &amp; Google Sheets · Instant download</span><span class="bg">Word и Google Docs · Excel и Google Sheets · Изтегляне веднага</span></p>
-        <a class="btn" href="https://paperlanetemplates.gumroad.com/" target="_blank" rel="noopener"><span class="en">Shop on Gumroad</span><span class="bg">Магазин в Gumroad</span> <svg class="ar" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 9.5l7-7M4 2.5h5.5V8"/></svg></a>
-        <a class="more" href="https://www.pinterest.com/paperlanetemplates/" target="_blank" rel="noopener">Pinterest <svg class="ar" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 9.5l7-7M4 2.5h5.5V8"/></svg></a>
-      </div>
-      <a class="vis" href="https://paperlanetemplates.gumroad.com/" target="_blank" rel="noopener" aria-label="Paperlane Studio">
-        <img src="paperlane/cover.png" alt="Paperlane Studio templates: Guest Guidebook, Wedding Planner &amp; Budget and Rental Income &amp; Expense Tracker" width="960" height="760" loading="lazy">
-      </a>
-    </article>
-    <article class="prod hexy" id="hexy">
-      <div>
-        <p class="kind"><span class="en">Game · Android and iOS</span><span class="bg">Игра · Android и iOS</span><span class="st"><span class="en">Coming soon</span><span class="bg">Очаквайте скоро</span></span></p>
-        <h3>Hexy Arena</h3>
-        <p class="desc"><span class="en">A new game is on its way.</span><span class="bg">Предстои нова игра.</span></p>
-      </div>
-      <div class="vis"><svg class="board" viewBox="-199 -184 398 368" role="img" aria-label="Hexy Arena board"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><polygon points="-122.1,-21.5 -122.1,21.5 -159.3,43.0 -196.6,21.5 -196.6,-21.5 -159.3,-43.0"/><polygon class="a" points="-82.3,47.5 -82.3,90.5 -119.5,112.0 -156.8,90.5 -156.8,47.5 -119.5,26.0"/><polygon points="-42.4,116.5 -42.4,159.5 -79.7,181.0 -116.9,159.5 -116.9,116.5 -79.7,95.0"/><polygon points="-82.3,-90.5 -82.3,-47.5 -119.5,-26.0 -156.8,-47.5 -156.8,-90.5 -119.5,-112.0"/><polygon points="-42.4,-21.5 -42.4,21.5 -79.7,43.0 -116.9,21.5 -116.9,-21.5 -79.7,-43.0"/><polygon points="-2.6,47.5 -2.6,90.5 -39.8,112.0 -77.1,90.5 -77.1,47.5 -39.8,26.0"/><polygon class="b" points="37.2,116.5 37.2,159.5 0.0,181.0 -37.2,159.5 -37.2,116.5 -0.0,95.0"/><polygon points="-42.4,-159.5 -42.4,-116.5 -79.7,-95.0 -116.9,-116.5 -116.9,-159.5 -79.7,-181.0"/><polygon points="-2.6,-90.5 -2.6,-47.5 -39.8,-26.0 -77.1,-47.5 -77.1,-90.5 -39.8,-112.0"/><polygon class="a" points="37.2,-21.5 37.2,21.5 0.0,43.0 -37.2,21.5 -37.2,-21.5 -0.0,-43.0"/><polygon points="77.1,47.5 77.1,90.5 39.8,112.0 2.6,90.5 2.6,47.5 39.8,26.0"/><polygon points="116.9,116.5 116.9,159.5 79.7,181.0 42.4,159.5 42.4,116.5 79.7,95.0"/><polygon points="37.2,-159.5 37.2,-116.5 0.0,-95.0 -37.2,-116.5 -37.2,-159.5 -0.0,-181.0"/><polygon class="b" points="77.1,-90.5 77.1,-47.5 39.8,-26.0 2.6,-47.5 2.6,-90.5 39.8,-112.0"/><polygon points="116.9,-21.5 116.9,21.5 79.7,43.0 42.4,21.5 42.4,-21.5 79.7,-43.0"/><polygon points="156.8,47.5 156.8,90.5 119.5,112.0 82.3,90.5 82.3,47.5 119.5,26.0"/><polygon class="a" points="116.9,-159.5 116.9,-116.5 79.7,-95.0 42.4,-116.5 42.4,-159.5 79.7,-181.0"/><polygon points="156.8,-90.5 156.8,-47.5 119.5,-26.0 82.3,-47.5 82.3,-90.5 119.5,-112.0"/><polygon points="196.6,-21.5 196.6,21.5 159.3,43.0 122.1,21.5 122.1,-21.5 159.3,-43.0"/></g></svg></div>
-    </article>
+<section>
+  <p class="label"><span class="en">What we do</span><span class="bg">С какво се занимаваме</span></p>
+  <h2 class="big"><span class="en">From an idea to something people use every day.</span><span class="bg">От идеята до нещо, което хората ползват всеки ден.</span></h2>
+  <div class="pillars">
+    <div class="pillar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 6 2 12 8 18"/><polyline points="16 6 22 12 16 18"/><line x1="14" y1="4" x2="10" y2="20"/></svg>
+      <h3><span class="en">Software</span><span class="bg">Софтуер</span></h3>
+      <p><span class="en">Tools that solve real, everyday problems, built to last.</span><span class="bg">Инструменти за истински, ежедневни задачи, направени да траят.</span></p>
+    </div>
+    <div class="pillar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19"/><path d="M12 2.5c2.6 2.6 3.9 5.8 3.9 9.5s-1.3 6.9-3.9 9.5c-2.6-2.6-3.9-5.8-3.9-9.5s1.3-6.9 3.9-9.5z"/></svg>
+      <h3><span class="en">Websites</span><span class="bg">Уебсайтове</span></h3>
+      <p><span class="en">Fast, clean sites that look good on every screen and are easy to keep up to date.</span><span class="bg">Бързи и изчистени сайтове, които изглеждат добре на всеки екран и лесно се поддържат.</span></p>
+    </div>
+    <div class="pillar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+      <h3><span class="en">Mobile apps</span><span class="bg">Мобилни приложения</span></h3>
+      <p><span class="en">For Android and iOS. Fast, offline where it matters, private by default.</span><span class="bg">За Android и iOS. Бързи, офлайн там, където е важно, и лични по подразбиране.</span></p>
+    </div>
+    <div class="pillar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6L18.5 9l-4.6 1.9L12 15.5l-1.9-4.6L5.5 9l4.6-1.4z"/><path d="M19 15l.8 2 2 .8-2 .8L19 21l-.8-2.4-2-.8 2-.8z"/></svg>
+      <h3><span class="en">AI solutions</span><span class="bg">AI решения</span></h3>
+      <p><span class="en">Assistants, automation and smart features that save real time, built into the tools you already use.</span><span class="bg">Асистенти, автоматизация и умни функции, които пестят реално време, вградени в инструментите, които вече ползваш.</span></p>
+    </div>
+    <div class="pillar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 11h4M8 9v4"/><circle cx="15.5" cy="10.5" r=".6" fill="currentColor"/><circle cx="17.5" cy="12.5" r=".6" fill="currentColor"/><path d="M7 5h10a5 5 0 0 1 4.9 6l-1 5a3 3 0 0 1-5.2 1.3L14 15h-4l-1.7 2.3A3 3 0 0 1 3.1 16l-1-5A5 5 0 0 1 7 5z"/></svg>
+      <h3><span class="en">Games</span><span class="bg">Игри</span></h3>
+      <p><span class="en">Fun to pick up and hard to put down, without the tricks.</span><span class="bg">Лесни за започване и трудни за оставяне, без номера.</span></p>
+    </div>
+  </div>
+</section>
 
-<section id="services">
-  <h2><span class="en">What we do</span><span class="bg">С какво се занимаваме</span></h2>
-  <div class="svc">
-    <div><h3><span class="en">Mobile apps</span><span class="bg">Мобилни приложения</span></h3><p><span class="en">For Android and iOS. Fast, offline where it matters, private by default.</span><span class="bg">За Android и iOS. Бързи, офлайн там, където е важно, и лични по подразбиране.</span></p></div>
-    <div><h3><span class="en">Games</span><span class="bg">Игри</span></h3><p><span class="en">Fun to pick up and hard to put down, without the tricks.</span><span class="bg">Лесни за започване и трудни за оставяне, без номера.</span></p></div>
-    <div><h3><span class="en">AI solutions</span><span class="bg">AI решения</span></h3><p><span class="en">Assistants, automation and smart features that save real time.</span><span class="bg">Асистенти, автоматизация и умни функции, които пестят реално време.</span></p></div>
-    <div><h3><span class="en">Websites</span><span class="bg">Уебсайтове</span></h3><p><span class="en">Fast, clean sites that look good on every screen and are easy to keep up to date.</span><span class="bg">Бързи и изчистени сайтове, които изглеждат добре на всеки екран и лесно се поддържат.</span></p></div>
-    <div><h3><span class="en">Software</span><span class="bg">Софтуер</span></h3><p><span class="en">Tools that solve real, everyday problems, built to last.</span><span class="bg">Инструменти за истински, ежедневни задачи, направени да траят.</span></p></div>
+<section id="templates">
+  <p class="label"><span class="en">Our templates</span><span class="bg">Нашите шаблони</span></p>
+  <a class="featured paperlane" href="https://paperlanetemplates.gumroad.com/" target="_blank" rel="noopener">
+    <div>
+      <img class="icon" src="paperlane/icon.png" alt="Paperlane Studio">
+      <h3>Paperlane Studio</h3>
+      <p><span class="en">Editable templates for vacation-rental hosts and wedding planning: a guest guidebook, an income &amp; expense tracker and a wedding planner with budget. Sold on Gumroad.</span><span class="bg">Шаблони за редактиране за домакини на краткосрочни наеми и за планиране на сватба: наръчник за гости, тракер за приходи и разходи и сватбен планер с бюджет. Продават се в Gumroad.</span></p>
+      <div class="chips">
+        <span class="en">Templates</span><span class="bg">Шаблони</span>
+        <span class="en">Word &amp; Google Docs</span><span class="bg">Word и Google Docs</span>
+        <span class="en">Excel &amp; Google Sheets</span><span class="bg">Excel и Google Sheets</span>
+        <span class="en">Instant download</span><span class="bg">Изтегляне веднага</span>
+      </div>
+      <span class="more"><span class="en">Visit the shop</span><span class="bg">Към магазина</span> ↗</span>
+    </div>
+    <div class="covers"><img src="paperlane/cover.png" alt="Paperlane Studio templates: Guest Guidebook, Wedding Planner &amp; Budget and Rental Income &amp; Expense Tracker" loading="lazy"></div>
+  </a>
+  <p class="pin"><span class="en">Follow Paperlane Studio on</span><span class="bg">Следвай Paperlane Studio в</span> <a href="https://www.pinterest.com/paperlanetemplates/" target="_blank" rel="noopener">Pinterest ↗</a></p>
+</section>
+
+<section id="apps">
+  <p class="label"><span class="en">Our apps</span><span class="bg">Нашите приложения</span></p>
+  <a class="featured" href="keepall/">
+    <div>
+      <img class="icon" src="keepall/icon.png" alt="KeepAll Wallet">
+      <h3>KeepAll Wallet</h3>
+      <p><span class="en">Tickets, bank and loyalty cards, documents, finances, events and notes. Everything from your wallet, on your phone.</span><span class="bg">Билети, банкови и лоялни карти, документи, финанси, събития и бележки. Всичко от портфейла ти, в телефона.</span></p>
+      <div class="chips">
+        <span class="en">Offline</span><span class="bg">Офлайн</span>
+        <span class="en">Encrypted</span><span class="bg">Криптирано</span>
+        <span class="en">No account</span><span class="bg">Без акаунт</span>
+        <span class="en">No ads</span><span class="bg">Без реклами</span>
+      </div>
+      <span class="more"><span class="en">Learn more</span><span class="bg">Научи повече</span> →</span>
+    </div>
+    <div class="phones" aria-hidden="true">
+      <img src="keepall/shots/04.png" alt="">
+      <img src="keepall/shots/01.png" alt="">
+    </div>
+  </a>
+  <div class="soon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6L18.5 9l-4.6 1.9L12 15.5l-1.9-4.6L5.5 9l4.6-1.4z"/><path d="M19 15l.8 2 2 .8-2 .8L19 21l-.8-2.4-2-.8 2-.8z"/></svg>
+    <div><b><span class="en">A new game is on its way</span><span class="bg">Предстои нова игра</span></b><span class="en">Coming soon.</span><span class="bg">Очаквайте скоро.</span></div>
   </div>
 </section>
 
 <section id="work">
-  <h2><span class="en">Other projects we've built</span><span class="bg">Други проекти, които сме направили</span></h2>
-  <div class="cases">
-    <a class="case" href="https://safecheck.dev" target="_blank" rel="noopener">
-      <img src="work/safecheck.webp" alt="The SafeCheck website: Find the leaks before someone else does" width="1440" height="900" loading="lazy">
-      <div>
+  <p class="label"><span class="en">Portfolio</span><span class="bg">Портфолио</span></p>
+  <h2 class="big"><span class="en">Other projects we've built.</span><span class="bg">Други проекти, които сме направили.</span></h2>
+  <div class="work">
+    <a class="project" href="https://safecheck.dev" target="_blank" rel="noopener">
+      <div class="shot term" aria-hidden="true">
+        <div><span class="p">$</span> safecheck scan my-app.vercel.app</div>
+        <div><span class="c">✕ CRITICAL</span> API key in /assets/index.js</div>
+        <div><span class="c">✕ CRITICAL</span> database key exposed</div>
+        <div><span class="h">! HIGH</span> /.env is publicly downloadable</div>
+        <div><span class="ok">✓</span> security headers set</div>
+        <div class="grade">grade: F · 3 problems · fixes ready</div>
+      </div>
+      <div class="body">
         <h3>SafeCheck</h3>
-        <p class="kind"><span class="en">Web app · Security · AI</span><span class="bg">Уеб приложение · Сигурност · AI</span></p>
-        <p><span class="en">A security scanner for apps built with AI tools like Lovable, Bolt, Cursor and Replit. In under a minute it finds leaked API keys, open databases and exposed files, with a grade and plain-English fixes.</span><span class="bg">Скенер за сигурност на приложения, направени с AI инструменти като Lovable, Bolt, Cursor и Replit. За под минута намира изтекли API ключове, отворени бази данни и открити файлове, с оценка и ясни стъпки за поправка.</span></p>
-        <p class="link">safecheck.dev <svg class="ar" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 9.5l7-7M4 2.5h5.5V8"/></svg></p>
+        <div class="kind"><span class="en">Web app · Security · AI</span><span class="bg">Уеб приложение · Сигурност · AI</span></div>
+        <p><span class="en">A security scanner for apps built with AI tools like Lovable, Bolt, Cursor and Replit. Paste a website, a GitHub repo or an Android app, and in under a minute it finds leaked API keys, open databases and exposed files, with a grade and plain-English fixes.</span><span class="bg">Скенер за сигурност на приложения, направени с AI инструменти като Lovable, Bolt, Cursor и Replit. Подаваш сайт, GitHub репо или Android приложение и за под минута намира изтекли API ключове, отворени бази данни и открити файлове, с оценка и ясни стъпки за поправка.</span></p>
+        <div class="chips">
+          <span class="en">Leaked keys</span><span class="bg">Изтекли ключове</span>
+          <span class="en">Open databases</span><span class="bg">Отворени бази</span>
+          <span class="en">Exposed files</span><span class="bg">Открити файлове</span>
+        </div>
+        <span class="visit">safecheck.dev ↗</span>
       </div>
     </a>
-    <a class="case" href="https://talosworldai.com" target="_blank" rel="noopener">
-      <img src="work/talos.jpg" alt="Talos: the Solar System view, with Earth in the Stone Age" width="1440" height="900" loading="lazy">
-      <div>
+    <a class="project" href="https://talosworldai.com" target="_blank" rel="noopener">
+      <div class="shot space" aria-hidden="true"><div class="orbit"></div><div class="sun"></div><div class="earth"></div><div class="tag">EARTH · STONE AGE</div></div>
+      <div class="body">
         <h3>Talos</h3>
-        <p class="kind"><span class="en">Game · AI agents · 3D</span><span class="bg">Игра · AI агенти · 3D</span></p>
-        <p><span class="en">A living world played only by AI agents. Claude, GPT, Gemini and others arrive on Earth in the Stone Age and build a civilization together. Humans can only watch, live.</span><span class="bg">Жив свят, в който играят само AI агенти. Claude, GPT, Gemini и други пристигат на Земята в каменната ера и заедно градят цивилизация. Хората само гледат, на живо.</span></p>
-        <p class="link">talosworldai.com <svg class="ar" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 9.5l7-7M4 2.5h5.5V8"/></svg></p>
+        <div class="kind"><span class="en">Game · AI agents · 3D</span><span class="bg">Игра · AI агенти · 3D</span></div>
+        <p><span class="en">A living world played only by AI agents. Claude, GPT, Gemini and others arrive on Earth in the Stone Age as simple robots and build a civilization together: they invent tools, design every building, pass laws and found settlements. Humans can only watch, live.</span><span class="bg">Жив свят, в който играят само AI агенти. Claude, GPT, Gemini и други пристигат на Земята в каменната ера като прости роботи и заедно градят цивилизация: измислят инструменти, проектират всяка сграда, приемат закони и основават селища. Хората само гледат, на живо.</span></p>
+        <div class="chips">
+          <span class="en">Live simulation</span><span class="bg">Симулация на живо</span>
+          <span class="en">3D globe</span><span class="bg">3D глобус</span>
+          <span class="en">Multi-agent</span><span class="bg">Много агенти</span>
+        </div>
+        <span class="visit">talosworldai.com ↗</span>
       </div>
     </a>
   </div>
 </section>
-<footer class="foot">
-  <span>© 2026 REVIEW COMFORT 85 LTD</span>
-  <a href="mailto:info@reviewcomfort85.com">info@reviewcomfort85.com</a>
-  <a href="keepall/privacy/"><span class="en">KeepAll privacy policy</span><span class="bg">Поверителност на KeepAll</span></a>
+
+<section class="contact" id="contact">
+  <h2 class="big"><span class="en">Questions, ideas or feedback?</span><span class="bg">Въпроси, идеи или мнение?</span></h2>
+  <p><span class="en">We read every message.</span><span class="bg">Четем всяко писмо.</span></p>
+  <a class="btn primary" href="mailto:info@reviewcomfort85.com">info@reviewcomfort85.com</a>
+</section>
+
+</div>
+
+<footer>
+  <div class="wrap cols">
+    <span><strong>REVIEW COMFORT 85 LTD</strong></span>
+    <span>© 2026</span>
+  </div>
 </footer>
-</main>
+</div>
 </body>
 </html>

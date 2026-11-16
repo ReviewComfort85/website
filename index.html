@@ -142,6 +142,10 @@
   .wrap { max-width: 1400px; padding: 0 32px; }
   nav { padding: 20px 0; }
   .top .hero { padding: 3vh 0 26px; }
+  .top .hero h1 { font-size: clamp(2.1rem, 4.5vw, 4.1rem); max-width: none; letter-spacing: -.035em; }
+  @media (min-width: 900px) { .top .hero h1 { white-space: nowrap; } }
+  .brand { font-size: 1.12rem; gap: 12px; }
+  .mark { width: 40px; height: 40px; border-radius: 11px; font-size: .95rem; }
   .top section { padding: 0; }
   .top .label, .top h2.big { text-align: center; margin-left: auto; margin-right: auto; }
   .top h2.big { font-size: 1.35rem; margin-bottom: 16px; max-width: none; }
@@ -215,7 +219,7 @@
 <div class="top">
 <header class="hero">
   <div class="eyebrow rise"><i></i><span class="en">Independent software studio</span><span class="bg">Независимо софтуерно студио</span></div>
-  <h1 class="rise d1"><span class="en">We build software,<br><em>apps and games.</em></span><span class="bg">Правим софтуер,<br><em>приложения и игри.</em></span></h1>
+  <h1 class="rise d1"><span class="en">We build software, <em>apps and games.</em></span><span class="bg">Правим софтуер, <em>приложения и игри.</em></span></h1>
   <p class="rise d2"><span class="en">Plus websites and AI solutions. Simple, private and made with care, with your data staying yours.</span><span class="bg">Също уебсайтове и AI решения. Прости, лични и направени с грижа, а данните ти си остават твои.</span></p>
   <div class="cta rise d3">
     <a class="btn primary" href="#apps"><span class="en">See our apps</span><span class="bg">Нашите приложения</span> →</a>

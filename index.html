@@ -94,6 +94,8 @@
   .featured.bugcompass { background: radial-gradient(circle at 85% 30%, rgba(43,179,163,.28), transparent 55%), #0b1312; }
   .featured.bugcompass .icon { box-shadow: 0 10px 30px rgba(43,179,163,.25); }
   .featured.bugcompass .more { color: #6fd6c8; }
+  .card-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; }
+  .featured.bugcompass:hover { border-color: var(--line); }
   .stores { display: inline-block; margin: -12px 0 22px; font-size: .82rem; color: #f2c14e; letter-spacing: .02em; }
   .report { background: #07090a; border: 1px solid var(--line); border-radius: 18px; padding: 18px 20px; font: 12.5px/1.65 ui-monospace, "Cascadia Code", Consolas, monospace; color: #b8b8c6; box-shadow: 0 20px 40px rgba(0,0,0,.45); overflow: hidden; }
   .report .h { color: #fff; font-weight: 600; } .report .k { color: #6fd6c8; } .report .a { color: #f2c14e; } .report .e { color: #ff6b6b; }
@@ -245,19 +247,22 @@
 
 <section id="extensions">
   <p class="label"><span class="en">Our extensions</span><span class="bg">Нашите разширения</span></p>
-  <a class="featured bugcompass" href="bugcompass/">
+  <div class="featured bugcompass">
     <div>
       <img class="icon" src="bugcompass/icon.png" alt="BugCompass">
       <h3>BugCompass</h3>
       <p><span class="en">A local-first bug reporter for QA. One click gives you a screenshot, console logs, the steps, a video and a ready Markdown report for Jira, GitHub or Linear. No account.</span><span class="bg">Локален бъг репортер за QA. С едно щракване имаш снимка, логове от конзолата, стъпките, видео и готов Markdown репорт за Jira, GitHub или Linear. Без акаунт.</span></p>
-      <span class="stores"><span class="en">Chrome · Firefox · Opera — coming soon</span><span class="bg">Chrome · Firefox · Opera — очаквайте скоро</span></span>
+      <span class="stores"><span class="en">Chrome, Brave, Vivaldi, Opera · Firefox coming soon</span><span class="bg">Chrome, Brave, Vivaldi, Opera · Firefox скоро</span></span>
       <div class="chips">
         <span class="en">Browser extension</span><span class="bg">Разширение за браузър</span>
         <span class="en">Local</span><span class="bg">Локално</span>
         <span class="en">No account</span><span class="bg">Без акаунт</span>
         <span class="en">No cloud</span><span class="bg">Без облак</span>
       </div>
-      <span class="more"><span class="en">Learn more</span><span class="bg">Научи повече</span> →</span>
+      <div class="card-actions">
+        <a class="btn primary" href="https://chromewebstore.google.com/detail/bugcompass/fhjanmhlamdpbmdhnngjgnblphlccfag" target="_blank" rel="noopener"><span class="en">Add to Chrome</span><span class="bg">Добави в Chrome</span></a>
+        <a class="more" href="bugcompass/"><span class="en">Learn more</span><span class="bg">Научи повече</span> →</a>
+      </div>
     </div>
     <div class="report" aria-hidden="true">
       <div class="h">## Pay button returns 500</div>
@@ -271,7 +276,7 @@
       <div class="h">### Attachments</div>
       <div><span class="a">screenshot.png · video.mp4</span></div>
     </div>
-  </a>
+  </div>
 </section>
 
 <section id="work">

@@ -60,9 +60,10 @@
   .beat p { margin: 0; color: #b9acd3; }
 
   .sec { font-size: clamp(1.8rem, 4vw, 2.8rem); color: #fff; margin: 0 0 22px; text-transform: none; letter-spacing: .01em; }
-  .roster { display: flex; gap: 10px; overflow-x: auto; padding: 6px 2px 18px; margin-bottom: 64px; scrollbar-width: thin; }
-  .roster figure { margin: 0; flex: none; width: 128px; text-align: center; }
-  .roster img { width: 128px; height: 128px; object-fit: contain; background: radial-gradient(circle at 50% 70%, rgba(112,200,76,.35), transparent 62%); border-radius: 24px; transition: transform .2s; }
+  /* All fighters at once: a wrapping grid, no horizontal scroll. */
+  .roster { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 12px 10px; padding: 6px 2px 0; margin-bottom: 64px; }
+  .roster figure { margin: 0; min-width: 0; text-align: center; }
+  .roster img { display: block; width: 100%; max-width: 128px; aspect-ratio: 1; height: auto; margin: 0 auto; object-fit: contain; background: radial-gradient(circle at 50% 70%, rgba(112,200,76,.35), transparent 62%); border-radius: 24px; transition: transform .2s; }
   .roster figure:hover img { transform: translateY(-6px) rotate(-3deg); }
   .roster figcaption { color: #cbbfe2; font-size: .9rem; margin-top: 4px; }
 
@@ -90,6 +91,11 @@
     .beat, .beat + .beat { padding: 20px 0; border-left: 0; border-bottom: 2px solid rgba(255,255,255,.08); }
     .parents { grid-template-columns: 1fr; padding: 26px 22px; }
   }
+  @media (max-width: 560px) {
+    .roster { grid-template-columns: repeat(4, 1fr); gap: 10px 6px; }
+    .roster img { border-radius: 18px; }
+    .roster figcaption { font-size: .8rem; }
+  }
   @media (prefers-reduced-motion: reduce) { .r3, .hero-skin { animation: none; } }
 </style>
 </head>
@@ -110,7 +116,46 @@
     <span class="play"><span>Android<small><span class="en">Coming soon to Google Play</span><span class="bg">Скоро в Google Play</span></small></span></span>
   </div>
   <div class="arena" aria-hidden="true">
-    <svg id="hexes" viewBox="-220 -200 440 400"></svg>
+    <!-- Static tiles: the site CSP (script-src 'self') blocks inline scripts, so the arena must not depend on JS. CSS animates the outer ring. -->
+    <svg id="hexes" viewBox="-220 -200 440 400">
+      <polygon class="t r3" style="--d:0s" points="-149.3,-15.8 -149.3,15.8 -176.7,31.6 -204.1,15.8 -204.1,-15.8 -176.7,-31.6"/>
+      <polygon class="t r3" style="--d:1.8s" points="-119.8,35.2 -119.8,66.8 -147.2,82.6 -174.6,66.8 -174.6,35.2 -147.2,19.4"/>
+      <polygon class="t r3" style="--d:3s" points="-90.4,86.2 -90.4,117.8 -117.8,133.6 -145.2,117.8 -145.2,86.2 -117.8,70.4"/>
+      <polygon class="t r3" style="--d:0.6s" points="-61.0,137.2 -61.0,168.8 -88.3,184.6 -115.7,168.8 -115.7,137.2 -88.3,121.4"/>
+      <polygon class="t r3" style="--d:2.4s" points="-119.8,-66.8 -119.8,-35.2 -147.2,-19.4 -174.6,-35.2 -174.6,-66.8 -147.2,-82.6"/>
+      <polygon class="t r2" points="-90.4,-15.8 -90.4,15.8 -117.8,31.6 -145.2,15.8 -145.2,-15.8 -117.8,-31.6"/>
+      <polygon class="t r2" points="-61.0,35.2 -61.0,66.8 -88.3,82.6 -115.7,66.8 -115.7,35.2 -88.3,19.4"/>
+      <polygon class="t r2" points="-31.5,86.2 -31.5,117.8 -58.9,133.6 -86.3,117.8 -86.3,86.2 -58.9,70.4"/>
+      <polygon class="t r3" style="--d:1.2s" points="-2.1,137.2 -2.1,168.8 -29.4,184.6 -56.8,168.8 -56.8,137.2 -29.4,121.4"/>
+      <polygon class="t r3" style="--d:0s" points="-90.4,-117.8 -90.4,-86.2 -117.8,-70.4 -145.2,-86.2 -145.2,-117.8 -117.8,-133.6"/>
+      <polygon class="t r2" points="-61.0,-66.8 -61.0,-35.2 -88.3,-19.4 -115.7,-35.2 -115.7,-66.8 -88.3,-82.6"/>
+      <polygon class="t r1" points="-31.5,-15.8 -31.5,15.8 -58.9,31.6 -86.3,15.8 -86.3,-15.8 -58.9,-31.6"/>
+      <polygon class="t r1" points="-2.1,35.2 -2.1,66.8 -29.4,82.6 -56.8,66.8 -56.8,35.2 -29.4,19.4"/>
+      <polygon class="t r2" points="27.4,86.2 27.4,117.8 0.0,133.6 -27.4,117.8 -27.4,86.2 -0.0,70.4"/>
+      <polygon class="t r3" style="--d:1.8s" points="56.8,137.2 56.8,168.8 29.4,184.6 2.1,168.8 2.1,137.2 29.4,121.4"/>
+      <polygon class="t r3" style="--d:3s" points="-61.0,-168.8 -61.0,-137.2 -88.3,-121.4 -115.7,-137.2 -115.7,-168.8 -88.3,-184.6"/>
+      <polygon class="t r2" points="-31.5,-117.8 -31.5,-86.2 -58.9,-70.4 -86.3,-86.2 -86.3,-117.8 -58.9,-133.6"/>
+      <polygon class="t r1" points="-2.1,-66.8 -2.1,-35.2 -29.4,-19.4 -56.8,-35.2 -56.8,-66.8 -29.4,-82.6"/>
+      <polygon class="t r0" points="27.4,-15.8 27.4,15.8 0.0,31.6 -27.4,15.8 -27.4,-15.8 -0.0,-31.6"/>
+      <polygon class="t r1" points="56.8,35.2 56.8,66.8 29.4,82.6 2.1,66.8 2.1,35.2 29.4,19.4"/>
+      <polygon class="t r2" points="86.3,86.2 86.3,117.8 58.9,133.6 31.5,117.8 31.5,86.2 58.9,70.4"/>
+      <polygon class="t r3" style="--d:0.6s" points="115.7,137.2 115.7,168.8 88.3,184.6 61.0,168.8 61.0,137.2 88.3,121.4"/>
+      <polygon class="t r3" style="--d:2.4s" points="-2.1,-168.8 -2.1,-137.2 -29.4,-121.4 -56.8,-137.2 -56.8,-168.8 -29.4,-184.6"/>
+      <polygon class="t r2" points="27.4,-117.8 27.4,-86.2 0.0,-70.4 -27.4,-86.2 -27.4,-117.8 -0.0,-133.6"/>
+      <polygon class="t r1" points="56.8,-66.8 56.8,-35.2 29.4,-19.4 2.1,-35.2 2.1,-66.8 29.4,-82.6"/>
+      <polygon class="t r1" points="86.3,-15.8 86.3,15.8 58.9,31.6 31.5,15.8 31.5,-15.8 58.9,-31.6"/>
+      <polygon class="t r2" points="115.7,35.2 115.7,66.8 88.3,82.6 61.0,66.8 61.0,35.2 88.3,19.4"/>
+      <polygon class="t r3" style="--d:1.2s" points="145.2,86.2 145.2,117.8 117.8,133.6 90.4,117.8 90.4,86.2 117.8,70.4"/>
+      <polygon class="t r3" style="--d:0s" points="56.8,-168.8 56.8,-137.2 29.4,-121.4 2.1,-137.2 2.1,-168.8 29.4,-184.6"/>
+      <polygon class="t r2" points="86.3,-117.8 86.3,-86.2 58.9,-70.4 31.5,-86.2 31.5,-117.8 58.9,-133.6"/>
+      <polygon class="t r2" points="115.7,-66.8 115.7,-35.2 88.3,-19.4 61.0,-35.2 61.0,-66.8 88.3,-82.6"/>
+      <polygon class="t r2" points="145.2,-15.8 145.2,15.8 117.8,31.6 90.4,15.8 90.4,-15.8 117.8,-31.6"/>
+      <polygon class="t r3" style="--d:1.8s" points="174.6,35.2 174.6,66.8 147.2,82.6 119.8,66.8 119.8,35.2 147.2,19.4"/>
+      <polygon class="t r3" style="--d:3s" points="115.7,-168.8 115.7,-137.2 88.3,-121.4 61.0,-137.2 61.0,-168.8 88.3,-184.6"/>
+      <polygon class="t r3" style="--d:0.6s" points="145.2,-117.8 145.2,-86.2 117.8,-70.4 90.4,-86.2 90.4,-117.8 117.8,-133.6"/>
+      <polygon class="t r3" style="--d:2.4s" points="174.6,-66.8 174.6,-35.2 147.2,-19.4 119.8,-35.2 119.8,-66.8 147.2,-82.6"/>
+      <polygon class="t r3" style="--d:1.2s" points="204.1,-15.8 204.1,15.8 176.7,31.6 149.3,15.8 149.3,-15.8 176.7,-31.6"/>
+    </svg>
     <img class="hero-skin" src="skins/ninja.png" alt="" style="left:36.6%;top:24.5%">
     <img class="hero-skin" src="skins/viking.png" alt="" style="left:63.4%;top:24.5%">
     <img class="hero-skin" src="skins/dino.png" alt="" style="left:29.9%;top:37.2%">
@@ -193,25 +238,6 @@
   </div>
 </footer>
 
-<script>
-// Draws the arena: 37 pointy-top hexagons in 4 rings; the outer ring crumbles at staggered times.
-(function () {
-  var svg = document.getElementById('hexes'), s = 34, w = Math.sqrt(3) * s, R = 3, html = '', i = 0;
-  var delays = [0, 1.2, 2.4, 0.6, 3.0, 1.8];
-  for (var q = -R; q <= R; q++) {
-    for (var r = Math.max(-R, -q - R); r <= Math.min(R, -q + R); r++) {
-      var x = w * (q + r / 2), y = 1.5 * s * r, ring = Math.max(Math.abs(q), Math.abs(r), Math.abs(q + r)), p = [];
-      for (var k = 0; k < 6; k++) {
-        var a = Math.PI / 180 * (60 * k - 30);
-        p.push((x + .93 * s * Math.cos(a)).toFixed(1) + ',' + (y + .93 * s * Math.sin(a)).toFixed(1));
-      }
-      var style = ring === 3 ? ' style="--d:' + delays[(i++ * 5) % 6] + 's"' : '';
-      html += '<polygon class="t r' + ring + '"' + style + ' points="' + p.join(' ') + '"/>';
-    }
-  }
-  svg.innerHTML = html;
-})();
-</script>
 <!--/email_off-->
 </body>
 </html>

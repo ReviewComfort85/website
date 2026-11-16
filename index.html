@@ -137,6 +137,60 @@
   .d1 { animation-delay: .08s; } .d2 { animation-delay: .18s; } .d3 { animation-delay: .3s; } .d4 { animation-delay: .42s; }
   @keyframes rise { to { opacity: 1; transform: none; } }
   @media (prefers-reduced-motion: reduce) { .glow, .rise { animation: none; opacity: 1; transform: none; } }
+
+  /* Wide layout: two columns all the way down. */
+  .wrap { max-width: 1400px; padding: 0 32px; }
+  nav { padding: 20px 0; }
+  .top .hero { padding: 3vh 0 26px; }
+  .top section { padding: 0; }
+  .top .label, .top h2.big { text-align: center; margin-left: auto; margin-right: auto; }
+  .top h2.big { font-size: 1.35rem; margin-bottom: 16px; max-width: none; }
+  .top .pillars { grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .top .pillar, .top .pillar:nth-child(n+4) { grid-column: auto; padding: 16px 18px 17px; border-radius: 16px; }
+  .top .pillar svg { width: 20px; height: 20px; margin-bottom: 6px; }
+  .top .pillar h3 { font-size: 1rem; }
+  .top .pillar p { font-size: .88rem; line-height: 1.45; }
+  .products { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 16px; padding-top: 30px; }
+  .products section { padding: 0; display: flex; flex-direction: column; scroll-margin-top: 16px; }
+  .products .label { position: relative; text-align: center; margin-bottom: 10px; }
+  .products .label a { position: absolute; right: 4px; top: -2px; color: #a5cdb4; letter-spacing: .04em; text-transform: none; font-size: .88rem; }
+  .products .featured { flex: 1; grid-template-columns: 1.1fr .9fr; gap: 20px; padding: 28px; border-radius: 24px; }
+  .products .featured .icon { width: 54px; height: 54px; border-radius: 14px; margin-bottom: 14px; }
+  .products .featured h3 { font-size: 1.6rem; margin-bottom: 8px; }
+  .products .featured p { font-size: .96rem; line-height: 1.5; margin-bottom: 16px; }
+  .products .chips { margin-bottom: 18px; gap: 6px; }
+  .products .chips span { font-size: .78rem; padding: 3px 10px; }
+  .products .phones { height: 300px; }
+  .products .phones img { height: 285px; border-radius: 18px; }
+  .products .phones img:first-child { right: 38%; top: 14px; }
+  .products .phones img:last-child { right: 0; }
+  .products .report { font-size: 11.5px; padding: 14px 16px; }
+  .featured.safecheck { background: radial-gradient(circle at 85% 30%, rgba(255,90,90,.2), transparent 55%), #130c0e; }
+  .featured.safecheck .more { color: #ff9c9c; }
+  .icon.sc { display: grid; place-items: center; background: linear-gradient(135deg, #2bd9a3, #1fb6d6); color: #06231c; box-shadow: 0 10px 30px rgba(43,217,163,.22); }
+  .icon.sc svg { width: 30px; height: 30px; }
+  .featured.safecheck .term { border: 1px solid var(--line); border-radius: 18px; font-size: 11.5px; padding: 16px 18px; box-shadow: 0 20px 40px rgba(0,0,0,.45); overflow: hidden; }
+  .soon { margin-top: 16px; }
+  .duo { padding-top: 34px; }
+  .duo section { padding: 0; }
+  .duo #work .label, .duo #work h2.big { text-align: center; margin-left: auto; margin-right: auto; }
+  .duo #work h2.big { font-size: 1.6rem; margin-bottom: 14px; max-width: none; }
+  .duo .work { grid-template-columns: 1fr; }
+  .duo .project { flex-direction: row; }
+  .duo .project .shot { width: 34%; height: auto; min-height: 190px; border-bottom: 0; border-right: 1px solid var(--line); flex: none; }
+  .duo .project p { max-width: 760px; }
+  .duo .contact { padding: 44px 0 52px; }
+  @media (max-width: 1020px) {
+    .products { grid-template-columns: 1fr; }
+    .top .pillars { grid-template-columns: 1fr 1fr; }
+    .top .pillar:last-child { grid-column: span 2; }
+    .wrap { padding: 0 20px; }
+  }
+  @media (max-width: 560px) {
+    .products .featured { grid-template-columns: 1fr; padding: 24px 20px; }
+    .duo .project { flex-direction: column; }
+    .duo .project .shot { width: 100%; min-height: 150px; border-right: 0; border-bottom: 1px solid var(--line); }
+  }
 </style>
 </head>
 <body>
@@ -148,6 +202,7 @@
 <nav>
   <a class="brand" href="./"><span class="mark">RC</span>REVIEW COMFORT 85</a>
   <div class="navlinks">
+    <a href="#webapps"><span class="en">Web apps</span><span class="bg">Уеб приложения</span></a>
     <a href="#templates"><span class="en">Templates</span><span class="bg">Шаблони</span></a>
     <a href="#apps"><span class="en">Apps</span><span class="bg">Приложения</span></a>
     <a href="#extensions"><span class="en">Extensions</span><span class="bg">Разширения</span></a>
@@ -157,6 +212,7 @@
   </div>
 </nav>
 
+<div class="top">
 <header class="hero">
   <div class="eyebrow rise"><i></i><span class="en">Independent software studio</span><span class="bg">Независимо софтуерно студио</span></div>
   <h1 class="rise d1"><span class="en">We build software,<br><em>apps and games.</em></span><span class="bg">Правим софтуер,<br><em>приложения и игри.</em></span></h1>
@@ -166,7 +222,6 @@
     <a class="btn ghost" href="#contact"><span class="en">Get in touch</span><span class="bg">Пиши ни</span></a>
   </div>
 </header>
-
 <section>
   <p class="label"><span class="en">What we do</span><span class="bg">С какво се занимаваме</span></p>
   <h2 class="big"><span class="en">From an idea to something people use every day.</span><span class="bg">От идеята до нещо, което хората ползват всеки ден.</span></h2>
@@ -198,27 +253,33 @@
     </div>
   </div>
 </section>
+</div>
 
-<section id="templates">
-  <p class="label"><span class="en">Our templates</span><span class="bg">Нашите шаблони</span></p>
-  <a class="featured paperlane" href="https://paperlanetemplates.gumroad.com/" target="_blank" rel="noopener">
+<div class="products">
+<section id="webapps">
+  <p class="label"><span class="en">Our web apps</span><span class="bg">Нашите уеб приложения</span></p>
+  <a class="featured safecheck" href="https://safecheck.dev" target="_blank" rel="noopener">
     <div>
-      <img class="icon" src="paperlane/icon.png" alt="Paperlane Studio">
-      <h3>Paperlane Studio</h3>
-      <p><span class="en">Editable templates for vacation-rental hosts and wedding planning: a guest guidebook, an income &amp; expense tracker and a wedding planner with budget. Sold on Gumroad.</span><span class="bg">Шаблони за редактиране за домакини на краткосрочни наеми и за планиране на сватба: наръчник за гости, тракер за приходи и разходи и сватбен планер с бюджет. Продават се в Gumroad.</span></p>
+      <span class="icon sc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.700-7-5.500-7-10V6z"/><path d="M9 12l2.200 2.200L15.200 10"/></svg></span>
+      <h3>SafeCheck</h3>
+      <p><span class="en">A security scanner for apps built with AI tools like Lovable, Bolt, Cursor and Replit. Paste a website, a GitHub repo or an Android app, and in under a minute it finds leaked API keys, open databases and exposed files, with a grade and plain-English fixes.</span><span class="bg">Скенер за сигурност на приложения, направени с AI инструменти като Lovable, Bolt, Cursor и Replit. Подаваш сайт, GitHub репо или Android приложение и за под минута намира изтекли API ключове, отворени бази данни и открити файлове, с оценка и ясни стъпки за поправка.</span></p>
       <div class="chips">
-        <span class="en">Templates</span><span class="bg">Шаблони</span>
-        <span class="en">Word &amp; Google Docs</span><span class="bg">Word и Google Docs</span>
-        <span class="en">Excel &amp; Google Sheets</span><span class="bg">Excel и Google Sheets</span>
-        <span class="en">Instant download</span><span class="bg">Изтегляне веднага</span>
-      </div>
-      <span class="more"><span class="en">Visit the shop</span><span class="bg">Към магазина</span> ↗</span>
+          <span class="en">Leaked keys</span><span class="bg">Изтекли ключове</span>
+          <span class="en">Open databases</span><span class="bg">Отворени бази</span>
+          <span class="en">Exposed files</span><span class="bg">Открити файлове</span>
+        </div>
+      <span class="more">safecheck.dev ↗</span>
     </div>
-    <div class="covers"><img src="paperlane/cover.png" alt="Paperlane Studio templates: Guest Guidebook, Wedding Planner &amp; Budget and Rental Income &amp; Expense Tracker" loading="lazy"></div>
+    <div class="term" aria-hidden="true">
+        <div><span class="p">$</span> safecheck scan my-app.vercel.app</div>
+        <div><span class="c">✕ CRITICAL</span> API key in /assets/index.js</div>
+        <div><span class="c">✕ CRITICAL</span> database key exposed</div>
+        <div><span class="h">! HIGH</span> /.env is publicly downloadable</div>
+        <div><span class="ok">✓</span> security headers set</div>
+        <div class="grade">grade: F · 3 problems · fixes ready</div>
+    </div>
   </a>
-  <p class="pin"><span class="en">Follow Paperlane Studio on</span><span class="bg">Следвай Paperlane Studio в</span> <a href="https://www.pinterest.com/paperlanetemplates/" target="_blank" rel="noopener">Pinterest ↗</a></p>
 </section>
-
 <section id="apps">
   <p class="label"><span class="en">Our apps</span><span class="bg">Нашите приложения</span></p>
   <a class="featured" href="keepall/">
@@ -239,12 +300,7 @@
       <img src="keepall/shots/01.png" alt="">
     </div>
   </a>
-  <div class="soon">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6L18.5 9l-4.6 1.9L12 15.5l-1.9-4.6L5.5 9l4.6-1.4z"/><path d="M19 15l.8 2 2 .8-2 .8L19 21l-.8-2.4-2-.8 2-.8z"/></svg>
-    <div><b><span class="en">A new game is on its way</span><span class="bg">Предстои нова игра</span></b><span class="en">Coming soon.</span><span class="bg">Очаквайте скоро.</span></div>
-  </div>
 </section>
-
 <section id="extensions">
   <p class="label"><span class="en">Our extensions</span><span class="bg">Нашите разширения</span></p>
   <div class="featured bugcompass">
@@ -278,32 +334,35 @@
     </div>
   </div>
 </section>
+<section id="templates">
+  <p class="label"><span><span class="en">Our templates</span><span class="bg">Нашите шаблони</span></span><a href="https://www.pinterest.com/paperlanetemplates/" target="_blank" rel="noopener">Pinterest ↗</a></p>
+  <a class="featured paperlane" href="https://paperlanetemplates.gumroad.com/" target="_blank" rel="noopener">
+    <div>
+      <img class="icon" src="paperlane/icon.png" alt="Paperlane Studio">
+      <h3>Paperlane Studio</h3>
+      <p><span class="en">Editable templates for vacation-rental hosts and wedding planning: a guest guidebook, an income &amp; expense tracker and a wedding planner with budget. Sold on Gumroad.</span><span class="bg">Шаблони за редактиране за домакини на краткосрочни наеми и за планиране на сватба: наръчник за гости, тракер за приходи и разходи и сватбен планер с бюджет. Продават се в Gumroad.</span></p>
+      <div class="chips">
+        <span class="en">Templates</span><span class="bg">Шаблони</span>
+        <span class="en">Word &amp; Google Docs</span><span class="bg">Word и Google Docs</span>
+        <span class="en">Excel &amp; Google Sheets</span><span class="bg">Excel и Google Sheets</span>
+        <span class="en">Instant download</span><span class="bg">Изтегляне веднага</span>
+      </div>
+      <span class="more"><span class="en">Visit the shop</span><span class="bg">Към магазина</span> ↗</span>
+    </div>
+    <div class="covers"><img src="paperlane/cover.png" alt="Paperlane Studio templates: Guest Guidebook, Wedding Planner &amp; Budget and Rental Income &amp; Expense Tracker" loading="lazy"></div>
+  </a>
+</section>
+</div>
+  <div class="soon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6L18.5 9l-4.6 1.9L12 15.5l-1.9-4.6L5.5 9l4.6-1.4z"/><path d="M19 15l.8 2 2 .8-2 .8L19 21l-.8-2.4-2-.8 2-.8z"/></svg>
+    <div><b><span class="en">A new game is on its way</span><span class="bg">Предстои нова игра</span></b><span class="en">Coming soon.</span><span class="bg">Очаквайте скоро.</span></div>
+  </div>
 
+<div class="duo">
 <section id="work">
   <p class="label"><span class="en">Portfolio</span><span class="bg">Портфолио</span></p>
   <h2 class="big"><span class="en">Other projects we've built.</span><span class="bg">Други проекти, които сме направили.</span></h2>
   <div class="work">
-    <a class="project" href="https://safecheck.dev" target="_blank" rel="noopener">
-      <div class="shot term" aria-hidden="true">
-        <div><span class="p">$</span> safecheck scan my-app.vercel.app</div>
-        <div><span class="c">✕ CRITICAL</span> API key in /assets/index.js</div>
-        <div><span class="c">✕ CRITICAL</span> database key exposed</div>
-        <div><span class="h">! HIGH</span> /.env is publicly downloadable</div>
-        <div><span class="ok">✓</span> security headers set</div>
-        <div class="grade">grade: F · 3 problems · fixes ready</div>
-      </div>
-      <div class="body">
-        <h3>SafeCheck</h3>
-        <div class="kind"><span class="en">Web app · Security · AI</span><span class="bg">Уеб приложение · Сигурност · AI</span></div>
-        <p><span class="en">A security scanner for apps built with AI tools like Lovable, Bolt, Cursor and Replit. Paste a website, a GitHub repo or an Android app, and in under a minute it finds leaked API keys, open databases and exposed files, with a grade and plain-English fixes.</span><span class="bg">Скенер за сигурност на приложения, направени с AI инструменти като Lovable, Bolt, Cursor и Replit. Подаваш сайт, GitHub репо или Android приложение и за под минута намира изтекли API ключове, отворени бази данни и открити файлове, с оценка и ясни стъпки за поправка.</span></p>
-        <div class="chips">
-          <span class="en">Leaked keys</span><span class="bg">Изтекли ключове</span>
-          <span class="en">Open databases</span><span class="bg">Отворени бази</span>
-          <span class="en">Exposed files</span><span class="bg">Открити файлове</span>
-        </div>
-        <span class="visit">safecheck.dev ↗</span>
-      </div>
-    </a>
     <a class="project" href="https://talosworldai.com" target="_blank" rel="noopener">
       <div class="shot space" aria-hidden="true"><div class="orbit"></div><div class="sun"></div><div class="earth"></div><div class="tag">EARTH · STONE AGE</div></div>
       <div class="body">
@@ -320,12 +379,19 @@
     </a>
   </div>
 </section>
-
 <section class="contact" id="contact">
   <h2 class="big"><span class="en">Questions, ideas or feedback?</span><span class="bg">Въпроси, идеи или мнение?</span></h2>
   <p><span class="en">We read every message.</span><span class="bg">Четем всяко писмо.</span></p>
   <a class="btn primary" href="mailto:info@reviewcomfort85.com">info@reviewcomfort85.com</a>
 </section>
+</div>
+
+
+
+
+
+
+
 
 </div>
 

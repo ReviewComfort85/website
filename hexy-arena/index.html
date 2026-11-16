@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hexy Arena — REVIEW COMFORT 85</title>
+<meta name="description" content="Hexy Arena: quick 6-player online sumo matches on a hexagon arena that crumbles under your feet. Cosmetic-only purchases, parent check, no chat, no ads.">
+<meta name="theme-color" content="#140726">
+<link rel="icon" href="icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lilita+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../site.css">
+<script src="../lang.js"></script>
+<style>
+  :root { --plum: #140726; --plum2: #301257; --lime: #70c84c; --sun: #ffd54f; --ember: #ff5a3d; }
+  html, body { background: var(--plum); }
+  body { font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; overflow-x: hidden; }
+  .display { font-family: "Lilita One", Inter, sans-serif; font-weight: 400; letter-spacing: .01em; }
+  .wrap { max-width: 1180px; }
+  nav .brand { color: #d9cdf0; }
+
+  .stage { display: grid; grid-template-columns: 1fr 1.05fr; gap: 24px; align-items: center; padding: 4vh 0 7vh; }
+  .title { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; }
+  .title img { width: 72px; height: 72px; border-radius: 18px; box-shadow: 0 0 0 3px rgba(255,213,79,.25), 0 14px 30px rgba(0,0,0,.4); }
+  .title span { font-size: 1rem; color: var(--sun); letter-spacing: .12em; text-transform: uppercase; font-weight: 600; }
+  h1.display { font-size: clamp(3rem, 8vw, 6.2rem); line-height: .92; margin: 0 0 22px; color: #fff; text-shadow: 0 5px 0 var(--plum2), 0 10px 30px rgba(0,0,0,.35); }
+  h1 .hl { color: var(--sun); }
+  .lede { font-size: clamp(1.08rem, 2vw, 1.3rem); color: #cbbfe2; max-width: 520px; margin: 0 0 26px; }
+  .play { display: inline-flex; align-items: center; gap: 10px; border-radius: 14px; padding: 12px 20px; font-weight: 600; color: #fff; border: 2px dashed rgba(255,255,255,.35); }
+  .play small { display: block; font-size: .78rem; font-weight: 500; color: #cbbfe2; }
+
+  /* The arena: real hexagons; the outer ring glows red and drops, like in a match. */
+  .arena { position: relative; aspect-ratio: 440 / 400; width: 100%; max-width: 560px; justify-self: center; }
+  .arena svg { width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 26px 30px rgba(0,0,0,.45)); }
+  .t { stroke: #2a0f4a; stroke-width: 3; }
+  .r0 { fill: var(--lime); } .r1 { fill: #5fb543; } .r2 { fill: #4d9c38; }
+  .r3 { fill: #3f8a30; animation: crumble 6s ease-in infinite; animation-delay: var(--d); transform-box: fill-box; transform-origin: center; }
+  @keyframes crumble {
+    0%, 40% { fill: #3f8a30; transform: none; opacity: 1; }
+    55% { fill: var(--ember); transform: none; }
+    62% { fill: var(--ember); transform: translate(1px, 0); }
+    66% { transform: translate(-1px, 0); }
+    80% { fill: #7a1d10; transform: translateY(70px) scale(.6); opacity: 0; }
+    96% { transform: translateY(-14px); opacity: 0; }
+    100% { fill: #3f8a30; transform: none; opacity: 1; }
+  }
+  .hero-skin { position: absolute; width: 19%; transform: translate(-50%, -78%); filter: drop-shadow(0 8px 6px rgba(0,0,0,.35)); animation: bob 2.6s ease-in-out infinite; }
+  .hero-skin:nth-of-type(2) { animation-delay: -.4s; } .hero-skin:nth-of-type(3) { animation-delay: -1.1s; }
+  .hero-skin:nth-of-type(4) { animation-delay: -1.7s; } .hero-skin:nth-of-type(5) { animation-delay: -.8s; } .hero-skin:nth-of-type(6) { animation-delay: -2.1s; }
+  @keyframes bob { 50% { transform: translate(-50%, -84%); } }
+  .pow { position: absolute; left: 47%; top: 31%; transform: rotate(-8deg); color: var(--sun); font-size: clamp(1.1rem, 2.6vw, 1.7rem); text-shadow: 0 3px 0 #7a3e00; pointer-events: none; }
+
+  /* How a match goes: three beats, numbered like rounds. */
+  .beats { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 2px solid rgba(255,255,255,.08); margin-bottom: 72px; }
+  .beat { padding: 26px 26px 6px 0; }
+  .beat + .beat { padding-left: 26px; border-left: 2px solid rgba(255,255,255,.08); }
+  .beat .n { font-size: 2.6rem; color: var(--sun); line-height: 1; }
+  .beat h3 { margin: 10px 0 6px; font-size: 1.5rem; color: #fff; }
+  .beat p { margin: 0; color: #b9acd3; }
+
+  .sec { font-size: clamp(1.8rem, 4vw, 2.8rem); color: #fff; margin: 0 0 22px; text-transform: none; letter-spacing: .01em; }
+  .roster { display: flex; gap: 10px; overflow-x: auto; padding: 6px 2px 18px; margin-bottom: 64px; scrollbar-width: thin; }
+  .roster figure { margin: 0; flex: none; width: 128px; text-align: center; }
+  .roster img { width: 128px; height: 128px; object-fit: contain; background: radial-gradient(circle at 50% 70%, rgba(112,200,76,.35), transparent 62%); border-radius: 24px; transition: transform .2s; }
+  .roster figure:hover img { transform: translateY(-6px) rotate(-3deg); }
+  .roster figcaption { color: #cbbfe2; font-size: .9rem; margin-top: 4px; }
+
+  .fair { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 64px; }
+  .fair div { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 18px; padding: 18px 20px; }
+  .fair b { display: block; color: #fff; margin-bottom: 4px; }
+  .fair span { color: #b9acd3; font-size: .95rem; }
+  .fair svg { width: 22px; height: 22px; color: var(--lime); margin-bottom: 8px; }
+
+  .parents { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; background: var(--plum2); border-radius: 28px; padding: 34px; margin-bottom: 72px; }
+  .parents h2 { margin: 0 0 10px; color: #fff; text-transform: none; letter-spacing: 0; font-size: 1.9rem; }
+  .parents p { color: #d4c8ea; margin: 0 0 14px; }
+  .parents ul { margin: 0; padding: 0; list-style: none; }
+  .parents li { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.1); }
+  .parents li:last-child { border: 0; }
+  .parents li a { color: var(--sun); font-weight: 600; }
+
+  footer { border-color: rgba(255,255,255,.1); }
+  footer .cols { justify-content: space-between; }
+
+  @media (max-width: 860px) {
+    .stage { grid-template-columns: 1fr; }
+    .arena { order: -1; max-width: 420px; }
+    .beats { grid-template-columns: 1fr; }
+    .beat, .beat + .beat { padding: 20px 0; border-left: 0; border-bottom: 2px solid rgba(255,255,255,.08); }
+    .parents { grid-template-columns: 1fr; padding: 26px 22px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .r3, .hero-skin { animation: none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav>
+  <a class="brand" href="../">REVIEW COMFORT 85</a>
+  <button class="lang" type="button"><span class="en">БГ</span><span class="bg">EN</span></button>
+</nav>
+
+<section class="stage">
+  <div>
+    <div class="title"><img src="icon.png" alt="Hexy Arena icon"><span class="en">Online party game</span><span class="bg">Онлайн парти игра</span></div>
+    <h1 class="display"><span class="en">Push.<br>Dodge.<br><span class="hl">Stay on.</span></span><span class="bg">Бутни.<br>Избегни.<br><span class="hl">Остани.</span></span></h1>
+    <p class="lede"><span class="en">Hexy Arena is a quick sumo brawl for 6 players on a floating arena of hexagons. The floor falls away tile by tile. The last one standing wins.</span><span class="bg">Hexy Arena е бърза сумо битка за 6 играчи на летяща арена от шестоъгълници. Подът пада плочка по плочка. Последният останал печели.</span></p>
+    <span class="play"><span>Android<small><span class="en">Coming soon to Google Play</span><span class="bg">Скоро в Google Play</span></small></span></span>
+  </div>
+  <div class="arena" aria-hidden="true">
+    <svg id="hexes" viewBox="-220 -200 440 400"></svg>
+    <img class="hero-skin" src="skins/ninja.png" alt="" style="left:36.6%;top:24.5%">
+    <img class="hero-skin" src="skins/viking.png" alt="" style="left:63.4%;top:24.5%">
+    <img class="hero-skin" src="skins/dino.png" alt="" style="left:29.9%;top:37.2%">
+    <img class="hero-skin" src="skins/froggy.png" alt="" style="left:63.4%;top:50%">
+    <img class="hero-skin" src="skins/astro.png" alt="" style="left:29.9%;top:62.7%">
+    <img class="hero-skin" src="skins/robo.png" alt="" style="left:63.4%;top:75.5%">
+    <span class="pow display">PUSH!</span>
+  </div>
+</section>
+
+<div class="beats">
+  <div class="beat"><span class="n display">1</span>
+    <h3 class="display"><span class="en">Charge</span><span class="bg">Зареди</span></h3>
+    <p class="en">Hold PUSH to charge, let go to dash. A tap is a shove, a full charge is a MEGA PUSH.</p>
+    <p class="bg">Задръж PUSH, за да заредиш, и пусни за удар. Кратко докосване бутва леко, пълният заряд е MEGA PUSH.</p></div>
+  <div class="beat"><span class="n display">2</span>
+    <h3 class="display"><span class="en">Survive</span><span class="bg">Оцелей</span></h3>
+    <p class="en">The outer tiles glow red and drop. The arena keeps shrinking, so every second counts.</p>
+    <p class="bg">Външните плочки светват в червено и падат. Арената се смалява и всяка секунда е важна.</p></div>
+  <div class="beat"><span class="n display">3</span>
+    <h3 class="display"><span class="en">Win</span><span class="bg">Спечели</span></h3>
+    <p class="en">About 90 seconds a match. Earn coins and trophies and climb the leagues from Bronze to Legend.</p>
+    <p class="bg">Около 90 секунди на мач. Печелиш монети и трофеи и се изкачваш в лигите от Бронз до Легенда.</p></div>
+</div>
+
+<h2 class="sec display"><span class="en">Pick a fighter</span><span class="bg">Избери герой</span></h2>
+<div class="roster">
+  <figure><img src="skins/ninja.png" alt="" loading="lazy"><figcaption>Ninja</figcaption></figure>
+  <figure><img src="skins/viking.png" alt="" loading="lazy"><figcaption>Viking</figcaption></figure>
+  <figure><img src="skins/astro.png" alt="" loading="lazy"><figcaption>Astro</figcaption></figure>
+  <figure><img src="skins/froggy.png" alt="" loading="lazy"><figcaption>Froggy</figcaption></figure>
+  <figure><img src="skins/dino.png" alt="" loading="lazy"><figcaption>Dino</figcaption></figure>
+  <figure><img src="skins/robo.png" alt="" loading="lazy"><figcaption>Robo</figcaption></figure>
+  <figure><img src="skins/pirate.png" alt="" loading="lazy"><figcaption>Pirate</figcaption></figure>
+  <figure><img src="skins/wizard.png" alt="" loading="lazy"><figcaption>Wizard</figcaption></figure>
+  <figure><img src="skins/knight.png" alt="" loading="lazy"><figcaption>Knight</figcaption></figure>
+  <figure><img src="skins/pink_cat.png" alt="" loading="lazy"><figcaption>Pink Cat</figcaption></figure>
+</div>
+
+<h2 class="sec display"><span class="en">Fair by design</span><span class="bg">Честна по замисъл</span></h2>
+<div class="fair">
+  <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg>
+    <b class="en">Skins never win matches</b><b class="bg">Скиновете не печелят мачове</b>
+    <span class="en">Everything you can buy is cosmetic. Coins are earned only by playing.</span>
+    <span class="bg">Всичко за купуване е само външен вид. Монетите се печелят само с игра.</span></div>
+  <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg>
+    <b class="en">No ads, no loot boxes</b><b class="bg">Без реклами и лутбоксове</b>
+    <span class="en">No paid random rewards. Prices are shown in your currency before you buy.</span>
+    <span class="bg">Без платени случайни награди. Цената се вижда в твоята валута, преди да купиш.</span></div>
+  <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M9 10h.01M15 10h.01M9 14c1.5 1.3 4.5 1.3 6 0"/></svg>
+    <b class="en">No chat</b><b class="bg">Без чат</b>
+    <span class="en">Players can only send preset emotes like GG! and a wave.</span>
+    <span class="bg">Играчите пращат само готови емоции като GG! и махване.</span></div>
+  <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>
+    <b class="en">Play as a guest</b><b class="bg">Игра като гост</b>
+    <span class="en">No email or password. Saving progress with Google is optional.</span>
+    <span class="bg">Без имейл и парола. Запазването на прогреса с Google е по избор.</span></div>
+</div>
+
+<section class="parents" id="parents">
+  <div>
+    <h2 class="display"><span class="en">For parents</span><span class="bg">За родители</span></h2>
+    <p class="en">Hexy Arena is made for children and teens. Every purchase asks for a parent check first, then Google Play's own confirmation. We do not collect names, emails or locations, and there are no analytics or tracking.</p>
+    <p class="bg">Hexy Arena е направена за деца и тийнейджъри. Всяка покупка първо иска родителска проверка, а след това и потвърждение от Google Play. Не събираме имена, имейли или местоположение и няма анализи и проследяване.</p>
+  </div>
+  <ul>
+    <li><a href="privacy/"><span class="en">Privacy policy</span><span class="bg">Политика за поверителност</span></a></li>
+    <li><a href="terms/"><span class="en">Terms of use</span><span class="bg">Условия за ползване</span></a></li>
+    <li><a href="privacy/#delete"><span class="en">Delete an account and its data</span><span class="bg">Изтриване на акаунт и данни</span></a></li>
+    <li><a href="mailto:info@reviewcomfort85.com?subject=Hexy%20Arena">info@reviewcomfort85.com</a></li>
+  </ul>
+</section>
+
+</div>
+
+<footer>
+  <div class="wrap cols">
+    <span><strong>REVIEW COMFORT 85 LTD</strong> · 27 Napredak str., Gabrovo 5300, Bulgaria</span>
+    <a href="../">reviewcomfort85.com</a>
+  </div>
+</footer>
+
+<script>
+// Draws the arena: 37 pointy-top hexagons in 4 rings; the outer ring crumbles at staggered times.
+(function () {
+  var svg = document.getElementById('hexes'), s = 34, w = Math.sqrt(3) * s, R = 3, html = '', i = 0;
+  var delays = [0, 1.2, 2.4, 0.6, 3.0, 1.8];
+  for (var q = -R; q <= R; q++) {
+    for (var r = Math.max(-R, -q - R); r <= Math.min(R, -q + R); r++) {
+      var x = w * (q + r / 2), y = 1.5 * s * r, ring = Math.max(Math.abs(q), Math.abs(r), Math.abs(q + r)), p = [];
+      for (var k = 0; k < 6; k++) {
+        var a = Math.PI / 180 * (60 * k - 30);
+        p.push((x + .93 * s * Math.cos(a)).toFixed(1) + ',' + (y + .93 * s * Math.sin(a)).toFixed(1));
+      }
+      var style = ring === 3 ? ' style="--d:' + delays[(i++ * 5) % 6] + 's"' : '';
+      html += '<polygon class="t r' + ring + '"' + style + ' points="' + p.join(' ') + '"/>';
+    }
+  }
+  svg.innerHTML = html;
+})();
+</script>
+</body>
+</html>

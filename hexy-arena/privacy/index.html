@@ -43,10 +43,11 @@ Email: <a href="mailto:info@reviewcomfort85.com">info@reviewcomfort85.com</a></p
 <tr><td>Player nickname (generated, or chosen by you)</td><td>Shown to other players in matches and on leaderboards. Nicknames are filtered for offensive words. Please never use your real name.</td><td>Contract (Art. 6(1)(b))</td></tr>
 <tr><td>Country code, taken from your phone's language setting (no GPS)</td><td>For the country leaderboard. Countries with few players are grouped into regions.</td><td>Contract (Art. 6(1)(b))</td></tr>
 <tr><td>Game data: coins, trophies, league, level, Hexy Pass progress, skins, missions, match results, friend list (friend codes)</td><td>To run the game, the leaderboards, the Hexy Pass and season rewards.</td><td>Contract (Art. 6(1)(b))</td></tr>
-<tr><td>Optional: your Google account ID, only if you tap "Save progress"</td><td>So you can restore your progress on another phone. We never show your Google name, photo or email to anyone.</td><td>Contract (Art. 6(1)(b))</td></tr>
+<tr><td>Optional: if you choose to link a Google account (by tapping "Save progress"), Firebase Authentication stores your Google account ID, <strong>email address</strong> and <strong>name</strong> from Google</td><td>Only to sign you in and save your progress, so you can restore it on another phone. This data is not shared with anyone, is not used for advertising and is never shown to other players. You can delete it at any time (see <a href="#delete">How to delete your account and data</a>).</td><td>Contract (Art. 6(1)(b))</td></tr>
 <tr><td>Purchase records: product (for example Hexy Pass or a skin), order ID, purchase token and date from Google Play</td><td>To check the purchase with Google, give you the item and restore it on a new device. Card and payment details are handled only by Google (or Apple); we never see them.</td><td>Contract (Art. 6(1)(b)); legal obligations (Art. 6(1)(c)) for accounting records</td></tr>
 <tr><td>Technical data: IP address and basic request data, processed by our servers and by Cloudflare when the game connects</td><td>To deliver the connection, protect the servers from abuse (rate limits) and fix errors. We do not build profiles from it.</td><td>Legitimate interest in running a secure service (Art. 6(1)(f))</td></tr>
 </table>
+<p class="note" id="google"><strong>Optional Google sign-in.</strong> Linking a Google account is never required to play. If a player chooses to link one, Firebase Authentication keeps the email address and name from that Google account. We use them only for signing in and saving progress. We do not share them and do not use them for advertising. To remove them, delete the account as described under <a href="#delete">How to delete your account and data</a>.</p>
 <p>The game has <strong>no chat</strong>. Players can only send preset emotes (for example "GG!" or 👋).</p>
 
 <h2>What we do not do</h2>
@@ -61,7 +62,7 @@ Email: <a href="mailto:info@reviewcomfort85.com">info@reviewcomfort85.com</a></p
 <h2 id="children">Children</h2>
 <p>Hexy Arena is designed to be safe for children. Under the GDPR (Art. 8) and Bulgarian law, children under 14 need a parent's consent for some online services; that is why we built the game so that it does not depend on a child's personal data:</p>
 <ul>
-<li>We do not ask for a name, email, phone number or password. The player ID is random.</li>
+<li>We do not ask for a name, email, phone number or password. The player ID is random. Only if a player chooses to link a Google account does Firebase Authentication store the email and name from Google, for sign-in and saving progress only (see <a href="#google">Optional Google sign-in</a>).</li>
 <li>We do not use analytics, profiling or personalised ads, and we do not share children's data with third parties for marketing.</li>
 <li>The only thing other players can see is the nickname, trophies, league, level and skins.</li>
 <li>Every purchase is protected by a parent check in the game and by the Google Play purchase confirmation.</li>
@@ -105,8 +106,9 @@ Email: <a href="mailto:info@reviewcomfort85.com">info@reviewcomfort85.com</a></p
 <h2 id="bg">Накратко на български</h2>
 <p>Администратор на данните е <strong>РЕВЮ КОМФОРТ 85 ЕООД</strong> (REVIEW COMFORT 85 EOOD), ул. „Напредък“ 27, Габрово 5300, България, <a href="mailto:info@reviewcomfort85.com">info@reviewcomfort85.com</a>.</p>
 <ul>
-<li>Играта създава случаен анонимен ID на играча. Не искаме име, имейл, телефон или парола.</li>
-<li>Пазим ник, код на държавата (от езика на телефона, без GPS), прогреса в играта и покупките, само за да работи играта. Свързването с Google е по избор.</li>
+<li>Играта създава случаен анонимен ID на играча. Не искаме име, имейл, телефон или парола, освен ако играчът сам не свърже Google акаунт (виж по-долу).</li>
+<li>Пазим ник, код на държавата (от езика на телефона, без GPS), прогреса в играта и покупките, само за да работи играта.</li>
+<li><strong>Вход с Google (по избор):</strong> свързването с Google акаунт не е задължително. Ако играчът сам свърже Google акаунт („Save progress“), Firebase Authentication пази имейла и името от Google. Ползваме ги само за вход и запазване на прогреса. Не ги споделяме с никого и не ги ползваме за реклама. Изтриват се заедно с акаунта (виж <a href="#delete">изтриване на акаунта</a>).</li>
 <li>Няма анализи, проследяване, рекламен ID, персонализирани реклами и чат.</li>
 <li><strong>Деца:</strong> играта е направена за деца и тийнейджъри. Не искаме от детето име, имейл или телефон, всяка покупка минава през родителска проверка, а родителят може да изтрие акаунта по всяко време. Заради чл. 8 от GDPR и българския закон (съгласие на родител под 14 години) играта е направена така, че да не зависи от лични данни на детето.</li>
 <li><strong>Изтриване:</strong> в играта Settings → Account → Delete account, или с имейл до <a href="mailto:info@reviewcomfort85.com?subject=Hexy%20Arena%20account%20deletion">info@reviewcomfort85.com</a> с ника или кода за приятели (до 30 дни).</li>

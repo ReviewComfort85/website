@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="site.css">
 <script src="lang.js"></script>
 <style>
@@ -27,7 +28,7 @@
   nav { padding: 26px 0; }
   .brand { display: flex; align-items: center; gap: 10px; color: var(--text); font-weight: 800; letter-spacing: .06em; font-size: .92rem; }
   .brand:hover { text-decoration: none; }
-  .mark { width: 30px; height: 30px; border-radius: 9px; background: linear-gradient(135deg, #7c6cff, #2ea8ff); display: grid; place-items: center; font-size: .72rem; color: #fff; letter-spacing: 0; }
+  .mark { width: 38px; height: 38px; flex: none; display: block; }
   .navlinks { display: flex; align-items: center; gap: 26px; font-size: .92rem; }
   .navlinks a { color: var(--muted); }
   .navlinks a:hover { color: var(--text); text-decoration: none; }
@@ -145,7 +146,7 @@
   .top .hero h1 { font-size: clamp(2.1rem, 4.5vw, 4.1rem); max-width: none; letter-spacing: -.035em; }
   @media (min-width: 900px) { .top .hero h1 { white-space: nowrap; } }
   .brand { font-size: 1.12rem; gap: 12px; }
-  .mark { width: 40px; height: 40px; border-radius: 11px; font-size: .95rem; }
+  .mark { width: 44px; height: 44px; }
   .top section { padding: 0; }
   .top .label, .top h2.big { text-align: center; margin-left: auto; margin-right: auto; }
   .top h2.big { font-size: 1.35rem; margin-bottom: 16px; max-width: none; }
@@ -204,7 +205,7 @@
 <div class="wrap">
 
 <nav>
-  <a class="brand" href="./"><span class="mark">RC</span>REVIEW COMFORT 85</a>
+  <a class="brand" href="./"><svg class="mark" viewBox="0 0 64 64" role="img" aria-label="Rc 85"><defs><linearGradient id="rcg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8f7dff"/><stop offset=".55" stop-color="#3aa0ff"/><stop offset="1" stop-color="#3fe0a0"/></linearGradient></defs><rect x="3.500" y="3.500" width="57" height="57" rx="13" fill="#111116" stroke="url(#rcg)" stroke-width="3.500"/><text x="11" y="21" font-family="Manrope, Inter, sans-serif" font-weight="800" font-size="13" fill="#3fe0a0">85</text><text x="33" y="50" font-family="Manrope, Inter, sans-serif" font-weight="800" font-size="31" letter-spacing="-1.500" text-anchor="middle" fill="#f2f2f5">Rc</text></svg>REVIEW COMFORT 85</a>
   <div class="navlinks">
     <a href="#webapps"><span class="en">Web apps</span><span class="bg">Уеб приложения</span></a>
     <a href="#templates"><span class="en">Templates</span><span class="bg">Шаблони</span></a>

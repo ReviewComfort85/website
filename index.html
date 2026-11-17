@@ -175,18 +175,16 @@
   .icon.sc { display: grid; place-items: center; background: linear-gradient(135deg, #2bd9a3, #1fb6d6); color: #06231c; box-shadow: 0 10px 30px rgba(43,217,163,.22); }
   .icon.sc svg { width: 30px; height: 30px; }
   .featured.safecheck .term { border: 1px solid var(--line); border-radius: 18px; font-size: 11.5px; padding: 16px 18px; box-shadow: 0 20px 40px rgba(0,0,0,.45); overflow: hidden; }
-  /* Hexy Arena: a wide game card in the game's plum, lime and sun; the art is its own skins on hexagons. */
+  /* Hexy Arena: a wide game card in the game's plum, lime and sun; the art is a shot of a match on the arena. */
   .products #games { grid-column: 1 / -1; }
-  .featured.hexy { grid-template-columns: 1fr 1fr; background: radial-gradient(circle at 78% 40%, rgba(112,200,76,.28), transparent 52%), radial-gradient(circle at 10% 100%, rgba(255,213,79,.12), transparent 45%), #170a2b; }
+  .featured.hexy { grid-template-columns: 1fr 1fr; background: radial-gradient(circle at 10% 100%, rgba(255,213,79,.12), transparent 45%), #150a27; }
   .featured.hexy .icon { box-shadow: 0 0 0 2px rgba(255,213,79,.3), 0 10px 30px rgba(112,200,76,.2); }
   .featured.hexy .more { color: #ffd54f; }
   .featured.hexy .stores { color: #9be27c; }
-  .hexrow { position: relative; height: 230px; }
-  .hexrow .hx { position: absolute; width: 112px; height: 128px; clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); background: #4d9c38; }
-  .hexrow .hx.red { background: #ff5a3d; }
-  .hexrow img { position: absolute; width: 104px; height: 104px; object-fit: contain; filter: drop-shadow(0 8px 6px rgba(0,0,0,.4)); transition: transform .2s; }
-  .featured.hexy:hover .hexrow img { transform: translateY(-6px); }
-  @media (max-width: 560px) { .featured.hexy { grid-template-columns: 1fr; } .hexrow { transform: scale(.8); transform-origin: left top; height: 190px; } }
+  .arenashot { margin: -22px -10px; display: flex; justify-content: center; }
+  .arenashot img { display: block; width: 100%; max-width: 400px; height: auto; -webkit-mask-image: radial-gradient(closest-side, #000 80%, transparent 100%); mask-image: radial-gradient(closest-side, #000 80%, transparent 100%); transition: transform .25s; }
+  .featured.hexy:hover .arenashot img { transform: scale(1.03); }
+  @media (max-width: 560px) { .featured.hexy { grid-template-columns: 1fr; } .arenashot { margin: -6px 0 -14px; } .arenashot img { max-width: 320px; } }
   .soon { margin-top: 16px; }
   .duo { padding-top: 34px; }
   .duo section { padding: 0; }
@@ -386,13 +384,7 @@
       </div>
       <span class="more"><span class="en">Learn more</span><span class="bg">Научи повече</span> →</span>
     </div>
-    <div class="hexrow" aria-hidden="true">
-      <span class="hx" style="left:4%;top:60px"></span><span class="hx" style="left:26%;top:0"></span><span class="hx red" style="left:48%;top:60px"></span><span class="hx" style="left:70%;top:0"></span>
-      <img src="hexy-arena/skins/ninja.png" alt="" loading="lazy" style="left:calc(4% + 4px);top:40px">
-      <img src="hexy-arena/skins/froggy.png" alt="" loading="lazy" style="left:calc(26% + 4px);top:-20px">
-      <img src="hexy-arena/skins/viking.png" alt="" loading="lazy" style="left:calc(48% + 4px);top:52px;transform:rotate(14deg)">
-      <img src="hexy-arena/skins/astro.png" alt="" loading="lazy" style="left:calc(70% + 4px);top:-20px">
-    </div>
+    <div class="arenashot"><img src="hexy-arena/arena.webp" alt="A Hexy Arena match: six fighters on a hexagon arena whose outer tiles turn red and fall" width="760" height="707" loading="lazy"></div>
   </a>
 </section>
 </div>

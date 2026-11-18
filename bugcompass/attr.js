@@ -2,7 +2,7 @@
 // (sessionStorage, no cookie) and adds it to the Gumroad "Get Pro" links, so the
 // sale shows under Gumroad Analytics -> UTM links and in the Sales CSV. Gumroad
 // records a UTM link only when utm_source, utm_medium and utm_campaign are all set.
-// Chrome Web Store links get utm_source too (CWS Developer Dashboard -> Analytics).
+// Chrome Web Store and Firefox Add-ons links get utm_source too (CWS Analytics, AMO Statistics -> Sources).
 (function () {
   var KEY = "bc_attr";
   var UTM = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
@@ -53,7 +53,7 @@
   var campaign = attr.utm_campaign || (attr.utm_source ? "bugcompass" : ("ref_" + attr.ref).slice(0, 100));
 
   function tag() {
-    var links = document.querySelectorAll('a[href*="gumroad.com/l/"], a[href*="chromewebstore.google.com/detail/"]');
+    var links = document.querySelectorAll('a[href*="gumroad.com/l/"], a[href*="chromewebstore.google.com/detail/"], a[href*="addons.mozilla.org/"]');
     for (var i = 0; i < links.length; i++) {
       var u;
       try {

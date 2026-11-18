@@ -68,6 +68,10 @@
   .btn.buy.soon:hover { border-color: var(--amber); }
   .stores .soon-tag { color: var(--text); }
   .stores .soon-tag small { color: var(--muted); font-size: .85em; }
+  .foot-right { display: inline-flex; align-items: center; gap: 18px; }
+  .fazier { display: inline-flex; opacity: .55; transition: opacity .15s; }
+  .fazier:hover { opacity: 1; }
+  .fazier img { display: block; height: auto; }
   .hint { margin: 6px 0 0; color: #6c6c7c; font-size: .85rem; }
 
   .report { background: #0a0a0e; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,.55); }
@@ -182,11 +186,11 @@
     <p class="lede"><span class="en">One click gives you an annotated screenshot, console errors, network requests (failed ones first), reproduction steps and environment — as Markdown, ready for GitHub, Jira or Linear. No account, no cloud: everything stays in your browser.</span><span class="bg">С един клик получаваш анотирана снимка на екрана, грешките от конзолата, мрежовите заявки (първо неуспешните), стъпките за възпроизвеждане и средата — като Markdown, готов за GitHub, Jira или Linear. Без акаунт и без облак: всичко остава в браузъра ти.</span></p>
     <div class="ctas">
       <a class="btn primary" href="https://chromewebstore.google.com/detail/bugcompass/fhjanmhlamdpbmdhnngjgnblphlccfag" target="_blank" rel="noopener"><span class="en">Add to Chrome — free</span><span class="bg">Добави в Chrome — безплатно</span></a>
+      <a class="btn" href="https://addons.mozilla.org/en-US/firefox/addon/bugcompass/?utm_source=site&amp;utm_medium=button&amp;utm_campaign=launch_dec26" target="_blank" rel="noopener"><span class="en">Add to Firefox — free</span><span class="bg">Добави във Firefox — безплатно</span></a>
       <a class="btn buy" href="https://paperlanetemplates.gumroad.com/l/bugcompass-pro" target="_blank" rel="noopener"><span class="en">Get Pro — $19</span><span class="bg">Вземи Pro — $19</span></a>
     </div>
     <div class="stores">
       <span class="en">Also for</span><span class="bg">Също за</span>
-      <span class="soon-tag">Firefox <small><span class="en">· coming soon</span><span class="bg">· скоро</span></small></span>
       <span class="soon-tag">Opera <small><span class="en">· coming soon</span><span class="bg">· скоро</span></small></span>
     </div>
     <p class="hint"><span class="en">The Chrome Web Store version also works in Brave, Vivaldi and Opera.</span><span class="bg">Версията от Chrome Web Store работи и в Brave, Vivaldi и Opera.</span></p>
@@ -352,7 +356,10 @@ Chrome 142 · Windows 11 · 1920×1080</pre>
     <a href="privacy.html"><span class="en">Privacy policy</span><span class="bg">Политика за поверителност</span></a>
     <a href="mailto:info@reviewcomfort85.com?subject=BugCompass"><span class="en">Support: info@reviewcomfort85.com</span><span class="bg">Поддръжка: info@reviewcomfort85.com</span></a>
   </div>
-  <a class="btn primary" href="https://chromewebstore.google.com/detail/bugcompass/fhjanmhlamdpbmdhnngjgnblphlccfag" target="_blank" rel="noopener"><span class="en">Add to Chrome — free</span><span class="bg">Добави в Chrome — безплатно</span></a>
+  <div class="ctas">
+    <a class="btn primary" href="https://chromewebstore.google.com/detail/bugcompass/fhjanmhlamdpbmdhnngjgnblphlccfag" target="_blank" rel="noopener"><span class="en">Add to Chrome — free</span><span class="bg">Добави в Chrome — безплатно</span></a>
+    <a class="btn" href="https://addons.mozilla.org/en-US/firefox/addon/bugcompass/?utm_source=site&amp;utm_medium=button&amp;utm_campaign=launch_dec26" target="_blank" rel="noopener"><span class="en">Add to Firefox — free</span><span class="bg">Добави във Firefox — безплатно</span></a>
+  </div>
 </div>
 
 </div>
@@ -360,7 +367,10 @@ Chrome 142 · Windows 11 · 1920×1080</pre>
 <footer>
   <div class="wrap cols">
     <span><strong>REVIEW COMFORT 85 LTD</strong> · 27 Napredak str., Gabrovo 5300, Bulgaria</span>
-    <a href="../">reviewcomfort85.com</a>
+    <span class="foot-right">
+      <a class="fazier" href="https://fazier.com" target="_blank" rel="noopener"><img src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=launched&amp;theme=light" width="120" alt="Fazier badge" loading="lazy"></a>
+      <a href="../">reviewcomfort85.com</a>
+    </span>
   </div>
 </footer>
 </div>

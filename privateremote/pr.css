@@ -207,3 +207,24 @@ footer .cols { justify-content: space-between; }
   .tabs a { white-space: nowrap; padding: 10px 10px 12px; font-size: .88rem; }
   .tabs .buy-mini { margin-left: auto; }
 }
+
+/* ---- privacy ---- */
+.page-title .kicker { margin-bottom: 18px; }
+.flow { padding: 0; display: grid; grid-template-columns: 1.25fr 1fr; gap: 0; border: 1px solid var(--line); border-radius: 18px; background: var(--ink); margin: 26px 0 10px; overflow: hidden; }
+.flow-col { padding: 26px 28px; }
+.flow-col + .flow-col { border-left: 1px dashed #2a2a33; }
+.flow-col:first-child .label { color: var(--muted); }
+.policy { max-width: 760px; padding: 26px 0 40px; counter-reset: none; }
+.policy section { padding: 26px 0; border-top: 1px solid var(--line); scroll-margin-top: 16px; }
+.policy section:first-child { border-top: 0; }
+.policy h2 { color: var(--text); font-size: 1.3rem; letter-spacing: -.015em; text-transform: none; font-weight: 800; margin: 0 0 12px; }
+.policy p { color: #c9c9d3; margin: 0 0 12px; }
+.card-addr { font-style: normal; font: 500 .95rem/1.7 var(--mono); color: #d6d6de; border-left: 2px solid var(--wire); background: #120d0a; padding: 14px 18px; border-radius: 0 10px 10px 0; margin: 4px 0 16px; max-width: 460px; }
+.card-addr b { color: var(--text); font-family: Manrope, Inter, sans-serif; }
+footer .flinks { display: inline-flex; gap: 20px; flex-wrap: wrap; }
+footer .flinks a[aria-current="page"] { color: var(--text); }
+@media (max-width: 760px) {
+  .flow { grid-template-columns: 1fr; }
+  .flow-col + .flow-col { border-left: 0; border-top: 1px dashed #2a2a33; }
+  .flow-col { padding: 22px 20px; }
+}

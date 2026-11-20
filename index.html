@@ -83,10 +83,6 @@
     .phones img:first-child { right: 46%; }
     .phones img:last-child { right: 8%; }
   }
-
-  .soon { margin-top: 12px; display: flex; gap: 18px; align-items: center; border: 1px dashed #3a3a47; border-radius: 22px; padding: 22px 26px; color: var(--muted); }
-  .soon svg { width: 34px; height: 34px; color: #45dba0; flex: none; }
-  .soon b { color: var(--text); display: block; font-family: Manrope, Inter, sans-serif; font-size: 1.05rem; }
   /* Paperlane Studio: same card as KeepAll, in the brand's cream and olive. */
   .featured.paperlane { background: radial-gradient(circle at 85% 30%, rgba(96,140,112,.3), transparent 55%), #0e130f; }
   .featured.paperlane .icon { box-shadow: 0 10px 30px rgba(63,90,74,.25); }
@@ -96,7 +92,6 @@
   .featured.bugcompass .icon { box-shadow: 0 10px 30px rgba(43,179,163,.25); }
   .featured.bugcompass .more { color: #6fd6c8; }
   .card-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; }
-  #extensions .featured p.also { margin: 12px 0 0; font-size: .82rem; color: var(--muted); }
   .featured.bugcompass:hover, .featured.keepall:hover { border-color: var(--line); }
   .qr-mini img { display: block; width: 76px; height: 76px; border-radius: 10px; }
   @media (max-width: 640px) { .qr-mini { display: none; } }
@@ -205,7 +200,23 @@
   .arenashot img { display: block; width: 100%; max-width: 400px; height: auto; -webkit-mask-image: radial-gradient(closest-side, #000 80%, transparent 100%); mask-image: radial-gradient(closest-side, #000 80%, transparent 100%); transition: transform .25s; }
   .featured.hexy:hover .arenashot img { transform: scale(1.03); }
   @media (max-width: 560px) { .featured.hexy { grid-template-columns: 1fr; } .arenashot { margin: -6px 0 -14px; } .arenashot img { max-width: 320px; } }
-  .soon { margin-top: 16px; }
+  /* One anatomy for every product card: icon, name, platform line, text, chips on the left; the visual on the right; one footer row of actions. */
+  .products .featured { align-items: start; grid-template-rows: 1fr auto; row-gap: 22px; }
+  .products .featured > :nth-child(2) { align-self: center; }
+  .products .featured img.icon, .products .featured svg.icon { display: block; }
+  .products .featured .stores { display: block; margin: -2px 0 12px; }
+  .products .featured p { margin-bottom: 16px; }
+  .products .chips { margin-bottom: 0; }
+  .products .card-actions { grid-column: 1 / -1; gap: 12px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.09); }
+  .products .card-actions .btn { padding: 11px 20px; font-size: .94rem; white-space: nowrap; }
+  .products .card-actions .more { margin-left: auto; white-space: nowrap; }
+  @media (max-width: 560px) { .products .card-actions .more { margin-left: 4px; } }
+  .featured.keepall .stores { color: #b3a8ff; }
+  .featured.safecheck .stores { color: #ff9c9c; }
+  .featured.paperlane .stores { color: #a5cdb4; }
+  .featured.safecheck:hover, .featured.paperlane:hover, .featured.hexy:hover { border-color: #4a4a60; }
+  .products .phones .qr-mini { position: absolute; left: 0; bottom: 8px; z-index: 2; background: #fff; padding: 6px; border-radius: 12px; box-shadow: 0 12px 28px rgba(0,0,0,.55); }
+  .products .phones .qr-mini img { position: static; transform: none; display: block; width: 72px; height: 72px; border-radius: 4px; box-shadow: none; }
   .duo { padding-top: 34px; }
   .duo section { padding: 0; }
   .duo #work .label, .duo #work h2.big { text-align: center; margin-left: auto; margin-right: auto; }
@@ -300,6 +311,7 @@
     <div>
       <img class="icon" src="keepall/icon.png" alt="KeepAll Wallet">
       <h3>KeepAll Wallet</h3>
+      <span class="stores"><span class="en">Android · on Google Play</span><span class="bg">Android · в Google Play</span></span>
       <p><span class="en">Tickets, bank and loyalty cards, documents, finances, events and notes. Everything from your wallet, on your phone.</span><span class="bg">Билети, банкови и лоялни карти, документи, финанси, събития и бележки. Всичко от портфейла ти, в телефона.</span></p>
       <div class="chips">
         <span class="en">Offline</span><span class="bg">Офлайн</span>
@@ -307,32 +319,27 @@
         <span class="en">No account</span><span class="bg">Без акаунт</span>
         <span class="en">No ads</span><span class="bg">Без реклами</span>
       </div>
-      <div class="card-actions">
-        <a class="qr-mini" href="https://play.google.com/store/apps/details?id=com.keepall.app" target="_blank" rel="noopener"><img src="keepall/qr.svg" width="76" height="76" alt="QR code: KeepAll Wallet on Google Play"></a>
-        <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.keepall.app" target="_blank" rel="noopener"><span class="en">Get it on Google Play</span><span class="bg">Свали от Google Play</span></a>
-        <a class="more" href="keepall/"><span class="en">Learn more</span><span class="bg">Научи повече</span> →</a>
-      </div>
     </div>
-    <a class="phones" href="keepall/" aria-hidden="true" tabindex="-1">
-      <img src="keepall/shots/04.png" alt="">
-      <img src="keepall/shots/01.png" alt="">
-    </a>
+    <div class="phones">
+      <a href="keepall/" aria-hidden="true" tabindex="-1"><img src="keepall/shots/04.png" alt=""><img src="keepall/shots/01.png" alt=""></a>
+      <a class="qr-mini" href="https://play.google.com/store/apps/details?id=com.keepall.app" target="_blank" rel="noopener"><img src="keepall/qr.svg" width="76" height="76" alt="QR code: KeepAll Wallet on Google Play"></a>
+    </div>
+    <div class="card-actions">
+      <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.keepall.app" target="_blank" rel="noopener"><span class="en">Get it on Google Play</span><span class="bg">Свали от Google Play</span></a>
+      <a class="more" href="keepall/"><span class="en">Learn more</span><span class="bg">Научи повече</span> →</a>
+    </div>
   </div>
   <div class="featured privateremote">
     <div>
       <svg class="icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" role="img" aria-label="PrivateRemote"><rect x="6" y="10" width="52" height="34" rx="4"/><path d="M24 54h16M32 44v10"/><path d="M18 27h10l4-6 4 12 4-6h6"/></svg>
       <h3>PrivateRemote</h3>
-      <p><span class="en">Remote desktop over your own IP. One permanent password, no accounts and no third-party servers. Your traffic goes only between your machines.</span><span class="bg">Отдалечен достъп до компютъра по твоето IP. Една постоянна парола, без акаунти и без чужди сървъри. Трафикът минава само между твоите компютри.</span></p>
       <span class="stores"><span class="en">Windows, macOS, Linux · €9.99 incl. VAT, pay once</span><span class="bg">Windows, macOS, Linux · €9,99 с ДДС, плащаш веднъж</span></span>
+      <p><span class="en">Remote desktop over your own IP. One permanent password, no accounts and no third-party servers. Your traffic goes only between your machines.</span><span class="bg">Отдалечен достъп до компютъра по твоето IP. Една постоянна парола, без акаунти и без чужди сървъри. Трафикът минава само между твоите компютри.</span></p>
       <div class="chips">
         <span class="en">Direct IP</span><span class="bg">Директно по IP</span>
         <span class="en">No account</span><span class="bg">Без акаунт</span>
         <span class="en">No cloud</span><span class="bg">Без облак</span>
         <span class="en">No subscription</span><span class="bg">Без абонамент</span>
-      </div>
-      <div class="card-actions">
-        <a class="btn primary" href="privateremote/"><span class="en">Learn more</span><span class="bg">Научи повече</span></a>
-        <a class="more" href="privateremote/setup/"><span class="en">How to set it up</span><span class="bg">Как се настройва</span> →</a>
       </div>
     </div>
     <a class="prplate" href="privateremote/" aria-hidden="true" tabindex="-1">
@@ -341,7 +348,11 @@
       <div class="row"><span class="k"><span class="en">At home</span><span class="bg">Вкъщи</span></span><code>192.168.1.50</code></div>
       <div class="row"><span class="k"><span class="en">Password</span><span class="bg">Парола</span></span><code>••••••••••</code> <span class="ok">· <span class="en">permanent</span><span class="bg">постоянна</span></span></div>
     </a>
-  </div>
+    <div class="card-actions">
+      <a class="btn primary" href="privateremote/"><span class="en">Learn more</span><span class="bg">Научи повече</span></a>
+      <a class="more" href="privateremote/setup/"><span class="en">How to set it up</span><span class="bg">Как се настройва</span> →</a>
+    </div>
+    </div>
   </div>
 </section>
 <section id="webapps">
@@ -350,13 +361,13 @@
     <div>
       <span class="icon sc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.700-7-5.500-7-10V6z"/><path d="M9 12l2.200 2.200L15.200 10"/></svg></span>
       <h3>SafeCheck</h3>
+      <span class="stores"><span class="en">Web app · works in any browser</span><span class="bg">Уеб приложение · работи във всеки браузър</span></span>
       <p><span class="en">A security scanner for apps built with AI tools like Lovable, Bolt, Cursor and Replit. Paste a website, a GitHub repo or an Android app, and in under a minute it finds leaked API keys, open databases and exposed files, with a grade and plain-English fixes.</span><span class="bg">Скенер за сигурност на приложения, направени с AI инструменти като Lovable, Bolt, Cursor и Replit. Подаваш сайт, GitHub репо или Android приложение и за под минута намира изтекли API ключове, отворени бази данни и открити файлове, с оценка и ясни стъпки за поправка.</span></p>
       <div class="chips">
           <span class="en">Leaked keys</span><span class="bg">Изтекли ключове</span>
           <span class="en">Open databases</span><span class="bg">Отворени бази</span>
           <span class="en">Exposed files</span><span class="bg">Открити файлове</span>
         </div>
-      <span class="more">safecheck.dev ↗</span>
     </div>
     <div class="term" aria-hidden="true">
         <div><span class="p">$</span> safecheck scan my-app.vercel.app</div>
@@ -366,6 +377,9 @@
         <div><span class="ok">✓</span> security headers set</div>
         <div class="grade">grade: F · 3 problems · fixes ready</div>
     </div>
+    <div class="card-actions">
+      <span class="btn primary"><span class="en">Open safecheck.dev</span><span class="bg">Отвори safecheck.dev</span> ↗</span>
+    </div>
   </a>
 </section>
 <section id="extensions">
@@ -374,20 +388,14 @@
     <div>
       <img class="icon" src="bugcompass/icon.png" alt="BugCompass">
       <h3>BugCompass</h3>
-      <p><span class="en">A local-first bug reporter for QA. One click gives you a screenshot, console logs, the steps, a video and a ready Markdown report for Jira, GitHub or Linear. No account.</span><span class="bg">Локален бъг репортер за QA. С едно щракване имаш снимка, логове от конзолата, стъпките, видео и готов Markdown репорт за Jira, GitHub или Linear. Без акаунт.</span></p>
       <span class="stores"><span class="en">Chrome, Firefox, Edge, Brave, Vivaldi, Opera</span><span class="bg">Chrome, Firefox, Edge, Brave, Vivaldi, Opera</span></span>
+      <p><span class="en">A local-first bug reporter for QA. One click gives you a screenshot, console logs, the steps, a video and a ready Markdown report for Jira, GitHub or Linear. No account.</span><span class="bg">Локален бъг репортер за QA. С едно щракване имаш снимка, логове от конзолата, стъпките, видео и готов Markdown репорт за Jira, GitHub или Linear. Без акаунт.</span></p>
       <div class="chips">
         <span class="en">Browser extension</span><span class="bg">Разширение за браузър</span>
         <span class="en">Local</span><span class="bg">Локално</span>
         <span class="en">No account</span><span class="bg">Без акаунт</span>
         <span class="en">No cloud</span><span class="bg">Без облак</span>
       </div>
-      <div class="card-actions">
-        <a class="btn primary" href="https://chromewebstore.google.com/detail/bugcompass/fhjanmhlamdpbmdhnngjgnblphlccfag" target="_blank" rel="noopener"><span class="en">Add to Chrome</span><span class="bg">Добави в Chrome</span></a>
-        <a class="btn ghost" href="https://addons.mozilla.org/en-US/firefox/addon/bugcompass/?utm_source=site&amp;utm_medium=button&amp;utm_campaign=launch_dec26" target="_blank" rel="noopener"><span class="en">Add to Firefox</span><span class="bg">Добави във Firefox</span></a>
-        <a class="more" href="bugcompass/"><span class="en">Learn more</span><span class="bg">Научи повече</span> →</a>
-      </div>
-      <p class="also"><span class="en">Also works in Brave, Vivaldi and Edge</span><span class="bg">Работи и в Brave, Vivaldi и Edge</span>.</p>
     </div>
     <div class="report" aria-hidden="true">
       <div class="h">## Pay button returns 500</div>
@@ -401,6 +409,11 @@
       <div class="h">### Attachments</div>
       <div><span class="a">screenshot.png · video.mp4</span></div>
     </div>
+    <div class="card-actions">
+      <a class="btn primary" href="https://chromewebstore.google.com/detail/bugcompass/fhjanmhlamdpbmdhnngjgnblphlccfag" target="_blank" rel="noopener"><span class="en">Add to Chrome</span><span class="bg">Добави в Chrome</span></a>
+      <a class="btn ghost" href="https://addons.mozilla.org/en-US/firefox/addon/bugcompass/?utm_source=site&amp;utm_medium=button&amp;utm_campaign=launch_dec26" target="_blank" rel="noopener"><span class="en">Add to Firefox</span><span class="bg">Добави във Firefox</span></a>
+      <a class="more" href="bugcompass/"><span class="en">Learn more</span><span class="bg">Научи повече</span> →</a>
+    </div>
   </div>
 </section>
 <section id="templates">
@@ -409,16 +422,19 @@
     <div>
       <img class="icon" src="paperlane/icon.png" alt="Paperlane Studio">
       <h3>Paperlane Studio</h3>
-      <p><span class="en">Editable templates for vacation-rental hosts and wedding planning: a guest guidebook, an income &amp; expense tracker and a wedding planner with budget. Sold on Gumroad.</span><span class="bg">Шаблони за редактиране за домакини на краткосрочни наеми и за планиране на сватба: наръчник за гости, тракер за приходи и разходи и сватбен планер с бюджет. Продават се в Gumroad.</span></p>
+      <span class="stores"><span class="en">Digital templates · on Gumroad</span><span class="bg">Дигитални шаблони · в Gumroad</span></span>
+      <p><span class="en">Editable templates for vacation-rental hosts and wedding planning: a guest guidebook, an income &amp; expense tracker and a wedding planner with budget.</span><span class="bg">Шаблони за редактиране за домакини на краткосрочни наеми и за планиране на сватба: наръчник за гости, тракер за приходи и разходи и сватбен планер с бюджет.</span></p>
       <div class="chips">
         <span class="en">Templates</span><span class="bg">Шаблони</span>
         <span class="en">Word &amp; Google Docs</span><span class="bg">Word и Google Docs</span>
         <span class="en">Excel &amp; Google Sheets</span><span class="bg">Excel и Google Sheets</span>
         <span class="en">Instant download</span><span class="bg">Изтегляне веднага</span>
       </div>
-      <span class="more"><span class="en">Visit the shop</span><span class="bg">Към магазина</span> ↗</span>
     </div>
     <div class="covers"><img src="paperlane/cover.png" alt="Paperlane Studio templates: Guest Guidebook, Wedding Planner &amp; Budget and Rental Income &amp; Expense Tracker" loading="lazy"></div>
+    <div class="card-actions">
+      <span class="btn primary"><span class="en">Visit the shop</span><span class="bg">Към магазина</span> ↗</span>
+    </div>
   </a>
 </section>
 <section id="games">
@@ -435,16 +451,14 @@
         <span class="en">No chat</span><span class="bg">Без чат</span>
         <span class="en">No ads</span><span class="bg">Без реклами</span>
       </div>
-      <span class="more"><span class="en">Learn more</span><span class="bg">Научи повече</span> →</span>
     </div>
     <div class="arenashot"><img src="hexy-arena/arena.webp" alt="A Hexy Arena match: six fighters on a hexagon arena whose outer tiles turn red and fall" width="760" height="707" loading="lazy"></div>
+    <div class="card-actions">
+      <span class="btn primary"><span class="en">Learn more</span><span class="bg">Научи повече</span></span>
+    </div>
   </a>
 </section>
 </div>
-  <div class="soon">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6L18.5 9l-4.6 1.9L12 15.5l-1.9-4.6L5.5 9l4.6-1.4z"/><path d="M19 15l.8 2 2 .8-2 .8L19 21l-.8-2.4-2-.8 2-.8z"/></svg>
-    <div><b><span class="en">More games are on the way</span><span class="bg">Предстоят още игри</span></b><span class="en">Coming soon.</span><span class="bg">Очаквайте скоро.</span></div>
-  </div>
 
 <div class="duo">
 <section id="work">

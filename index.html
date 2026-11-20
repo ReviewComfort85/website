@@ -105,7 +105,9 @@
   .report .h { color: #fff; font-weight: 600; } .report .k { color: #6fd6c8; } .report .a { color: #f2c14e; } .report .e { color: #ff6b6b; }
   .covers img { display: block; width: 100%; max-width: 480px; height: auto; margin: 0 auto; }
   /* PrivateRemote: same card, in the product page's copper; the visual is the app's address plate (no screenshots yet). */
-  #apps .featured + .featured { margin-top: 12px; }
+  /* Apps row spans the grid: KeepAll and PrivateRemote side by side, so no card in a pair gets stretched. */
+  .products #apps { grid-column: 1 / -1; }
+  .products #apps .pair { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .featured.privateremote { background: radial-gradient(circle at 85% 30%, rgba(255,122,69,.24), transparent 55%), #130d0a; }
   .featured.privateremote .icon { display: block; background: #0a0a0e; border: 1px solid #3a2418; box-shadow: 0 10px 30px rgba(255,122,69,.2); color: #ff7a45; padding: 10px; box-sizing: border-box; }
   .featured.privateremote .more { color: #ff9a70; }
@@ -196,7 +198,6 @@
   .icon.sc svg { width: 30px; height: 30px; }
   .featured.safecheck .term { border: 1px solid var(--line); border-radius: 18px; font-size: 11.5px; padding: 16px 18px; box-shadow: 0 20px 40px rgba(0,0,0,.45); overflow: hidden; }
   /* Hexy Arena: a wide game card in the game's plum, lime and sun; the art is a shot of a match on the arena. */
-  .products #games { grid-column: 1 / -1; }
   .featured.hexy { grid-template-columns: 1fr 1fr; background: radial-gradient(circle at 10% 100%, rgba(255,213,79,.12), transparent 45%), #150a27; }
   .featured.hexy .icon { box-shadow: 0 0 0 2px rgba(255,213,79,.3), 0 10px 30px rgba(112,200,76,.2); }
   .featured.hexy .more { color: #ffd54f; }
@@ -217,6 +218,7 @@
   .duo .contact { padding: 44px 0 52px; }
   @media (max-width: 1020px) {
     .products { grid-template-columns: 1fr; }
+    .products #apps .pair { grid-template-columns: 1fr; }
     .top .pillars { grid-template-columns: 1fr 1fr; }
     .top .pillar:last-child { grid-column: span 2; }
     .wrap { padding: 0 20px; }
@@ -292,32 +294,9 @@
 </div>
 
 <div class="products">
-<section id="webapps">
-  <p class="label"><span class="en">Our web apps</span><span class="bg">Нашите уеб приложения</span></p>
-  <a class="featured safecheck" href="https://safecheck.dev" target="_blank" rel="noopener">
-    <div>
-      <span class="icon sc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.700-7-5.500-7-10V6z"/><path d="M9 12l2.200 2.200L15.200 10"/></svg></span>
-      <h3>SafeCheck</h3>
-      <p><span class="en">A security scanner for apps built with AI tools like Lovable, Bolt, Cursor and Replit. Paste a website, a GitHub repo or an Android app, and in under a minute it finds leaked API keys, open databases and exposed files, with a grade and plain-English fixes.</span><span class="bg">Скенер за сигурност на приложения, направени с AI инструменти като Lovable, Bolt, Cursor и Replit. Подаваш сайт, GitHub репо или Android приложение и за под минута намира изтекли API ключове, отворени бази данни и открити файлове, с оценка и ясни стъпки за поправка.</span></p>
-      <div class="chips">
-          <span class="en">Leaked keys</span><span class="bg">Изтекли ключове</span>
-          <span class="en">Open databases</span><span class="bg">Отворени бази</span>
-          <span class="en">Exposed files</span><span class="bg">Открити файлове</span>
-        </div>
-      <span class="more">safecheck.dev ↗</span>
-    </div>
-    <div class="term" aria-hidden="true">
-        <div><span class="p">$</span> safecheck scan my-app.vercel.app</div>
-        <div><span class="c">✕ CRITICAL</span> API key in /assets/index.js</div>
-        <div><span class="c">✕ CRITICAL</span> database key exposed</div>
-        <div><span class="h">! HIGH</span> /.env is publicly downloadable</div>
-        <div><span class="ok">✓</span> security headers set</div>
-        <div class="grade">grade: F · 3 problems · fixes ready</div>
-    </div>
-  </a>
-</section>
 <section id="apps">
   <p class="label"><span class="en">Our apps</span><span class="bg">Нашите приложения</span></p>
+  <div class="pair">
   <div class="featured keepall">
     <div>
       <img class="icon" src="keepall/icon.png" alt="KeepAll Wallet">
@@ -364,6 +343,31 @@
       <div class="row"><span class="k"><span class="en">Password</span><span class="bg">Парола</span></span><code>••••••••••</code> <span class="ok">· <span class="en">permanent</span><span class="bg">постоянна</span></span></div>
     </a>
   </div>
+  </div>
+</section>
+<section id="webapps">
+  <p class="label"><span class="en">Our web apps</span><span class="bg">Нашите уеб приложения</span></p>
+  <a class="featured safecheck" href="https://safecheck.dev" target="_blank" rel="noopener">
+    <div>
+      <span class="icon sc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.700-7-5.500-7-10V6z"/><path d="M9 12l2.200 2.200L15.200 10"/></svg></span>
+      <h3>SafeCheck</h3>
+      <p><span class="en">A security scanner for apps built with AI tools like Lovable, Bolt, Cursor and Replit. Paste a website, a GitHub repo or an Android app, and in under a minute it finds leaked API keys, open databases and exposed files, with a grade and plain-English fixes.</span><span class="bg">Скенер за сигурност на приложения, направени с AI инструменти като Lovable, Bolt, Cursor и Replit. Подаваш сайт, GitHub репо или Android приложение и за под минута намира изтекли API ключове, отворени бази данни и открити файлове, с оценка и ясни стъпки за поправка.</span></p>
+      <div class="chips">
+          <span class="en">Leaked keys</span><span class="bg">Изтекли ключове</span>
+          <span class="en">Open databases</span><span class="bg">Отворени бази</span>
+          <span class="en">Exposed files</span><span class="bg">Открити файлове</span>
+        </div>
+      <span class="more">safecheck.dev ↗</span>
+    </div>
+    <div class="term" aria-hidden="true">
+        <div><span class="p">$</span> safecheck scan my-app.vercel.app</div>
+        <div><span class="c">✕ CRITICAL</span> API key in /assets/index.js</div>
+        <div><span class="c">✕ CRITICAL</span> database key exposed</div>
+        <div><span class="h">! HIGH</span> /.env is publicly downloadable</div>
+        <div><span class="ok">✓</span> security headers set</div>
+        <div class="grade">grade: F · 3 problems · fixes ready</div>
+    </div>
+  </a>
 </section>
 <section id="extensions">
   <p class="label"><span class="en">Our extensions</span><span class="bg">Нашите разширения</span></p>

@@ -205,7 +205,19 @@ footer .cols { justify-content: space-between; }
   .crumb { display: none; }
   .tabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
   .tabs a { white-space: nowrap; padding: 10px 10px 12px; font-size: .88rem; }
-  .tabs .buy-mini { margin-left: auto; }
+  /* Buy stays pinned to the right edge of the strip: tabs slide under it.
+     Looks like the copper plug at the end of the wire, not a floating pill. */
+  .tabs { align-items: center; }
+  .tabs .buy-mini {
+    position: sticky; right: 0; z-index: 2; flex: none; margin: 0 0 0 auto;
+    align-self: center; display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 11px 6px 9px; border: 0; border-radius: 8px;
+    background: var(--wire); color: #1b0b03; font-weight: 700; font-size: .84rem;
+    box-shadow: -22px 0 14px -2px var(--bg);   /* fades the tabs that slide under it */
+  }
+  .tabs .buy-mini::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #1b0b03; box-shadow: 0 0 0 2px rgba(27,11,3,.18); flex: none; }
+  .tabs .buy-mini [data-price] { font: 600 .8rem/1 var(--mono); }
+  .tabs .buy-mini:hover, .tabs .buy-mini:active { background: #ff8a5a; text-decoration: none; }
 }
 
 /* ---- privacy ---- */

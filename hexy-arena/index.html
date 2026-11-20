@@ -28,6 +28,7 @@
   h1 .hl { color: var(--sun); }
   .lede { font-size: clamp(1.08rem, 2vw, 1.3rem); color: #cbbfe2; max-width: 520px; margin: 0 0 26px; }
   .play { display: inline-flex; align-items: center; gap: 10px; border-radius: 14px; padding: 12px 20px; font-weight: 600; color: #fff; border: 2px dashed rgba(255,255,255,.35); }
+  .plays { display: flex; flex-wrap: wrap; gap: 12px; }
   .play small { display: block; font-size: .78rem; font-weight: 500; color: #cbbfe2; }
 
   /* The arena: real hexagons; the outer ring glows red and drops, like in a match. */
@@ -113,7 +114,7 @@
     <div class="title"><img src="icon.png" alt="Hexy Arena icon"><span class="en">Online party game</span><span class="bg">Онлайн парти игра</span></div>
     <h1 class="display"><span class="en">Push.<br>Dodge.<br><span class="hl">Stay on.</span></span><span class="bg">Бутни.<br>Избегни.<br><span class="hl">Остани.</span></span></h1>
     <p class="lede"><span class="en">Hexy Arena is a quick sumo brawl for 6 players on a floating arena of hexagons. The floor falls away tile by tile. The last one standing wins.</span><span class="bg">Hexy Arena е бърза сумо битка за 6 играчи на летяща арена от шестоъгълници. Подът пада плочка по плочка. Последният останал печели.</span></p>
-    <span class="play"><span>Android<small><span class="en">Coming soon to Google Play</span><span class="bg">Скоро в Google Play</span></small></span></span>
+    <div class="plays"><span class="play"><span>Android<small><span class="en">Coming soon to Google Play</span><span class="bg">Скоро в Google Play</span></small></span></span><span class="play"><span>iOS<small><span class="en">Coming soon to the App Store</span><span class="bg">Скоро в App Store</span></small></span></span></div>
   </div>
   <div class="arena" aria-hidden="true">
     <!-- Static tiles: the site CSP (script-src 'self') blocks inline scripts, so the arena must not depend on JS. CSS animates the outer ring. -->

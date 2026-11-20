@@ -2,7 +2,7 @@
 // When the Gumroad product exists, replace BUY_URL with its link
 // (e.g. https://reviewcomfort85.gumroad.com/l/privateremote) and set PRICE.
 var PR_BUY_URL = '#gumroad-link-pending';   // PLACEHOLDER
-var PR_PRICE   = '€9.99';                    // final price incl. VAT (Alex, 20 Nov 2026)
+var PR_PRICE   = '€9.99';                    // NOT FINAL: Alex picks €8.32 + VAT or €9.99 + VAT; no 'incl. VAT' wording
 
 (function () {
   function apply() {

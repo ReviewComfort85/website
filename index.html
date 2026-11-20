@@ -215,8 +215,9 @@
   .featured.safecheck .stores { color: #ff9c9c; }
   .featured.paperlane .stores { color: #a5cdb4; }
   .featured.safecheck:hover, .featured.paperlane:hover, .featured.hexy:hover { border-color: #4a4a60; }
-  .products .phones .qr-mini { position: absolute; left: 0; bottom: 8px; z-index: 2; background: #fff; padding: 6px; border-radius: 12px; box-shadow: 0 12px 28px rgba(0,0,0,.55); }
-  .products .phones .qr-mini img { position: static; transform: none; display: block; width: 72px; height: 72px; border-radius: 4px; box-shadow: none; }
+  .products .featured .qr-mini { display: inline-block; margin-top: 16px; background: #fff; padding: 6px; border-radius: 12px; line-height: 0; }
+  .products .featured .qr-mini img { display: block; width: 72px; height: 72px; border-radius: 4px; margin: 0; box-shadow: none; }
+  @media (max-width: 640px) { .products .featured .qr-mini { display: none; } }
   .duo { padding-top: 34px; }
   .duo section { padding: 0; }
   .duo #work .label, .duo #work h2.big { text-align: center; margin-left: auto; margin-right: auto; }
@@ -319,10 +320,10 @@
         <span class="en">No account</span><span class="bg">Без акаунт</span>
         <span class="en">No ads</span><span class="bg">Без реклами</span>
       </div>
+      <a class="qr-mini" href="https://play.google.com/store/apps/details?id=com.keepall.app" target="_blank" rel="noopener"><img src="keepall/qr.svg" width="76" height="76" alt="QR code: KeepAll Wallet on Google Play"></a>
     </div>
     <div class="phones">
       <a href="keepall/" aria-hidden="true" tabindex="-1"><img src="keepall/shots/04.png" alt=""><img src="keepall/shots/01.png" alt=""></a>
-      <a class="qr-mini" href="https://play.google.com/store/apps/details?id=com.keepall.app" target="_blank" rel="noopener"><img src="keepall/qr.svg" width="76" height="76" alt="QR code: KeepAll Wallet on Google Play"></a>
     </div>
     <div class="card-actions">
       <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.keepall.app" target="_blank" rel="noopener"><span class="en">Get it on Google Play</span><span class="bg">Свали от Google Play</span></a>

@@ -240,3 +240,25 @@ footer .flinks a[aria-current="page"] { color: var(--text); }
   .flow-col + .flow-col { border-left: 0; border-top: 1px dashed #2a2a33; }
   .flow-col { padding: 22px 20px; }
 }
+
+/* Price: net price big, "+ VAT" quiet beside it. */
+.vat { font-size: .5em; font-weight: 600; color: var(--muted); letter-spacing: 0; }
+.btn .p .vat, .buy-mini .vat { font-size: .85em; color: inherit; opacity: .75; }
+.hint b { color: #c9c9d3; font-weight: 600; }
+
+/* Not on sale yet: the wire is laid but not live. Copper outline, dashed,
+   no fill, no hover lift. One switch in pr.js (PR_BUY_URL) turns it on. */
+.btn.buy.soon, .btn.buy.soon:hover {
+  background: transparent; color: var(--wire); border: 1px dashed var(--wire);
+  cursor: default; transform: none;
+}
+.btn.buy.soon .p { border-left-color: var(--wire-dim); }
+.btn.buy.soon::before { content: ""; width: 7px; height: 7px; border-radius: 50%; border: 1.5px solid var(--wire); flex: none; }
+.tabs .buy-mini.soon { cursor: default; }
+.tabs .buy-mini.soon:hover { text-decoration: none; }
+@media (max-width: 640px) {
+  .tabs .buy-mini.soon, .tabs .buy-mini.soon:hover, .tabs .buy-mini.soon:active {
+    background: var(--bg); color: var(--wire); box-shadow: inset 0 0 0 1px var(--wire), -22px 0 14px -2px var(--bg);
+  }
+  .tabs .buy-mini.soon::before { background: transparent; box-shadow: inset 0 0 0 1.5px var(--wire); }
+}

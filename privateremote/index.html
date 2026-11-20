@@ -37,7 +37,7 @@
   <a href="setup/"><span class="en">Setup guide</span><span class="bg">Настройка</span></a>
   <a href="faq/">FAQ</a>
   <a href="#source"><span class="en">Source code</span><span class="bg">Сорс код</span></a>
-  <a class="buy-mini" data-buy><span class="en">Buy</span><span class="bg">Купи</span> · <span data-price>€8.32 + VAT</span></a>
+  <a class="buy-mini" data-buy><span class="en">Buy</span><span class="bg">Купи</span> · <span data-price>€9.99 incl. VAT</span></a>
 </div>
 
 <header class="top">
@@ -45,7 +45,7 @@
   <h1><span class="en">A direct line to <em>your own</em> computers.</span><span class="bg">Директна връзка до <em>твоите</em> компютри.</span></h1>
   <p class="lede"><span class="en">Control your home PC from your laptop at work, or the other way round. PrivateRemote connects straight to your computer's IP address, with one permanent password. No account, no company server in the middle, no subscription.</span><span class="bg">Управлявай домашния си компютър от лаптопа в офиса или обратното. PrivateRemote се свързва направо към IP адреса на компютъра ти, с една постоянна парола. Без акаунт, без чужд сървър по средата, без абонамент.</span></p>
   <div class="ctas">
-    <a class="btn buy" data-buy><span class="en">Buy PrivateRemote</span><span class="bg">Купи PrivateRemote</span><span class="p" data-price>€8.32 + VAT</span></a>
+    <a class="btn buy" data-buy><span class="en">Buy PrivateRemote</span><span class="bg">Купи PrivateRemote</span><span class="p" data-price>€9.99 incl. VAT</span></a>
     <a class="btn" href="setup/"><span class="en">Read the setup guide</span><span class="bg">Виж как се настройва</span></a>
   </div>
   <p class="hint"><span class="en">One-time payment through Gumroad. Signed installers for all three systems and the full source code.</span><span class="bg">Еднократно плащане през Gumroad. Подписани инсталатори за трите системи и целият сорс код.</span></p>
@@ -84,8 +84,8 @@
         <p class="bg">Едно и също приложение е и двете страни: инсталираш го на всеки свой компютър и всеки от тях може да управлява другите.</p>
       </div>
       <div class="plate" style="margin-top:22px">
-        <div class="row"><div><span class="k"><span class="en">From outside</span><span class="bg">Отвън</span></span><code>203.0.113.24<i>:21118</i></code></div><button type="button" data-copy="203.0.113.24:21118"><span class="en">Copy</span><span class="bg">Копирай</span></button></div>
-        <div class="row"><div><span class="k"><span class="en">At home</span><span class="bg">Вкъщи</span></span><code>192.168.1.50</code></div><button type="button" data-copy="192.168.1.50"><span class="en">Copy</span><span class="bg">Копирай</span></button></div>
+        <div class="row"><div><span class="k"><span class="en">From outside</span><span class="bg">Отвън</span></span><code>203.0.113.24<i>:21118</i></code></div><span class="copy" aria-hidden="true"><span class="en">Copy</span><span class="bg">Копирай</span></span></div>
+        <div class="row"><div><span class="k"><span class="en">At home</span><span class="bg">Вкъщи</span></span><code>192.168.1.50</code></div><span class="copy" aria-hidden="true"><span class="en">Copy</span><span class="bg">Копирай</span></span></div>
       </div>
       <p class="hint"><span class="en">The app shows both addresses with a copy button. Example addresses.</span><span class="bg">Приложението показва двата адреса с бутон за копиране. Адресите са примерни.</span></p>
     </div>
@@ -104,21 +104,22 @@
   </div>
 </section>
 
-<section id="screens">
+<!-- Screens: hidden until real app screenshots are in privateremote/shots/ (01-main.png, 02-session.png, 03-security.png, 1600x1000). Then remove "hidden". -->
+<section id="screens" hidden>
   <p class="label"><span class="en">Screens</span><span class="bg">Екрани</span></p>
   <h2 class="h2big"><span class="en">Calm, Mac-like, and out of your way.</span><span class="bg">Спокоен, в стил Mac, не ти пречи.</span></h2>
   <div class="shots">
     <figure>
-      <div class="win"><div class="bar"><i></i><i></i><i></i></div><div class="ph">shots/01-main.png<br>1600 × 1000</div></div>
+      <div class="win"><div class="bar"><i></i><i></i><i></i></div><img src="shots/01-main.png" alt="PrivateRemote main window" width="1600" height="1000" loading="lazy"></div>
       <figcaption><span class="en">Main window: your addresses and the connect box.</span><span class="bg">Главен прозорец: адресите ти и полето за свързване.</span></figcaption>
     </figure>
     <div class="stack">
       <figure>
-        <div class="win"><div class="bar"><i></i><i></i><i></i></div><div class="ph">shots/02-session.png<br>1600 × 1000</div></div>
+        <div class="win"><div class="bar"><i></i><i></i><i></i></div><img src="shots/02-session.png" alt="PrivateRemote session: a Windows PC controlled from a Mac" width="1600" height="1000" loading="lazy"></div>
         <figcaption><span class="en">Controlling a Windows PC from a Mac.</span><span class="bg">Управление на Windows компютър от Mac.</span></figcaption>
       </figure>
       <figure>
-        <div class="win"><div class="bar"><i></i><i></i><i></i></div><div class="ph">shots/03-security.png<br>1600 × 1000</div></div>
+        <div class="win"><div class="bar"><i></i><i></i><i></i></div><img src="shots/03-security.png" alt="PrivateRemote Settings, Security: permanent password" width="1600" height="1000" loading="lazy"></div>
         <figcaption><span class="en">Settings → Security: the permanent password.</span><span class="bg">Настройки → Сигурност: постоянната парола.</span></figcaption>
       </figure>
     </div>
@@ -141,7 +142,7 @@
       <p class="label"><span class="en">Price</span><span class="bg">Цена</span></p>
       <div class="receipt">
         <span class="en" style="color:var(--muted)">PrivateRemote 1.0, one-time</span><span class="bg" style="color:var(--muted)">PrivateRemote 1.0, еднократно</span>
-        <div class="price" data-price>€8.32 <small class="vat">+ VAT</small></div>
+        <div class="price" data-price>€9.99 <small class="vat">incl. VAT</small></div>
         <p class="once"><span class="en">No subscription. No licence key.</span><span class="bg">Без абонамент. Без лицензен ключ.</span></p>
         <ul>
           <li><span>Windows x64</span><span>.exe</span></li>
@@ -151,7 +152,7 @@
           <li><span class="en">Email support</span><span class="bg">Поддръжка по имейл</span><span>info@</span></li>
         </ul>
         <a class="btn buy" data-buy><span class="en">Buy on Gumroad</span><span class="bg">Купи в Gumroad</span></a>
-        <p class="hint"><span class="en">VAT is added at checkout by Gumroad (in Bulgaria <b data-total-bg>€9.98</b> in total). Payment and receipt go through Gumroad too.</span><span class="bg">ДДС се добавя при плащането в Gumroad (за България общо <b data-total-bg>€9,98</b>). Плащането и разписката също минават през Gumroad.</span></p>
+        <p class="hint"><span class="en">Price with VAT. Gumroad works out the VAT for your country at checkout, so the final amount can differ by a few cents. Payment and receipt go through Gumroad.</span><span class="bg">Цената е с ДДС. Gumroad изчислява ДДС за твоята държава при плащането, затова крайната сума може да се различава с няколко цента. Плащането и разписката минават през Gumroad.</span></p>
       </div>
     </div>
   </div>
@@ -177,7 +178,7 @@
 
 <div class="end">
   <p><span class="en">Questions first? Read the</span><span class="bg">Имаш въпроси? Виж</span> <a href="faq/">FAQ</a> <span class="en">or write to</span><span class="bg">или пиши на</span> <a href="mailto:info@reviewcomfort85.com">info@reviewcomfort85.com</a>.</p>
-  <a class="btn buy" data-buy><span class="en">Buy PrivateRemote</span><span class="bg">Купи PrivateRemote</span><span class="p" data-price>€8.32 + VAT</span></a>
+  <a class="btn buy" data-buy><span class="en">Buy PrivateRemote</span><span class="bg">Купи PrivateRemote</span><span class="p" data-price>€9.99 incl. VAT</span></a>
 </div>
 
 </div>

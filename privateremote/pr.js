@@ -3,10 +3,9 @@
 // (e.g. https://reviewcomfort85.gumroad.com/l/privateremote).
 // While it is '' every Buy button shows as a disabled "Coming soon / Скоро".
 var PR_BUY_URL = '';
-// Price before VAT (option A, 20 Nov 2026). Gumroad adds VAT at checkout.
-var PR_PRICE   = { en: '€8.32', bg: '€8,32' };
-var PR_VAT     = { en: '+ VAT', bg: '+ ДДС' };
-var PR_TOTAL_BG = { en: '€9.98', bg: '€9,98' };   // total with 20% Bulgarian VAT
+// Price shown WITH VAT (Alex, 20 Nov 2026). Gumroad net price 8.32 -> 9.98 with BG VAT.
+var PR_PRICE   = { en: '€9.99', bg: '€9,99' };
+var PR_VAT     = { en: 'incl. VAT', bg: 'с ДДС' };
 
 (function () {
   function apply() {
@@ -32,18 +31,7 @@ var PR_TOTAL_BG = { en: '€9.98', bg: '€9,98' };   // total with 20% Bulgaria
     document.querySelectorAll('[data-price]').forEach(function (el) {
       el.innerHTML = both(PR_PRICE) + ' <small class="vat">' + both(PR_VAT) + '</small>';
     });
-    document.querySelectorAll('[data-total-bg]').forEach(function (el) { el.innerHTML = both(PR_TOTAL_BG); });
 
-    // Copy buttons on the example address plate.
-    document.querySelectorAll('[data-copy]').forEach(function (b) {
-      b.addEventListener('click', function () {
-        var t = b.getAttribute('data-copy');
-        if (navigator.clipboard) navigator.clipboard.writeText(t).catch(function () {});
-        var old = b.innerHTML;
-        b.textContent = '✓';
-        setTimeout(function () { b.innerHTML = old; }, 1200);
-      });
-    });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', apply); else apply();
 })();

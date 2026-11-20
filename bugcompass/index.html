@@ -91,8 +91,9 @@
   .h2big { text-transform: none; color: var(--text); font-size: clamp(1.6rem, 3.4vw, 2.3rem); letter-spacing: -.02em; margin: 0 0 26px; font-weight: 800; max-width: 680px; line-height: 1.15; }
 
   /* Screenshots are light, so they sit in a dark frame. */
-  .shots { margin-bottom: 0; }
-  .shots img { height: 380px; border-radius: 14px; border: 1px solid var(--line); }
+  .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; overflow: visible; padding: 0; margin-bottom: 28px; }
+  .shots img { width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--line); }
+  .shots img:first-child { grid-column: 1 / -1; }
 
   /* What one click collects: a numbered list, not icon cards. */
   .parts { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; counter-reset: p; }
@@ -151,7 +152,7 @@
   }
   @media (max-width: 640px) {
     .parts, .faq, .why { grid-template-columns: 1fr; }
-    .shots img { height: 210px; }
+    .shots { grid-template-columns: 1fr; gap: 12px; }
     th, td { padding: 9px 10px; }
     td.c, th.c { width: 60px; }
     .crumb { display: none; }
@@ -220,11 +221,11 @@ Chrome 142 · Windows 11 · 1920×1080</pre>
 </header>
 
 <div class="shots">
-  <img src="shots/01.png" alt="BugCompass report editor with an annotated screenshot, console errors and steps">
-  <img src="shots/02.png" alt="No account, everything stored locally" loading="lazy">
-  <img src="shots/03.png" alt="Markdown export for GitHub, Jira and Linear" loading="lazy">
-  <img src="shots/04.png" alt="Rewind and ZIP bundle" loading="lazy">
-  <img src="shots/05.png" alt="Pro is $19 once" loading="lazy">
+  <img src="shots/01.png" width="1280" height="800" alt="BugCompass report editor with an annotated screenshot, console errors and steps">
+  <img src="shots/02.png" width="1280" height="800" alt="No account, everything stored locally" loading="lazy">
+  <img src="shots/03.png" width="1280" height="800" alt="Markdown export for GitHub, Jira and Linear" loading="lazy">
+  <img src="shots/04.png" width="1280" height="800" alt="Rewind and ZIP bundle" loading="lazy">
+  <img src="shots/05.png" width="1280" height="800" alt="Pro is $19 once" loading="lazy">
 </div>
 
 <section id="features">

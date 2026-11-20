@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Setup guide — PrivateRemote — REVIEW COMFORT 85</title>
+<meta name="description" content="Set up PrivateRemote step by step: install, set the permanent password, forward TCP port 21118 on your router, find your public IP and connect.">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://reviewcomfort85.com/privateremote/setup/">
+<link rel="icon" href="../../favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../site.css">
+<link rel="stylesheet" href="../pr.css">
+<script src="../../lang.js"></script>
+<script src="../pr.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+
+<nav>
+  <a class="brand" href="../../"><svg class="mark" viewBox="0 0 64 64" role="img" aria-label="Rc 85"><defs><linearGradient id="rcg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8f7dff"/><stop offset=".55" stop-color="#3aa0ff"/><stop offset="1" stop-color="#3fe0a0"/></linearGradient></defs><rect x="3.500" y="3.500" width="57" height="57" rx="13" fill="#111116" stroke="url(#rcg)" stroke-width="3.500"/><text x="11" y="21" font-family="Manrope, Inter, sans-serif" font-weight="800" font-size="13" fill="#3fe0a0">85</text><text x="33" y="50" font-family="Manrope, Inter, sans-serif" font-weight="800" font-size="31" letter-spacing="-1.500" text-anchor="middle" fill="#f2f2f5">Rc</text></svg>REVIEW COMFORT 85<span class="crumb">PrivateRemote</span></a>
+  <button class="lang" type="button"><span class="en">БГ</span><span class="bg">EN</span></button>
+</nav>
+
+<div class="tabs">
+  <a href="../"><span class="en">Overview</span><span class="bg">Общо</span></a>
+  <a href="./" aria-current="page"><span class="en">Setup guide</span><span class="bg">Настройка</span></a>
+  <a href="../faq/">FAQ</a>
+  <a href="../#source"><span class="en">Source code</span><span class="bg">Сорс код</span></a>
+  <a class="buy-mini" data-buy><span class="en">Buy</span><span class="bg">Купи</span> · <span data-price>€8.32 + VAT</span></a>
+</div>
+
+<header class="page-title">
+  <h1><span class="en">Setup guide</span><span class="bg">Ръководство за настройка</span></h1>
+  <p><span class="en">About 15 minutes, once. You do the router part only on the computer you want to reach from outside (usually your home PC).</span><span class="bg">Около 15 минути, еднократно. Частта с рутера се прави само при компютъра, до който искаш да стигаш отвън (обикновено домашния).</span></p>
+</header>
+
+<div class="guide">
+  <aside class="toc">
+    <p><span class="en">Steps</span><span class="bg">Стъпки</span></p>
+    <ol>
+      <li><a href="#install"><span class="en">Install</span><span class="bg">Инсталиране</span></a></li>
+      <li><a href="#password"><span class="en">Permanent password</span><span class="bg">Постоянна парола</span></a></li>
+      <li><a href="#lan-ip"><span class="en">Find the LAN IP</span><span class="bg">Вътрешно IP</span></a></li>
+      <li><a href="#dhcp"><span class="en">Reserve the LAN IP</span><span class="bg">Резервиране на IP</span></a></li>
+      <li><a href="#port"><span class="en">Forward port 21118</span><span class="bg">Порт 21118</span></a></li>
+      <li><a href="#public-ip"><span class="en">Find your public IP</span><span class="bg">Публично IP</span></a></li>
+      <li><a href="#cgnat"><span class="en">Check for CGNAT</span><span class="bg">Проверка за CGNAT</span></a></li>
+      <li><a href="#connect"><span class="en">Connect</span><span class="bg">Свързване</span></a></li>
+      <li><a href="#macos"><span class="en">macOS permissions</span><span class="bg">Разрешения на macOS</span></a></li>
+      <li><a href="#trouble"><span class="en">Problems &amp; fixes</span><span class="bg">Проблеми и решения</span></a></li>
+    </ol>
+  </aside>
+
+  <div class="steps">
+
+    <div class="step" id="install">
+      <h2><span><span class="en">Install</span><span class="bg">Инсталиране</span></span></h2>
+      <div class="body">
+        <p class="en">Download the file for each computer from your Gumroad library and install PrivateRemote on <b>every computer</b> you want to use, both the one you control and the one you control it from.</p>
+        <p class="bg">Свали файла за всеки компютър от библиотеката си в Gumroad и инсталирай PrivateRemote на <b>всеки компютър</b>, който ще ползваш: и този, който управляваш, и този, от който го управляваш.</p>
+        <ul class="en">
+          <li><b>Windows:</b> run <code>PrivateRemote-windows-x64.exe</code> and choose Install. It installs as a service, so it works even before you log in. Allow it when Windows Firewall asks.</li>
+          <li><b>macOS:</b> open <code>PrivateRemote-mac-arm64.dmg</code> and drag PrivateRemote to Applications. Then see <a href="#macos">step 9</a>. Needs macOS 11 Big Sur or later, Apple Silicon Macs only (M1 or newer); Intel Macs are not supported.</li>
+          <li><b>Linux:</b> <code>sudo apt install ./PrivateRemote-1.0.0-linux-x64.deb</code>, or unpack the portable <code>.tar.gz</code> and run <code>PrivateRemote.sh</code>.</li>
+        </ul>
+        <ul class="bg">
+          <li><b>Windows:</b> пусни <code>PrivateRemote-windows-x64.exe</code> и избери Install. Инсталира се като услуга, така че работи още преди да влезеш в Windows. Разреши го, когато защитната стена попита.</li>
+          <li><b>macOS:</b> отвори <code>PrivateRemote-mac-arm64.dmg</code> и плъзни PrivateRemote в Applications. После виж <a href="#macos">стъпка 9</a>. Изисква macOS 11 Big Sur или по-нов, само Mac с Apple Silicon (M1 или по-нов); Intel Mac не се поддържа.</li>
+          <li><b>Linux:</b> <code>sudo apt install ./PrivateRemote-1.0.0-linux-x64.deb</code> или разархивирай преносимия <code>.tar.gz</code> и пусни <code>PrivateRemote.sh</code>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step" id="password">
+      <h2><span><span class="en">Set the permanent password</span><span class="bg">Задай постоянната парола</span></span></h2>
+      <div class="body">
+        <p class="en">On the computer you want to control, open <b>Settings → Security</b> and set a password. This is the only thing that protects the computer once the port is open, so make it long: at least 12 characters, not used anywhere else.</p>
+        <p class="bg">На компютъра, който ще управляваш, отвори <b>Настройки → Сигурност</b> (Settings → Security) и задай парола. Само тя пази компютъра, щом портът е отворен, затова я направи дълга: поне 12 знака, които не ползваш никъде другаде.</p>
+        <p class="en">The password stays the same until you change it. On the other computer you can tick “Remember password” so you don't type it every time.</p>
+        <p class="bg">Паролата остава същата, докато не я смениш. На другия компютър можеш да отметнеш „Запомни паролата“ (Remember password), за да не я пишеш всеки път.</p>
+      </div>
+    </div>
+
+    <div class="step" id="lan-ip">
+      <h2><span><span class="en">Find the computer's LAN IP</span><span class="bg">Намери вътрешното (LAN) IP</span></span></h2>
+      <div class="body">
+        <p class="en">PrivateRemote shows it on the main screen as <b>“At home”</b>, for example <code>192.168.1.50</code>. Write it down: you need it for the next two steps.</p>
+        <p class="bg">PrivateRemote го показва на главния екран като <b>„Вкъщи“</b> (At home), например <code>192.168.1.50</code>. Запиши го: трябва ти за следващите две стъпки.</p>
+        <p class="en">You can also find it in Windows with <code>ipconfig</code> (IPv4 Address), on macOS in System Settings → Wi‑Fi/Network → Details, on Linux with <code>ip addr</code>.</p>
+        <p class="bg">Можеш да го намериш и в Windows с <code>ipconfig</code> (IPv4 Address), на macOS в System Settings → Wi‑Fi/Network → Details, а в Linux с <code>ip addr</code>.</p>
+      </div>
+    </div>
+
+    <div class="step" id="dhcp">
+      <h2><span><span class="en">Reserve that IP in the router (DHCP reservation)</span><span class="bg">Запази това IP в рутера (DHCP резервация)</span></span></h2>
+      <div class="body">
+        <p class="en">Routers hand out LAN addresses on their own and can give your computer a different one after a restart. Then the port forward points to the wrong place and the connection stops working. A reservation fixes the address for good.</p>
+        <p class="bg">Рутерът раздава вътрешните адреси сам и след рестарт може да даде друг на компютъра ти. Тогава пренасочването сочи грешно място и връзката спира. Резервацията закрепва адреса завинаги.</p>
+        <ol class="en">
+          <li>Open the router's admin page in a browser (often <code>192.168.0.1</code> or <code>192.168.1.1</code>; it's printed on the router's label).</li>
+          <li>Find <b>DHCP</b> → <b>Address Reservation</b> (some routers call it Static Lease or Fixed IP).</li>
+          <li>Pick your computer from the list (or enter its MAC address) and give it the IP from step 3. Save.</li>
+        </ol>
+        <ol class="bg">
+          <li>Отвори страницата за управление на рутера в браузъра (често <code>192.168.0.1</code> или <code>192.168.1.1</code>; пише го на етикета на рутера).</li>
+          <li>Намери <b>DHCP</b> → <b>Address Reservation</b> (при някои рутери е Static Lease или Fixed IP).</li>
+          <li>Избери компютъра си от списъка (или въведи MAC адреса му) и му дай IP-то от стъпка 3. Запази.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="step" id="port">
+      <h2><span><span class="en">Forward TCP port 21118 to that computer</span><span class="bg">Пренасочи TCP порт 21118 към този компютър</span></span></h2>
+      <div class="body">
+        <p class="en">In the router, find <b>Port Forwarding</b> (also called Virtual Servers or NAT Forwarding) and add a rule like this:</p>
+        <p class="bg">В рутера намери <b>Port Forwarding</b> (наричано още Virtual Servers или NAT Forwarding) и добави правило като това:</p>
+        <div class="form">
+          <div><span><span class="en">Name</span><span class="bg">Име</span></span><code>PrivateRemote</code></div>
+          <div><span><span class="en">Protocol</span><span class="bg">Протокол</span></span><code>TCP</code></div>
+          <div><span><span class="en">External port</span><span class="bg">Външен порт</span></span><code>21118</code></div>
+          <div><span><span class="en">Internal IP</span><span class="bg">Вътрешно IP</span></span><code>192.168.1.50</code></div>
+          <div><span><span class="en">Internal port</span><span class="bg">Вътрешен порт</span></span><code>21118</code></div>
+        </div>
+        <p class="en">Use <b>your</b> computer's LAN IP from step 3 instead of the example. Save the rule. Only one port is needed.</p>
+        <p class="bg">Сложи <b>твоето</b> вътрешно IP от стъпка 3 вместо примерното. Запази правилото. Трябва само един порт.</p>
+        <div class="note"><span class="en"><b>Two routers?</b> If your internet box is a modem‑router and you have your own router behind it, the forward must be set on both, or the modem must be in bridge mode.</span><span class="bg"><b>Два рутера?</b> Ако устройството на доставчика е модем‑рутер и зад него имаш свой рутер, пренасочването трябва да се направи и на двата, или модемът да е в режим bridge.</span></div>
+      </div>
+    </div>
+
+    <div class="step" id="public-ip">
+      <h2><span><span class="en">Find your public IP</span><span class="bg">Намери публичното си IP</span></span></h2>
+      <div class="body">
+        <p class="en">PrivateRemote shows it on the main screen as <b>“From outside”</b>, for example <code>203.0.113.24:21118</code>. You can also search “what is my IP” in any browser on that network, or look at the router's status page (WAN / Internet IP).</p>
+        <p class="bg">PrivateRemote го показва на главния екран като <b>„Отвън“</b> (From outside), например <code>203.0.113.24:21118</code>. Можеш и да потърсиш „what is my IP“ в браузъра от тази мрежа или да видиш статус страницата на рутера (WAN / Internet IP).</p>
+        <div class="note"><span class="en"><b>It may change.</b> Many providers give a new public IP from time to time. If that happens, check the new one in the app. If your router has <b>Dynamic DNS</b> (DDNS), you can get a fixed name instead, or ask your provider for a static IP.</span><span class="bg"><b>Може да се сменя.</b> Много доставчици дават ново публично IP от време на време. Ако стане така, виж новото в приложението. Ако рутерът ти има <b>Dynamic DNS</b> (DDNS), можеш да вземеш постоянно име вместо това, или да поискаш статично IP от доставчика.</span></div>
+      </div>
+    </div>
+
+    <div class="step" id="cgnat">
+      <h2><span><span class="en">Check that you're not behind CGNAT</span><span class="bg">Провери дали не си зад CGNAT</span></span></h2>
+      <div class="body">
+        <p class="en">Some providers share one public IP between many customers (CGNAT). Then no port forward can reach you from outside, and PrivateRemote can't connect over the internet. Check it in one minute:</p>
+        <p class="bg">Някои доставчици делят едно публично IP между много клиенти (CGNAT). Тогава никое пренасочване на порт не може да те достигне отвън и PrivateRemote не може да се свърже през интернет. Провери за минута:</p>
+        <ol class="en">
+          <li>Look at the <b>WAN / Internet IP</b> on the router's status page.</li>
+          <li>Compare it with the public IP from step 6.</li>
+          <li>If they're the <b>same</b>, you're fine. If they're <b>different</b>, or the router shows an address starting with <code>100.64</code>–<code>100.127</code>, <code>10.</code> or <code>192.168.</code>, you're behind CGNAT.</li>
+        </ol>
+        <ol class="bg">
+          <li>Виж <b>WAN / Internet IP</b> на статус страницата на рутера.</li>
+          <li>Сравни го с публичното IP от стъпка 6.</li>
+          <li>Ако са <b>еднакви</b>, всичко е наред. Ако са <b>различни</b> или рутерът показва адрес, започващ със <code>100.64</code>–<code>100.127</code>, <code>10.</code> или <code>192.168.</code>, ти си зад CGNAT.</li>
+        </ol>
+        <div class="note warn"><span class="en"><b>Behind CGNAT?</b> Ask your provider for a public IP address. Many give one for free or for a small fee. Without it, PrivateRemote still works inside your home network.</span><span class="bg"><b>Зад CGNAT си?</b> Поискай от доставчика си публичен IP адрес. Много го дават безплатно или срещу малка такса. Без него PrivateRemote пак работи в домашната мрежа.</span></div>
+      </div>
+    </div>
+
+    <div class="step" id="connect">
+      <h2><span><span class="en">Connect</span><span class="bg">Свържи се</span></span></h2>
+      <div class="body">
+        <p class="en">On the computer you're sitting at, type the address into the connect box and enter the password from step 2.</p>
+        <p class="bg">На компютъра, на който седиш, напиши адреса в полето за свързване и въведи паролата от стъпка 2.</p>
+        <div class="form">
+          <div><span><span class="en">From outside (office, phone hotspot)</span><span class="bg">Отвън (офис, мобилен интернет)</span></span><code>203.0.113.24:21118</code></div>
+          <div><span><span class="en">At home, same network</span><span class="bg">Вкъщи, в същата мрежа</span></span><code>192.168.1.50</code></div>
+        </div>
+        <p class="en">At home always use the LAN IP: many routers can't loop back to their own public IP from inside.</p>
+        <p class="bg">Вкъщи винаги ползвай вътрешното IP: много рутери не могат да се свържат към собственото си публично IP отвътре.</p>
+        <div class="note"><span class="en"><b>Test it properly:</b> to check the outside address, turn off Wi‑Fi on your laptop and connect through your phone's hotspot.</span><span class="bg"><b>Тествай правилно:</b> за да провериш външния адрес, изключи Wi‑Fi на лаптопа и се свържи през мобилна точка за достъп от телефона.</span></div>
+      </div>
+    </div>
+
+    <div class="step" id="macos">
+      <h2><span><span class="en">macOS permissions</span><span class="bg">Разрешения на macOS</span></span></h2>
+      <div class="body">
+        <p class="en">To be controlled, a Mac needs two permissions. Open <b>System Settings → Privacy &amp; Security</b> and turn PrivateRemote on in:</p>
+        <p class="bg">За да бъде управляван, Mac има нужда от две разрешения. Отвори <b>System Settings → Privacy &amp; Security</b> и включи PrivateRemote в:</p>
+        <ul class="en">
+          <li><b>Screen Recording</b> (Screen &amp; System Audio Recording on newer macOS), so the other side can see the screen.</li>
+          <li><b>Accessibility</b>, so the other side can move the mouse and type.</li>
+        </ul>
+        <ul class="bg">
+          <li><b>Screen Recording</b> (Screen &amp; System Audio Recording в по-новите macOS), за да вижда другата страна екрана.</li>
+          <li><b>Accessibility</b>, за да може другата страна да движи мишката и да пише.</li>
+        </ul>
+        <p class="en">Quit and reopen PrivateRemote after you switch them on. If you only use the Mac to control other computers, you don't need these.</p>
+        <p class="bg">Затвори и отвори PrivateRemote отново, след като ги включиш. Ако ползваш Mac-а само за да управляваш други компютри, не ти трябват.</p>
+      </div>
+    </div>
+
+    <div class="step" id="trouble">
+      <h2><span><span class="en">Problems &amp; fixes</span><span class="bg">Проблеми и решения</span></span></h2>
+      <div class="body">
+        <table class="trouble en">
+          <tr><td>Connects at home, not from outside</td><td>Check the port forward (TCP 21118 → the right LAN IP), check for CGNAT (step 7), and make sure you use the public IP with <code>:21118</code>.</td></tr>
+          <tr><td>Worked yesterday, not today</td><td>The LAN IP or the public IP changed. Compare both with what the app shows now. Set the DHCP reservation (step 4).</td></tr>
+          <tr><td>“Wrong password”</td><td>The password is case‑sensitive. If you ticked “Remember password”, clear it and type it again.</td></tr>
+          <tr><td>Black screen from a Mac</td><td>Screen Recording is off. Turn it on (step 9) and restart the app.</td></tr>
+          <tr><td>I see the Mac but can't click</td><td>Accessibility is off. Turn it on (step 9) and restart the app.</td></tr>
+          <tr><td>Windows: nothing connects</td><td>Windows Firewall may block it. Allow PrivateRemote under Windows Security → Firewall → Allow an app.</td></tr>
+          <tr><td>Linux: can't be controlled</td><td>Log in with an Xorg (X11) session instead of Wayland, then try again.</td></tr>
+          <tr><td>Very slow or choppy</td><td>Usually the upload speed at home. Lower the image quality in the session toolbar.</td></tr>
+        </table>
+        <table class="trouble bg">
+          <tr><td>Свързва се вкъщи, но не и отвън</td><td>Провери пренасочването (TCP 21118 → правилното вътрешно IP), провери за CGNAT (стъпка 7) и дали ползваш публичното IP с <code>:21118</code>.</td></tr>
+          <tr><td>Вчера работеше, днес не</td><td>Сменило се е вътрешното или публичното IP. Сравни двете с това, което показва приложението сега. Направи DHCP резервацията (стъпка 4).</td></tr>
+          <tr><td>„Грешна парола“</td><td>Малките и главните букви имат значение. Ако си отметнал „Запомни паролата“, изчисти я и я въведи отново.</td></tr>
+          <tr><td>Черен екран от Mac</td><td>Screen Recording е изключено. Включи го (стъпка 9) и рестартирай приложението.</td></tr>
+          <tr><td>Виждам Mac-а, но не мога да кликам</td><td>Accessibility е изключено. Включи го (стъпка 9) и рестартирай приложението.</td></tr>
+          <tr><td>Windows: нищо не се свързва</td><td>Защитната стена на Windows може да го спира. Разреши PrivateRemote в Windows Security → Firewall → Allow an app.</td></tr>
+          <tr><td>Linux: не може да бъде управляван</td><td>Влез с Xorg (X11) сесия вместо Wayland и опитай пак.</td></tr>
+          <tr><td>Много бавно или на пресекулки</td><td>Обикновено е от скоростта за качване вкъщи. Намали качеството на картината от лентата в сесията.</td></tr>
+        </table>
+        <p style="margin-top:18px"><span class="en">Still stuck? Write to</span><span class="bg">Пак не става? Пиши на</span> <a href="mailto:info@reviewcomfort85.com">info@reviewcomfort85.com</a> <span class="en">with your system and what you see.</span><span class="bg">с коя система ползваш и какво виждаш.</span></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="end">
+  <p><span class="en">More answers in the</span><span class="bg">Още отговори във</span> <a href="../faq/">FAQ</a>.</p>
+  <a class="btn buy" data-buy><span class="en">Buy PrivateRemote</span><span class="bg">Купи PrivateRemote</span><span class="p" data-price>€8.32 + VAT</span></a>
+</div>
+
+</div>
+<footer>
+  <div class="wrap cols">
+    <span><strong>REVIEW COMFORT 85 LTD</strong></span>
+    <span class="flinks"><a href="../privacy/"><span class="en">Privacy</span><span class="bg">Поверителност</span></a><a href="../../">reviewcomfort85.com</a></span>
+  </div>
+</footer>
+<!-- Cloudflare Web Analytics (cookieless) --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "da25f4eb77614a69bbba2c67183ef016"}'></script>
+</body>
+</html>

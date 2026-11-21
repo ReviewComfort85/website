@@ -64,12 +64,12 @@
         <ul class="en">
           <li><b>Windows:</b> run <code>PrivateRemote-windows-x64.exe</code> and choose Install. It installs as a service, so it works even before you log in. Allow it when Windows Firewall asks. If a blue “Windows protected your PC” screen appears, see <a href="#windows-first-run">Windows: first launch</a> below.</li>
           <li><b>macOS:</b> open <code>PrivateRemote-mac-arm64.dmg</code> and drag PrivateRemote to Applications. Then see <a href="#macos">step 9</a>. Needs macOS 11 Big Sur or later, Apple Silicon Macs only (M1 or newer); Intel Macs are not supported.</li>
-          <li><b>Linux:</b> <code>sudo apt install ./PrivateRemote-1.0.0-linux-x64.deb</code>, or unpack the portable <code>.tar.gz</code> and run <code>PrivateRemote.sh</code>.</li>
+          <li><b>Linux:</b> A Linux version is planned and will be a free update for buyers.</li>
         </ul>
         <ul class="bg">
           <li><b>Windows:</b> пусни <code>PrivateRemote-windows-x64.exe</code> и избери Install. Инсталира се като услуга, така че работи още преди да влезеш в Windows. Разреши го, когато защитната стена попита. Ако се появи син екран „Windows protected your PC“, виж <a href="#windows-first-run">Windows: първо стартиране</a> по-долу.</li>
           <li><b>macOS:</b> отвори <code>PrivateRemote-mac-arm64.dmg</code> и плъзни PrivateRemote в Applications. После виж <a href="#macos">стъпка 9</a>. Изисква macOS 11 Big Sur или по-нов, само Mac с Apple Silicon (M1 или по-нов); Intel Mac не се поддържа.</li>
-          <li><b>Linux:</b> <code>sudo apt install ./PrivateRemote-1.0.0-linux-x64.deb</code> или разархивирай преносимия <code>.tar.gz</code> и пусни <code>PrivateRemote.sh</code>.</li>
+          <li><b>Linux:</b> Linux версия е планирана и ще е безплатно обновление за купувачите.</li>
         </ul>
         <div class="firstrun" id="windows-first-run">
           <h3><span class="en">Windows: first launch</span><span class="bg">Windows: първо стартиране</span></h3>
@@ -112,8 +112,8 @@
       <div class="body">
         <p class="en">PrivateRemote shows it on the main screen as <b>“At home”</b>, for example <code>192.168.1.50</code>. Write it down: you need it for the next two steps.</p>
         <p class="bg">PrivateRemote го показва на главния екран като <b>„Вкъщи“</b> (At home), например <code>192.168.1.50</code>. Запиши го: трябва ти за следващите две стъпки.</p>
-        <p class="en">You can also find it in Windows with <code>ipconfig</code> (IPv4 Address), on macOS in System Settings → Wi‑Fi/Network → Details, on Linux with <code>ip addr</code>.</p>
-        <p class="bg">Можеш да го намериш и в Windows с <code>ipconfig</code> (IPv4 Address), на macOS в System Settings → Wi‑Fi/Network → Details, а в Linux с <code>ip addr</code>.</p>
+        <p class="en">You can also find it in Windows with <code>ipconfig</code> (IPv4 Address) and on macOS in System Settings → Wi‑Fi/Network → Details.</p>
+        <p class="bg">Можеш да го намериш и в Windows с <code>ipconfig</code> (IPv4 Address), а на macOS в System Settings → Wi‑Fi/Network → Details.</p>
       </div>
     </div>
 
@@ -225,7 +225,6 @@
           <tr><td>I see the Mac but can't click</td><td>Accessibility is off. Turn it on (step 9) and restart the app.</td></tr>
           <tr><td>Windows: “Windows protected your PC”</td><td>The installer has no publisher signature. Click More info → Run anyway (<a href="#windows-first-run">details</a>).</td></tr>
           <tr><td>Windows: nothing connects</td><td>Windows Firewall may block it. Allow PrivateRemote under Windows Security → Firewall → Allow an app.</td></tr>
-          <tr><td>Linux: can't be controlled</td><td>Log in with an Xorg (X11) session instead of Wayland, then try again.</td></tr>
           <tr><td>Very slow or choppy</td><td>Usually the upload speed at home. Lower the image quality in the session toolbar.</td></tr>
         </table>
         <table class="trouble bg">
@@ -236,7 +235,6 @@
           <tr><td>Виждам Mac-а, но не мога да кликам</td><td>Accessibility е изключено. Включи го (стъпка 9) и рестартирай приложението.</td></tr>
           <tr><td>Windows: „Windows protected your PC“</td><td>Инсталаторът няма подпис на издател. Натисни More info → Run anyway (<a href="#windows-first-run">подробно</a>).</td></tr>
           <tr><td>Windows: нищо не се свързва</td><td>Защитната стена на Windows може да го спира. Разреши PrivateRemote в Windows Security → Firewall → Allow an app.</td></tr>
-          <tr><td>Linux: не може да бъде управляван</td><td>Влез с Xorg (X11) сесия вместо Wayland и опитай пак.</td></tr>
           <tr><td>Много бавно или на пресекулки</td><td>Обикновено е от скоростта за качване вкъщи. Намали качеството на картината от лентата в сесията.</td></tr>
         </table>
         <p style="margin-top:18px"><span class="en">Still stuck? Write to</span><span class="bg">Пак не става? Пиши на</span> <a href="mailto:info@reviewcomfort85.com">info@reviewcomfort85.com</a> <span class="en">with your system and what you see.</span><span class="bg">с коя система ползваш и какво виждаш.</span></p>

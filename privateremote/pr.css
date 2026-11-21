@@ -271,7 +271,7 @@ footer .flinks a[aria-current="page"] { color: var(--text); }
   .shot, .shot.main { flex: 0 0 84%; scroll-snap-align: start; }
 }
 
-/* ---- setup: Windows first launch (installer has no publisher signature yet) ---- */
+/* ---- setup: Windows first launch (installer has no publisher signature) ---- */
 .firstrun { margin: 26px 0 4px; padding-top: 22px; border-top: 1px dashed var(--line); max-width: 680px; scroll-margin-top: 16px; }
 .firstrun h3 { margin: 0 0 10px; font-size: 1.08rem; font-weight: 700; letter-spacing: -.01em; color: var(--text); }
 .ss { margin: 16px 0 18px; max-width: 440px; padding: 18px 20px 16px; background: #0a4c8c; color: #fff; border-radius: 3px; font-family: "Segoe UI", Inter, system-ui, sans-serif; box-shadow: 0 0 0 1px rgba(255,255,255,.07), 0 22px 44px -24px rgba(0,0,0,.9); user-select: none; }

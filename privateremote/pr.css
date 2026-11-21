@@ -87,18 +87,6 @@ section.first { border-top: 0; }
 .ledger b { display: block; }
 .ledger span { color: var(--muted); font-size: .95rem; }
 
-/* Screenshot placeholders: a real window frame at the real ratio. */
-.shots { display: grid; grid-template-columns: 1.35fr 1fr; gap: 16px; }
-.shots figure { margin: 0; }
-.shots .stack { display: grid; gap: 16px; }
-.win { background: var(--ink); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
-.win .bar { display: flex; gap: 7px; padding: 10px 12px; border-bottom: 1px solid var(--line); }
-.win .bar i { width: 10px; height: 10px; border-radius: 50%; background: #2a2a33; }
-.win .ph { aspect-ratio: 16 / 10; display: grid; place-items: center; text-align: center; color: #5b5b6a; font: 500 .8rem/1.5 var(--mono);
-  background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px); background-size: 24px 24px; }
-.win img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
-.shots figcaption { color: var(--muted); font-size: .88rem; margin-top: 8px; }
-
 /* Spec sheet */
 .spec { width: 100%; border-collapse: collapse; font-size: .97rem; }
 .spec th, .spec td { text-align: left; vertical-align: top; padding: 14px 0; border-top: 1px solid var(--line); }
@@ -177,7 +165,7 @@ section.first { border-top: 0; }
 footer .cols { justify-content: space-between; }
 
 @media (max-width: 900px) {
-  .split, .shots { grid-template-columns: 1fr; gap: 32px; }
+  .split { grid-template-columns: 1fr; gap: 32px; }
   .guide { grid-template-columns: 1fr; gap: 20px; }
   .toc { position: static; border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; }
 }
@@ -198,7 +186,7 @@ footer .cols { justify-content: space-between; }
   .src { padding: 22px; }
 }
 @keyframes pulse-v { 0% { top: 0; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { top: calc(100% - 8px); opacity: 0; } }
-.guide > *, .split > *, .shots > * { min-width: 0; }
+.guide > *, .split > * { min-width: 0; }
 @media (max-width: 640px) { .steps code, .faq code, .prose code { white-space: normal; word-break: break-all; } }
 @media (max-width: 640px) {
   .crumb { display: none; }
@@ -260,4 +248,25 @@ footer .flinks a[aria-current="page"] { color: var(--text); }
     background: var(--bg); color: var(--wire); box-shadow: inset 0 0 0 1px var(--wire), -22px 0 14px -2px var(--bg);
   }
   .tabs .buy-mini.soon::before { background: transparent; box-shadow: inset 0 0 0 1.5px var(--wire); }
+}
+
+/* Screens (21 Nov 2026): a contact sheet of real screenshots. One large, two small, numbered. */
+.shots { display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: auto auto; gap: 18px 20px; margin-top: 8px; }
+.shot { margin: 0; min-width: 0; display: flex; flex-direction: column; }
+.shot.main { grid-row: 1 / span 2; }
+.shot .frame { display: block; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #1a1a1a;
+  box-shadow: 0 1px 0 rgba(255,255,255,.04) inset, 0 24px 48px -28px rgba(0,0,0,.8); transition: border-color .2s ease, transform .2s ease; }
+.shot .frame:hover, .shot .frame:focus-visible { border-color: #3a3a46; transform: translateY(-2px); }
+.shot picture, .shot img { display: block; width: 100%; height: auto; }
+.shot figcaption { display: flex; gap: 10px; align-items: baseline; margin-top: 10px; padding-top: 9px; border-top: 1px dashed var(--line);
+  color: var(--muted); font-size: .88rem; line-height: 1.45; }
+.shot figcaption .no { font: 600 .74rem/1 var(--mono, ui-monospace, monospace); color: #3fe0a0; letter-spacing: .06em; flex: none; }
+.shots-note { color: var(--muted); font-size: .8rem; margin-top: 14px; opacity: .8; }
+@media (prefers-reduced-motion: reduce) { .shot .frame { transition: none; } .shot .frame:hover { transform: none; } }
+/* Phone: a swipeable strip, one screen at a time, the next one peeking in. */
+@media (max-width: 720px) {
+  .shots { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+    margin-left: -20px; margin-right: -20px; padding: 0 20px 10px; scroll-padding: 0 20px; scrollbar-width: none; }
+  .shots::-webkit-scrollbar { display: none; }
+  .shot, .shot.main { flex: 0 0 84%; scroll-snap-align: start; }
 }

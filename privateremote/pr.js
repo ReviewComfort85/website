@@ -35,3 +35,15 @@ var PR_VAT     = { en: 'incl. VAT', bg: 'с ДДС' };
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', apply); else apply();
 })();
+
+// Screenshot alt text follows the EN/BG switch.
+(function () {
+  function alts() {
+    var bg = document.documentElement.classList.contains('bg');
+    document.querySelectorAll('img[data-alt-en]').forEach(function (img) {
+      img.alt = img.getAttribute(bg ? 'data-alt-bg' : 'data-alt-en');
+    });
+  }
+  new MutationObserver(alts).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', alts); else alts();
+})();

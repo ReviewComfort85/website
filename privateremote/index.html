@@ -20,9 +20,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../site.css">
-<link rel="stylesheet" href="pr.css?v=20261120b">
+<link rel="stylesheet" href="pr.css?v=20261121a">
 <script src="../lang.js"></script>
-<script src="pr.js?v=20261120b" defer></script>
+<script src="pr.js?v=20261121a" defer></script>
 </head>
 <body>
 <div class="wrap">
@@ -104,26 +104,24 @@
   </div>
 </section>
 
-<!-- Screens: hidden until real app screenshots are in privateremote/shots/ (01-main.png, 02-session.png, 03-security.png, 1600x1000). Then remove "hidden". -->
-<section id="screens" hidden>
+<section id="screens">
   <p class="label"><span class="en">Screens</span><span class="bg">Екрани</span></p>
   <h2 class="h2big"><span class="en">Calm, Mac-like, and out of your way.</span><span class="bg">Спокоен, в стил Mac, не ти пречи.</span></h2>
   <div class="shots">
-    <figure>
-      <div class="win"><div class="bar"><i></i><i></i><i></i></div><img src="shots/01-main.png" alt="PrivateRemote main window" width="1600" height="1000" loading="lazy"></div>
-      <figcaption><span class="en">Main window: your addresses and the connect box.</span><span class="bg">Главен прозорец: адресите ти и полето за свързване.</span></figcaption>
+    <figure class="shot main">
+      <a class="frame" href="shots/01-main.png" target="_blank" rel="noopener"><picture><source srcset="shots/01-main.webp" type="image/webp"><img src="shots/01-main.png" alt="PrivateRemote main window: this computer&#39;s home and outside address with a copy button, the hidden password, and the Connect to box" data-alt-en="PrivateRemote main window: this computer&#39;s home and outside address with a copy button, the hidden password, and the Connect to box" data-alt-bg="Главният прозорец на PrivateRemote: адресът на компютъра вкъщи и отвън с бутон за копиране, скритата парола и полето за свързване" width="1477" height="1206" loading="lazy" decoding="async"></picture></a>
+      <figcaption><span class="no">01</span><span class="en">Main window: your home and outside address, the password, and the Connect box.</span><span class="bg">Главен екран: адресът ти вкъщи и отвън, паролата и полето за свързване.</span></figcaption>
     </figure>
-    <div class="stack">
-      <figure>
-        <div class="win"><div class="bar"><i></i><i></i><i></i></div><img src="shots/02-session.png" alt="PrivateRemote session: a Windows PC controlled from a Mac" width="1600" height="1000" loading="lazy"></div>
-        <figcaption><span class="en">Controlling a Windows PC from a Mac.</span><span class="bg">Управление на Windows компютър от Mac.</span></figcaption>
-      </figure>
-      <figure>
-        <div class="win"><div class="bar"><i></i><i></i><i></i></div><img src="shots/03-security.png" alt="PrivateRemote Settings, Security: permanent password" width="1600" height="1000" loading="lazy"></div>
-        <figcaption><span class="en">Settings → Security: the permanent password.</span><span class="bg">Настройки → Сигурност: постоянната парола.</span></figcaption>
-      </figure>
-    </div>
+    <figure class="shot side">
+      <a class="frame" href="shots/02-session.png" target="_blank" rel="noopener"><picture><source srcset="shots/02-session.webp" type="image/webp"><img src="shots/02-session.png" alt="PrivateRemote asks for the other computer&#39;s password before a session starts, with a Remember password option" data-alt-en="PrivateRemote asks for the other computer&#39;s password before a session starts, with a Remember password option" data-alt-bg="PrivateRemote иска паролата на другия компютър преди връзката, с отметка „Запомни паролата“" width="1501" height="1215" loading="lazy" decoding="async"></picture></a>
+      <figcaption><span class="no">02</span><span class="en">Connecting: the other computer asks for its password.</span><span class="bg">Свързване: другият компютър иска паролата си.</span></figcaption>
+    </figure>
+    <figure class="shot side">
+      <a class="frame" href="shots/03-security.png" target="_blank" rel="noopener"><picture><source srcset="shots/03-security.webp" type="image/webp"><img src="shots/03-security.png" alt="PrivateRemote Settings, Security: one permanent password, two-factor authentication, port 21118 and automatic router port opening (UPnP)" data-alt-en="PrivateRemote Settings, Security: one permanent password, two-factor authentication, port 21118 and automatic router port opening (UPnP)" data-alt-bg="Настройки на PrivateRemote, Сигурност: една постоянна парола, двуфакторна защита, порт 21118 и автоматично отваряне на порта на рутера (UPnP)" width="1474" height="1209" loading="lazy" decoding="async"></picture></a>
+      <figcaption><span class="no">03</span><span class="en">Settings → Security: one permanent password, 2FA, port and UPnP.</span><span class="bg">Настройки → Сигурност: постоянна парола, 2FA, порт и UPnP.</span></figcaption>
+    </figure>
   </div>
+  <p class="shots-note"><span class="en">Real app, Windows 11. Addresses shown are documentation examples. Tap a screen to see it full size.</span><span class="bg">Истинското приложение под Windows 11. Адресите са примерни. Докосни екран, за да го видиш в цял размер.</span></p>
 </section>
 
 <section id="requirements">

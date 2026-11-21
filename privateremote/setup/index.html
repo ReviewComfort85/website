@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../site.css">
-<link rel="stylesheet" href="../pr.css?v=20261120b">
+<link rel="stylesheet" href="../pr.css?v=20261121b">
 <script src="../../lang.js"></script>
 <script src="../pr.js?v=20261120b" defer></script>
 </head>
@@ -62,15 +62,38 @@
         <p class="en">Download the file for each computer from your Gumroad library and install PrivateRemote on <b>every computer</b> you want to use, both the one you control and the one you control it from.</p>
         <p class="bg">Свали файла за всеки компютър от библиотеката си в Gumroad и инсталирай PrivateRemote на <b>всеки компютър</b>, който ще ползваш: и този, който управляваш, и този, от който го управляваш.</p>
         <ul class="en">
-          <li><b>Windows:</b> run <code>PrivateRemote-windows-x64.exe</code> and choose Install. It installs as a service, so it works even before you log in. Allow it when Windows Firewall asks.</li>
+          <li><b>Windows:</b> run <code>PrivateRemote-windows-x64.exe</code> and choose Install. It installs as a service, so it works even before you log in. Allow it when Windows Firewall asks. If a blue “Windows protected your PC” screen appears, see <a href="#windows-first-run">Windows: first launch</a> below.</li>
           <li><b>macOS:</b> open <code>PrivateRemote-mac-arm64.dmg</code> and drag PrivateRemote to Applications. Then see <a href="#macos">step 9</a>. Needs macOS 11 Big Sur or later, Apple Silicon Macs only (M1 or newer); Intel Macs are not supported.</li>
           <li><b>Linux:</b> <code>sudo apt install ./PrivateRemote-1.0.0-linux-x64.deb</code>, or unpack the portable <code>.tar.gz</code> and run <code>PrivateRemote.sh</code>.</li>
         </ul>
         <ul class="bg">
-          <li><b>Windows:</b> пусни <code>PrivateRemote-windows-x64.exe</code> и избери Install. Инсталира се като услуга, така че работи още преди да влезеш в Windows. Разреши го, когато защитната стена попита.</li>
+          <li><b>Windows:</b> пусни <code>PrivateRemote-windows-x64.exe</code> и избери Install. Инсталира се като услуга, така че работи още преди да влезеш в Windows. Разреши го, когато защитната стена попита. Ако се появи син екран „Windows protected your PC“, виж <a href="#windows-first-run">Windows: първо стартиране</a> по-долу.</li>
           <li><b>macOS:</b> отвори <code>PrivateRemote-mac-arm64.dmg</code> и плъзни PrivateRemote в Applications. После виж <a href="#macos">стъпка 9</a>. Изисква macOS 11 Big Sur или по-нов, само Mac с Apple Silicon (M1 или по-нов); Intel Mac не се поддържа.</li>
           <li><b>Linux:</b> <code>sudo apt install ./PrivateRemote-1.0.0-linux-x64.deb</code> или разархивирай преносимия <code>.tar.gz</code> и пусни <code>PrivateRemote.sh</code>.</li>
         </ul>
+        <div class="firstrun" id="windows-first-run">
+          <h3><span class="en">Windows: first launch</span><span class="bg">Windows: първо стартиране</span></h3>
+          <p class="en">The first time you run the installer, Windows may show a blue screen: <b>“Windows protected your PC”</b>, publisher <b>“Unknown publisher”</b>. That's because the program doesn't carry a publisher signature yet, not because something is wrong with the file. Two clicks get you past it:</p>
+          <p class="bg">Първия път, когато пуснеш инсталатора, Windows може да покаже син екран: <b>„Windows protected your PC“</b>, издател <b>„Unknown publisher“</b>. Това е, защото програмата още няма подпис на издател, а не защото нещо с файла не е наред. Минава се с две кликвания:</p>
+          <figure class="ss" role="img" aria-label="Windows protected your PC: 1. More info, 2. Run anyway">
+            <strong>Windows protected your PC</strong>
+            <span class="ss-txt">Microsoft Defender SmartScreen prevented an unrecognised app from starting.</span>
+            <span class="ss-meta">App: PrivateRemote-windows-x64.exe<br>Publisher: Unknown publisher</span>
+            <span class="ss-link"><i>1</i>More info</span>
+            <span class="ss-btns"><span class="ss-btn run"><i>2</i>Run anyway</span><span class="ss-btn">Don't run</span></span>
+          </figure>
+          <ol class="en">
+            <li>Click <b>More info</b>, the small link under the text.</li>
+            <li>Check that the app is <code>PrivateRemote-windows-x64.exe</code>, then click <b>Run anyway</b>. You'll see this only once for this file.</li>
+          </ol>
+          <ol class="bg">
+            <li>Натисни <b>More info</b>, малката връзка под текста.</li>
+            <li>Провери, че програмата е <code>PrivateRemote-windows-x64.exe</code>, и натисни <b>Run anyway</b>. Ще го видиш само веднъж за този файл.</li>
+          </ol>
+          <p class="ss-cap"><span class="en">If your Windows is in another language, the labels are translated but sit in the same places.</span><span class="bg">Ако Windows е на български, надписите са преведени, но са на същите места.</span></p>
+          <div class="note"><span class="en"><b>Want to be sure?</b> The full source code comes with your purchase, so you (or someone you trust) can check exactly what the program does.</span><span class="bg"><b>Искаш да си сигурен?</b> Целият сорс код идва с покупката, така че ти (или човек, на когото вярваш) можеш да провериш какво точно прави програмата.</span></div>
+        </div>
+
       </div>
     </div>
 
@@ -200,6 +223,7 @@
           <tr><td>“Wrong password”</td><td>The password is case‑sensitive. If you ticked “Remember password”, clear it and type it again.</td></tr>
           <tr><td>Black screen from a Mac</td><td>Screen Recording is off. Turn it on (step 9) and restart the app.</td></tr>
           <tr><td>I see the Mac but can't click</td><td>Accessibility is off. Turn it on (step 9) and restart the app.</td></tr>
+          <tr><td>Windows: “Windows protected your PC”</td><td>The installer has no publisher signature yet. Click More info → Run anyway (<a href="#windows-first-run">details</a>).</td></tr>
           <tr><td>Windows: nothing connects</td><td>Windows Firewall may block it. Allow PrivateRemote under Windows Security → Firewall → Allow an app.</td></tr>
           <tr><td>Linux: can't be controlled</td><td>Log in with an Xorg (X11) session instead of Wayland, then try again.</td></tr>
           <tr><td>Very slow or choppy</td><td>Usually the upload speed at home. Lower the image quality in the session toolbar.</td></tr>
@@ -210,6 +234,7 @@
           <tr><td>„Грешна парола“</td><td>Малките и главните букви имат значение. Ако си отметнал „Запомни паролата“, изчисти я и я въведи отново.</td></tr>
           <tr><td>Черен екран от Mac</td><td>Screen Recording е изключено. Включи го (стъпка 9) и рестартирай приложението.</td></tr>
           <tr><td>Виждам Mac-а, но не мога да кликам</td><td>Accessibility е изключено. Включи го (стъпка 9) и рестартирай приложението.</td></tr>
+          <tr><td>Windows: „Windows protected your PC“</td><td>Инсталаторът още няма подпис на издател. Натисни More info → Run anyway (<a href="#windows-first-run">подробно</a>).</td></tr>
           <tr><td>Windows: нищо не се свързва</td><td>Защитната стена на Windows може да го спира. Разреши PrivateRemote в Windows Security → Firewall → Allow an app.</td></tr>
           <tr><td>Linux: не може да бъде управляван</td><td>Влез с Xorg (X11) сесия вместо Wayland и опитай пак.</td></tr>
           <tr><td>Много бавно или на пресекулки</td><td>Обикновено е от скоростта за качване вкъщи. Намали качеството на картината от лентата в сесията.</td></tr>

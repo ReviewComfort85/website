@@ -270,3 +270,18 @@ footer .flinks a[aria-current="page"] { color: var(--text); }
   .shots::-webkit-scrollbar { display: none; }
   .shot, .shot.main { flex: 0 0 84%; scroll-snap-align: start; }
 }
+
+/* ---- setup: Windows first launch (installer has no publisher signature yet) ---- */
+.firstrun { margin: 26px 0 4px; padding-top: 22px; border-top: 1px dashed var(--line); max-width: 680px; scroll-margin-top: 16px; }
+.firstrun h3 { margin: 0 0 10px; font-size: 1.08rem; font-weight: 700; letter-spacing: -.01em; color: var(--text); }
+.ss { margin: 16px 0 18px; max-width: 440px; padding: 18px 20px 16px; background: #0a4c8c; color: #fff; border-radius: 3px; font-family: "Segoe UI", Inter, system-ui, sans-serif; box-shadow: 0 0 0 1px rgba(255,255,255,.07), 0 22px 44px -24px rgba(0,0,0,.9); user-select: none; }
+.ss strong { display: block; font-size: 1.25rem; font-weight: 300; line-height: 1.25; margin: 0 0 10px; }
+.ss .ss-txt, .ss .ss-meta { display: block; font-size: .82rem; line-height: 1.45; color: rgba(255,255,255,.86); margin: 0 0 8px; }
+.ss .ss-meta { font-size: .78rem; color: rgba(255,255,255,.72); }
+.ss .ss-link { display: inline-flex; align-items: center; gap: 8px; margin: 2px 0 16px; font-size: .84rem; text-decoration: underline; text-underline-offset: 3px; }
+.ss .ss-btns { display: flex; justify-content: flex-end; gap: 8px; }
+.ss .ss-btn { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; font-size: .82rem; border: 1px solid rgba(255,255,255,.6); }
+.ss .ss-btn.run { border-color: var(--wire); outline: 2px solid var(--wire); outline-offset: 2px; }
+.ss i { display: inline-grid; place-items: center; width: 19px; height: 19px; border-radius: 50%; font: 700 .7rem/1 var(--mono); font-style: normal; background: var(--wire); color: #1b0b03; box-shadow: 0 0 0 3px rgba(255,122,69,.28); }
+.ss-cap { color: var(--muted) !important; font-size: .85rem; }
+@media (max-width: 640px) { .ss { padding: 16px; } .ss strong { font-size: 1.1rem; } }

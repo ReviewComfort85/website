@@ -1,0 +1,39 @@
+# REVIEW COMFORT 85
+
+> REVIEW COMFORT 85 LTD is a small independent software studio from Bulgaria that builds desktop software, mobile apps, browser extensions and games. The site is in English and Bulgarian (same address, language switch on the page).
+
+## PrivateRemote
+
+> PrivateRemote is a remote desktop app for reaching your own computers. It connects directly by IP address, with one permanent password, and no company servers in between. One-time purchase, €9.99 including VAT, source code included under the GNU AGPL-3.0.
+
+Key facts (version 1.0.0):
+
+- What it is: remote desktop (see and control another computer) for people who want to reach their own machines, for example a home PC from a laptop at work, without accounts or a cloud service.
+- How it connects: directly from computer to computer, by public IP and TCP port 21118 (for example `203.0.113.24:21118`). There are no relay or rendezvous servers run by the seller.
+- Network requirement, honestly: on the computer you connect TO, you must forward TCP port 21118 on its router, or reach it over your own VPN. Behind CGNAT (no public IP) it does not work over the internet; ask the internet provider for a public IP. Inside a local network it works without port forwarding. The computer you connect FROM needs nothing special.
+- Password: one permanent password that you choose, stored only on that computer. No one-time codes, no sign-in, no licence key, no activation.
+- Privacy: no telemetry, no usage data, no session data collection, no update checks. The app does not contact any server of ours. Connections are encrypted.
+- Platforms in 1.0: Windows 10 and 11; macOS 12.3 Monterey or later on Apple Silicon (M1 or newer). Intel Macs are not supported.
+- Windows: the installer is not code-signed, so on first launch Windows SmartScreen may show "Windows protected your PC / Unknown publisher". Click "More info", then "Run anyway"; it appears once. The full source code is included so the program can be checked.
+- macOS: signed with Apple Developer ID and notarized by Apple.
+- Linux: not part of version 1.0. It will come later as a free update for buyers, with no date promised.
+- Price: one-time purchase, €9.99 including VAT (Gumroad calculates VAT by the buyer's country, so the total can differ by a few cents). Not a subscription. Use on as many of your own computers as you like.
+- Updates: new versions are added to the same Gumroad page; Gumroad emails buyers. The app never updates itself.
+- Refunds: full refund including VAT within 14 days of purchase, via Gumroad, by writing to info@reviewcomfort85.com.
+- Source code: open source under GNU AGPL-3.0; the source zip is included with the purchase on the same Gumroad page.
+- Seller: REVIEW COMFORT 85 LTD. Payments are handled by Gumroad as merchant of record. Support: info@reviewcomfort85.com (English or Bulgarian).
+
+Pages:
+
+- [PrivateRemote product page](https://reviewcomfort85.com/privateremote/): what it does, requirements, screenshots, price
+- [Setup guide](https://reviewcomfort85.com/privateremote/setup/): install, password, port 21118 forwarding, CGNAT check, first connection, troubleshooting
+- [FAQ](https://reviewcomfort85.com/privateremote/faq/): subscription, keys, servers, security, CGNAT, Intel Macs, Windows warning, updates, refunds
+- [Privacy policy](https://reviewcomfort85.com/privateremote/privacy/): the app collects no data
+- [Buy on Gumroad](https://paperlanetemplates.gumroad.com/l/privateremote): Windows installer, Mac installer (.dmg) and source code
+
+## Other products
+
+- [KeepAll](https://reviewcomfort85.com/keepall/): mobile app
+- [BugCompass](https://reviewcomfort85.com/bugcompass/): browser extension for bug reports
+- [Hexy Arena](https://reviewcomfort85.com/hexy-arena/): mobile game
+- [Home page](https://reviewcomfort85.com/): all products

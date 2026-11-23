@@ -3,10 +3,159 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FAQ — PrivateRemote — REVIEW COMFORT 85</title>
-<meta name="description" content="PrivateRemote questions: subscription, licence keys, source code, servers, security, CGNAT, macOS Intel, updates, refunds and support.">
+<title>FAQ - PrivateRemote remote desktop - REVIEW COMFORT 85</title>
+<meta name="description" content="PrivateRemote FAQ: no subscription or licence key, source code (AGPL-3.0), no servers or telemetry, port forwarding safety, CGNAT, Intel Macs, the Windows SmartScreen warning, updates, 14-day refunds and support.">
 <meta name="theme-color" content="#000000">
 <link rel="canonical" href="https://reviewcomfort85.com/privateremote/faq/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="REVIEW COMFORT 85">
+<meta property="og:title" content="PrivateRemote - questions and answers">
+<meta property="og:description" content="Short answers about PrivateRemote: price, servers, security, CGNAT, Mac and Windows, refunds.">
+<meta property="og:url" content="https://reviewcomfort85.com/privateremote/faq/">
+<meta property="og:image" content="https://reviewcomfort85.com/privateremote/shots/01-main.png">
+<meta property="og:image:alt" content="PrivateRemote main window">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="bg_BG">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "url": "https://reviewcomfort85.com/privateremote/faq/",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Is it a subscription?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. You pay once and keep the version you bought for good."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Do I need a licence key or an account?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. No keys, no activation, no sign‑in. Install it and it works, on as many of your computers as you like."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I share or change it?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. PrivateRemote is licensed under the GNU AGPL‑3.0. You may study, change and share it, as long as you follow that licence (for example, if you share a changed version, you share its source too under the same licence)."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Where is the source code?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "On the same Gumroad page as the installers, as PrivateRemote-1.0.0-source.zip, free with your purchase. You can also ask for it at info@reviewcomfort85.com. More on the product page."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does my connection go through your servers?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. We don't run any servers for it. Your computers connect straight to each other. The app doesn't check for updates or send usage data either."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is it safe to open a port on my router?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The connection is encrypted, and the open port leads only to PrivateRemote. What protects you is the password, so: use a long password (12+ characters) that you don't use anywhere else; don't share it, and change it if you think someone saw it; if you won't need remote access for a while, you can turn the port forward off."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "My provider uses CGNAT. Will it work?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Not over the internet, because nothing from outside can reach your router. Ask your provider for a public IP (often free or cheap). Inside your home network it works as normal. How to check for CGNAT."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "I can't open a port (shared or work network). Can I still use it?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "You need an open port only where the computer you connect to is. The computer you connect from (for example your laptop at the office) needs nothing special. If you can't open a port at the target either, PrivateRemote will only work inside that local network, or over your own VPN to it."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does it work on Intel Macs?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. PrivateRemote for Mac needs macOS 12.3 Monterey or later and runs only on Macs with Apple Silicon (M1 or newer). Intel Macs are not supported."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why does Windows show a warning?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The Windows installer doesn't carry a publisher signature, so on first launch Windows may show a blue “Windows protected your PC” screen with “Unknown publisher”. It doesn't mean anything is wrong with the file. Click More info, then Run anyway; you'll see it only once. The full source code is included with your purchase, so you can check what the program does. Step by step in the setup guide."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I get updates?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The app doesn't update itself (it doesn't contact any server). New versions are added to the same Gumroad page, and Gumroad emails you when there's one. Download it from your Gumroad library and install it over the old one; your settings stay."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I get a refund?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. Write to info@reviewcomfort85.com within 14 days of buying and we'll refund you in full through Gumroad, VAT included. No questions asked, even after you've downloaded it. Still, please read the setup guide and check for CGNAT before you buy."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I get help?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Email info@reviewcomfort85.com in English or Bulgarian. Tell us which systems you use, what you tried and what you see (a screenshot helps). We usually reply within one or two working days."
+   }
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "REVIEW COMFORT 85",
+   "item": "https://reviewcomfort85.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "PrivateRemote",
+   "item": "https://reviewcomfort85.com/privateremote/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "FAQ",
+   "item": "https://reviewcomfort85.com/privateremote/faq/"
+  }
+ ]
+}
+</script>
 <link rel="icon" href="../../favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

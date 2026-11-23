@@ -3,10 +3,46 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Setup guide — PrivateRemote — REVIEW COMFORT 85</title>
-<meta name="description" content="Set up PrivateRemote step by step: install, set the permanent password, forward TCP port 21118 on your router, find your public IP and connect.">
+<title>Setup guide: port forwarding, password, first connection - PrivateRemote</title>
+<meta name="description" content="How to set up PrivateRemote step by step: install on Windows or Mac, set the permanent password, forward TCP port 21118 on your router (or use a VPN), check for CGNAT, find your public IP and connect.">
 <meta name="theme-color" content="#000000">
 <link rel="canonical" href="https://reviewcomfort85.com/privateremote/setup/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="REVIEW COMFORT 85">
+<meta property="og:title" content="PrivateRemote setup guide">
+<meta property="og:description" content="Install, set one permanent password, forward TCP 21118, connect. About 15 minutes.">
+<meta property="og:url" content="https://reviewcomfort85.com/privateremote/setup/">
+<meta property="og:image" content="https://reviewcomfort85.com/privateremote/shots/01-main.png">
+<meta property="og:image:alt" content="PrivateRemote main window">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="bg_BG">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "REVIEW COMFORT 85",
+   "item": "https://reviewcomfort85.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "PrivateRemote",
+   "item": "https://reviewcomfort85.com/privateremote/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Setup guide",
+   "item": "https://reviewcomfort85.com/privateremote/setup/"
+  }
+ ]
+}
+</script>
 <link rel="icon" href="../../favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,12 +100,12 @@
         <ul class="en">
           <li><b>Windows:</b> run <code>PrivateRemote-windows-x64.exe</code> and choose Install. It installs as a service, so it works even before you log in. Allow it when Windows Firewall asks. If a blue “Windows protected your PC” screen appears, see <a href="#windows-first-run">Windows: first launch</a> below.</li>
           <li><b>macOS:</b> open <code>PrivateRemote-mac-arm64.dmg</code> and drag PrivateRemote to Applications. Then see <a href="#macos">step 9</a>. Needs macOS 12.3 Monterey or later, Apple Silicon Macs only (M1 or newer); Intel Macs are not supported.</li>
-          <li><b>Linux:</b> A Linux version is planned and will be a free update for buyers.</li>
+          <li><b>Linux:</b> Linux is not part of version 1.0; it will come later as a free update for buyers, with no date yet.</li>
         </ul>
         <ul class="bg">
           <li><b>Windows:</b> пусни <code>PrivateRemote-windows-x64.exe</code> и избери Install. Инсталира се като услуга, така че работи още преди да влезеш в Windows. Разреши го, когато защитната стена попита. Ако се появи син екран „Windows protected your PC“, виж <a href="#windows-first-run">Windows: първо стартиране</a> по-долу.</li>
           <li><b>macOS:</b> отвори <code>PrivateRemote-mac-arm64.dmg</code> и плъзни PrivateRemote в Applications. После виж <a href="#macos">стъпка 9</a>. Изисква macOS 12.3 Monterey или по-нова, само Mac с Apple Silicon (M1 или по-нов); Intel Mac не се поддържа.</li>
-          <li><b>Linux:</b> Linux версия е планирана и ще е безплатно обновление за купувачите.</li>
+          <li><b>Linux:</b> Linux не е във версия 1.0; ще дойде по-късно като безплатно обновление за купувачите, засега без дата.</li>
         </ul>
         <div class="firstrun" id="windows-first-run">
           <h3><span class="en">Windows: first launch</span><span class="bg">Windows: първо стартиране</span></h3>

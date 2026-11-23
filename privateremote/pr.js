@@ -2,7 +2,7 @@
 // GO LIVE: put the Gumroad product link in PR_BUY_URL
 // (e.g. https://reviewcomfort85.gumroad.com/l/privateremote).
 // While it is '' every Buy button shows as a disabled "Coming soon / Скоро".
-var PR_BUY_URL = '';
+var PR_BUY_URL = 'https://paperlanetemplates.gumroad.com/l/privateremote';
 // Price shown WITH VAT (Alex, 20 Nov 2026). Gumroad net price 8.32 -> 9.98 with BG VAT.
 var PR_PRICE   = { en: '€9.99', bg: '€9,99' };
 var PR_VAT     = { en: 'incl. VAT', bg: 'с ДДС' };

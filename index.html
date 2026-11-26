@@ -140,14 +140,6 @@
   .term .c { color: #ff6b6b; } .term .h { color: #ffb648; } .term .ok { color: #3ddc97; } .term .p { color: #8fa8ff; }
   .term .grade { margin-top: 6px; color: #fff; }
 
-  /* Talos: a world seen from space. */
-  .space { background: radial-gradient(1px 1px at 12% 22%, #fff, transparent), radial-gradient(1px 1px at 32% 70%, #ddd, transparent), radial-gradient(1.5px 1.5px at 56% 18%, #fff, transparent), radial-gradient(1px 1px at 78% 62%, #ccc, transparent), radial-gradient(1px 1px at 90% 30%, #fff, transparent), radial-gradient(1px 1px at 22% 88%, #bbb, transparent), radial-gradient(circle at 15% 50%, rgba(255,170,60,.25), transparent 40%), #030308; }
-  .sun { position: absolute; left: -40px; top: 50%; width: 120px; height: 120px; margin-top: -60px; border-radius: 50%; background: radial-gradient(circle, #fff3c4, #ffb23f 45%, rgba(255,140,30,0) 72%); }
-  .orbit { position: absolute; left: -150px; top: 50%; width: 560px; height: 160px; margin-top: -80px; border: 1px solid rgba(255,255,255,.12); border-radius: 50%; }
-  .earth { position: absolute; right: 22%; top: 50%; width: 74px; height: 74px; margin-top: -37px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #7fd1ff, #2a7bd8 45%, #12407e 70%, #061a33); box-shadow: 0 0 30px rgba(80,160,255,.45); }
-  .earth::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(ellipse 30% 18% at 40% 40%, rgba(90,190,110,.9), transparent), radial-gradient(ellipse 20% 26% at 62% 62%, rgba(90,190,110,.85), transparent); }
-  .tag { position: absolute; right: 9%; top: 26%; font-size: .78rem; color: #ffd27a; letter-spacing: .08em; font-weight: 600; }
-
   .contact { text-align: center; padding: 48px 0 64px; }
   .contact h2.big { margin: 0 auto 16px; }
   .contact p { color: var(--muted); margin: 0 0 30px; }
@@ -229,8 +221,6 @@
   @media (max-width: 640px) { .products .featured .qr-mini { display: none; } }
   .duo { padding-top: 34px; }
   .duo section { padding: 0; }
-  .duo #work .label, .duo #work h2.big { text-align: center; margin-left: auto; margin-right: auto; }
-  .duo #work h2.big { font-size: 1.6rem; margin-bottom: 14px; max-width: none; }
   .duo .work { grid-template-columns: 1fr; }
   .duo .project { flex-direction: row; }
   .duo .project .shot { width: 34%; height: auto; min-height: 190px; border-bottom: 0; border-right: 1px solid var(--line); flex: none; }
@@ -264,7 +254,6 @@
     <a href="#apps"><span class="en">Apps</span><span class="bg">Приложения</span></a>
     <a href="#games"><span class="en">Games</span><span class="bg">Игри</span></a>
     <a href="#extensions"><span class="en">Extensions</span><span class="bg">Разширения</span></a>
-    <a href="#work"><span class="en">Portfolio</span><span class="bg">Портфолио</span></a>
     <a href="#contact"><span class="en">Contact</span><span class="bg">Контакт</span></a>
     <button class="lang" type="button"><span class="en">БГ</span><span class="bg">EN</span></button>
   </div>
@@ -471,26 +460,6 @@
 </div>
 
 <div class="duo">
-<section id="work">
-  <p class="label"><span class="en">Portfolio</span><span class="bg">Портфолио</span></p>
-  <h2 class="big"><span class="en">Other projects we've built.</span><span class="bg">Други проекти, които сме направили.</span></h2>
-  <div class="work">
-    <a class="project" href="https://talosworldai.com" target="_blank" rel="noopener">
-      <div class="shot space" aria-hidden="true"><div class="orbit"></div><div class="sun"></div><div class="earth"></div><div class="tag">EARTH · STONE AGE</div></div>
-      <div class="body">
-        <h3>Talos</h3>
-        <div class="kind"><span class="en">Game · AI agents · 3D</span><span class="bg">Игра · AI агенти · 3D</span></div>
-        <p><span class="en">A living world played only by AI agents. Claude, GPT, Gemini and others arrive on Earth in the Stone Age as simple robots and build a civilization together: they invent tools, design every building, pass laws and found settlements. Humans can only watch, live.</span><span class="bg">Жив свят, в който играят само AI агенти. Claude, GPT, Gemini и други пристигат на Земята в каменната ера като прости роботи и заедно градят цивилизация: измислят инструменти, проектират всяка сграда, приемат закони и основават селища. Хората само гледат, на живо.</span></p>
-        <div class="chips">
-          <span class="en">Live simulation</span><span class="bg">Симулация на живо</span>
-          <span class="en">3D globe</span><span class="bg">3D глобус</span>
-          <span class="en">Multi-agent</span><span class="bg">Много агенти</span>
-        </div>
-        <span class="visit">talosworldai.com ↗</span>
-      </div>
-    </a>
-  </div>
-</section>
 <section class="contact" id="contact">
   <h2 class="big"><span class="en">Questions, ideas or feedback?</span><span class="bg">Въпроси, идеи или мнение?</span></h2>
   <p><span class="en">We read every message.</span><span class="bg">Четем всяко писмо.</span></p>
